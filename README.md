@@ -5,8 +5,10 @@ Hi, there. Please watch these amazing guys from Tuva [(link)](https://www.youtub
 Before getting started, you are required to 
 
 1. Understand how to pull and push our project, with careful comments on every change on the 
-the project you have made when pushing (in either Chinese or English). Github Desktop is highly recommended if you 
-don't like command line operations. 
+project you have made when pushing (in either Chinese or English). Github Desktop is highly recommended if you 
+don't like command line operations. **Most importantly, you are required to understand how to 
+deal with conflicts**, which means that you would not override/delete others' changes and reinvent the wheels. 
+
 
 2. Take this project as our joint responsibility, willing to offer advice and open to others' comments.  
 
