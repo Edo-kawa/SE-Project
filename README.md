@@ -1,6 +1,6 @@
 # Software Engineering Project
 
-Hi, there. Please watch these amazing guys from Tuva [(link)](https://www.youtube.com/watch?v=-bDntRWfL70) and another piece of music [link](https://www.youtube.com/watch?v=Dvl7IEqtcz4) recommended by Edokawa first before we start working on our amazing project. 
+Hi, there. Please watch these amazing guys from Tuva [(link)](https://www.youtube.com/watch?v=-bDntRWfL70) and another piece of music [(link)](https://www.youtube.com/watch?v=Dvl7IEqtcz4) recommended by Edokawa first before we start working on our amazing project. 
 
 Before getting started, you are required to 
 
