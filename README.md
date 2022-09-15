@@ -1,8 +1,17 @@
 # Software Engineering Project
 
+Group Member: (try editing this readme and add your name, upon seeing it)
+
+1. Edward Ye
+2. Anthony He
+3. 
+4. 
+
 ## Getting Started
 
-Hi, there. Please watch these amazing guys from Tuva [(link)](https://www.youtube.com/watch?v=-bDntRWfL70) and another piece of music [(link)](https://www.youtube.com/watch?v=BRU1o-sCnqY) recommended by Edward first before we start working on our amazing project. 
+Hi, there. Please watch these amazing guys from Tuva [(link)](https://www.youtube.com/watch?v=-bDntRWfL70) and 
+another piece of music [(link)](https://www.youtube.com/watch?v=BRU1o-sCnqY) recommended by Edward first 
+before we start working on our amazing project. 
 
 Before getting started, you are required to 
 
