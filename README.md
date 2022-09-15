@@ -4,7 +4,7 @@ Group Member: (try editing this readme and add your name, upon seeing it)
 
 1. Edward Ye
 2. Anthony He
-3. 
+3. Ethan Zhang
 4. 
 
 ## Getting Started
