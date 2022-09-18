@@ -20,3 +20,9 @@ class Rat extends Animal {
         this.rank = RAT;
     }
 }
+
+class Rat extends Animal1 {
+    public Rat() {
+        this.rank = RAT;
+    }
+}
