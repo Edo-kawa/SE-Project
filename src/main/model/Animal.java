@@ -1,4 +1,4 @@
-package main.Model.Animals;
+package main.model;
 
 public class Animal {
     public static final int RAT = 1;

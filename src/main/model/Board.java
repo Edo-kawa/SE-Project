@@ -1,6 +1,4 @@
-package main.Model.ChessBoard;
-
-import main.Model.ChessBoard.*;
+package main.model;
 
 public class Board {
     final static int ROW = 9;
@@ -16,7 +14,7 @@ public class Board {
         board = new Square[ROW][COL];
 
         for (;;) {
-
+            break;
         }
     }
 }

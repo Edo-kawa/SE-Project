@@ -1,6 +1,4 @@
-package main.Model.ChessBoard;
-
-import main.Model.Animals.*;
+package main.model;
 
 enum Effect {
     RIVER, TRAP, DEN, NORMAL
