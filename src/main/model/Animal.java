@@ -1,22 +1,12 @@
 package main.model;
 
-public class Animal {
-    public static final int RAT = 1;
-    public static final int CAT = 2;
-    public static final int DOG = 3;
-    public static final int WOL = 4;
-    public static final int LEO = 5;
-    public static final int TIG = 6;
-    public static final int LIO = 7;
-    public static final int ELE = 8;
+public enum Animal {
+    ART(1), CAT(2), DOG(3), WOL(4),
+    LEO(5), TIG(6), LIO(7), ELE(8);
 
-    int rank;
-
-    void move() {}
-}
-
-class Rat extends Animal {
-    public Rat() {
-        this.rank = RAT;
+    private int rank;
+    private Animal(int rank){
+        this.rank = rank;
     }
 }
+

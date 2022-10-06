@@ -1,6 +1,6 @@
 package main.model;
 
-public class Board {
+public class ChessBoard {
     final static int ROW = 9;
     final static int COL = 7;
 
@@ -10,7 +10,7 @@ public class Board {
 
     private Square[][] board;
 
-    public Board() {
+    public ChessBoard() {
         board = new Square[ROW][COL];
 
         for (;;) {
