@@ -1,18 +1,21 @@
 package main.model;
 
-enum Effect {
+enum Type {
     RIVER, TRAP, DEN, NORMAL
 }
 
 public class Square {
     private Animal animal;
-    private Effect effect;
+    private Type type;
 
-    public Square(Animal animal, Effect effect) {
+    public Square(Animal animal, Type type) {
         this.animal = animal;
-        this.effect = effect;
+        this.type = type;
     }
 
-    public Square() { new Square(null, Effect.NORMAL); }
-    public Square(Effect effect) { new Square(null, effect); }
+    public Square() { new Square(null, type.NORMAL); }
+    public Square(Type type) {
+
+        new Square(null, type);
+    }
 }
