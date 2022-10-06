@@ -1,8 +1,7 @@
 package main.model;
 
-enum Type {
-    RIVER, TRAP, DEN, NORMAL
-}
+
+import main.model.Chesses.Animal;
 
 public class Square {
     private Animal animal;

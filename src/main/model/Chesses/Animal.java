@@ -1,4 +1,4 @@
-package main.model;
+package main.model.Chesses;
 
 public enum Animal {
     ART(1), CAT(2), DOG(3), WOL(4),

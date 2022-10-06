@@ -3,19 +3,30 @@ package main.model;
 import java.util.ArrayList;
 
 public class ChessBoard {
-    final static int ROW = 9;
-    final static int COL = 7;
+    final int ROW = 9;
+    final int COL = 7;
 
-    final static int RIVER_R = 3;
-    final static int RIVER_Y1 = 1;
-    final static int RIVER_Y2 = 4;
+    final int[][] RIVER_COORDINATES = new int[][]{
+            {2, 4}, {2, 5}, {2, 6},
+            {3, 4}, {3, 5}, {3, 6},
+            {5, 4}, {5, 5}, {5, 6},
+            {6, 4}, {6, 5}, {6, 6}
+    };
+
+    final int[][] DEN_COORDINATES = new int[][]{
+            {4, 1}, {4, 9}
+    };
+
+    final int[][] TRAP_COORDINATES = new int[][]{
+            {3, 1}, {4, 2}, {5, 1},
+            {3, 9}, {4, 8}, {5, 9}
+    };
 
     private ArrayList<Square> squares;
 
     public ChessBoard() {
-
         squares = new ArrayList<>(ROW*COL);
-
+        init();
     }
 
     /**
@@ -25,5 +36,9 @@ public class ChessBoard {
      */
     private int coordinate2index(int row, int column){
         return 0;
+    }
+
+    void init(){
+
     }
 }

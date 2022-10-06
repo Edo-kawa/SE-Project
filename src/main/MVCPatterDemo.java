@@ -1,7 +1,6 @@
 package main;
 
 import main.controller.ChessBoardController;
-import main.model.Chess;
 import main.model.ChessBoard;
 import main.view.ChessBoardView;
 

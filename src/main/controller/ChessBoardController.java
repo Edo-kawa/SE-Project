@@ -1,5 +1,4 @@
 package main.controller;
-import main.model.Chess;
 import main.model.ChessBoard;
 import main.view.ChessBoardView;
 
