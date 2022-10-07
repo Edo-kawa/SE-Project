@@ -25,8 +25,8 @@ deal with conflicts**, which means that you would not override/delete others' ch
 
 That's all we need. Here are some doc files on which we will be collaborating soon. 
 
-Pharse 1: [Specification](https://docs.google.com/document/d/1FHJ2V_QZfpAiVPxzHIL-Wg8UxEIY0nZLl1rtVvac5i8/edit?usp=sharing)
-          A good example for reference: [Link](https://github.com/WPCJATH/MonopolyGP-10/blob/master/Software%20Requirement%20Document.pdf)
+Pharse 1: [Specification](https://docs.google.com/document/d/1FHJ2V_QZfpAiVPxzHIL-Wg8UxEIY0nZLl1rtVvac5i8/edit?usp=sharing)  
+          A good example for reference: [Link](https://github.com/WPCJATH/MonopolyGP-10/blob/master/Software%20Requirement%20Document.pdf) 
 
 1. [Agenda](https://docs.google.com/document/d/1vqpjrZECn_EYZOaj-g_TxiI4yO58m8w-kYtKI85QfWk/edit?usp=sharing)
 2. [Project Report](https://docs.google.com/document/d/1JE3fOi-wDLmoxJkHFv0VrS4U5Ac7JAF_5eupDwSHs7A/edit?usp=sharing)
