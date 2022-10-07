@@ -6,7 +6,7 @@ package main.model.Chesses;
  * @Description:
  */
 public class Rat extends Chess {
-    private Animal animal;
+
 
     public Rat(int x, int y, Animal animal) {
         super(x, y, animal);
@@ -15,4 +15,6 @@ public class Rat extends Chess {
     public boolean isValidPath(int nextX, int nextY){
         return false;
     }
+
+
 }

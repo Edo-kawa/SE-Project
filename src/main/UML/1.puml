@@ -3,4 +3,52 @@
 abstract class AbstractList
 interface List
 
+enum Animal{
+ART
+CAT
+DOG
+WOL
+LEO
+TIG
+LIO
+ELE
+-int rank
++int getRank
+}
+
+class Chess{
+- int x;
+- int y;
+- final Animal animal;
+
+getter()
+setter()
+}
+
+class Cat{
+}
+class Dog{
+}
+class Elephant{
+}
+class Leopard{
+}
+class Lion{
+}
+class Rat{
+}
+class Tiger{
+}
+class Wolf{
+}
+
+Chess <- Cat
+Chess <- Dog
+Chess <- Elephant
+Chess <- Leopard
+Chess <- Lion
+Chess <- Rat
+Chess <- Tiger
+Chess <- Wolf
+
 @enduml

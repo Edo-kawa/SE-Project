@@ -1,0 +1,6 @@
+@startuml
+
+abstract class AbstractList
+interface List
+
+@enduml

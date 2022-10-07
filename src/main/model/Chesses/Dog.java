@@ -5,5 +5,8 @@ package main.model.Chesses;
  * @Date 6/10/2022
  * @Description:
  */
-public class Dog {
+public class Dog extends Chess{
+    public Dog(int x, int y, Animal animal) {
+        super(x, y, animal);
+    }
 }
