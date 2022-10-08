@@ -103,7 +103,7 @@ public class ChessBoardView{
             player_turn=3-player_turn;
         }
 
-        chessboard.printChessBoard(chessBoard);
+        printChessBoard(chessboard);
         System.out.println("Player "+checkWinner()+" wins.");
     }
     public static void printChessBoard(ChessBoard board){
