@@ -10,6 +10,9 @@ public class Chess {
     private int y;
 
     private int owner;//player: 1 or 2
+    public int getOwner(){
+        return owner;
+    }
     private final Animal animal;
 
     public Chess(int x, int y, Animal animal, int owner){
@@ -17,6 +20,11 @@ public class Chess {
         this.y = y;
         this.animal = animal;
         this.owner=owner;
+    }
+
+    @Override
+    public String toString() {
+        return animal.toString();
     }
 
     public Animal getAnimal() {

@@ -7,27 +7,6 @@ import java.util.*;
 
 public class ChessBoardController {
 
-    private ChessBoard model;
-    private ChessBoardView view;
-
-    public ChessBoardController(ChessBoard model, ChessBoardView view){
-        this.model = model;
-        this.view = view;
-    }
-
-    // getter, setter to be added later
-
-    public void updateView(){
-
-    }
-
-    public static void init(){
-        /**
-         * instantiate a chessboard with pieces on initial position
-         */
-
-    }
-
     public static int checkWinner(){
         /**
          * returns 0 if no winner
@@ -48,13 +27,13 @@ public class ChessBoardController {
     public static void main(String args[]){
         Scanner scanner = new Scanner(System.in);
 
-        init();
+        ChessBoard chessboard=new ChessBoard();
 
         //1 or 2
         int player_turn=1;
 
         while(checkWinner()==0) {
-            ChessBoardView.printChessBoard();
+            ChessBoardView.printChessBoard(chessboard);
 
             if(player_turn==1) {
                 System.out.println(ConsoleColors.RED + "Player 1's turn." + ConsoleColors.RESET);
@@ -76,7 +55,7 @@ public class ChessBoardController {
             player_turn=3-player_turn;
         }
 
-        ChessBoardView.printChessBoard();
+        ChessBoardView.printChessBoard(chessboard);
         System.out.println("Player "+checkWinner()+" wins.");
     }
 }

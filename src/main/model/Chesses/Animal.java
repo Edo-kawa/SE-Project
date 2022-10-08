@@ -13,6 +13,11 @@ public enum Animal {
         return rank;
     }
 
+    @Override
+    public String toString() {
+        return Integer.toString(getRank());
+    }
+
     public void setRank(int rank) {
         this.rank = rank;
     }
