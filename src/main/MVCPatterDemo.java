@@ -1,8 +1,8 @@
 package main;
 
-import main.controller.ChessBoardController;
-import main.model.ChessBoard;
-import main.view.ChessBoardView;
+import src.main.controller.ChessBoardController;
+import src.main.model.ChessBoard;
+import src.main.view.ChessBoardView;
 
 /**
  * @Author Anthony Z.

@@ -40,5 +40,6 @@ public class ChessBoard {
 
     void init(){
 
+
     }
 }

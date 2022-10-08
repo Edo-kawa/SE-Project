@@ -10,4 +10,13 @@ public class Cat extends Chess{
         super(x, y, animal);
     }
 
+
+    // try
+
+
+    boolean isValidPath(int x, int y){
+        return false;
+    }
+
+
 }

@@ -1,20 +1,23 @@
 package src.main.model;
 
 
-import src.main.model.Chesses.Animal;
+import src.main.model.Chesses.Chess;
 
 public class Square {
-    private Animal animal;
+    private Chess chess;
     private Type type;
 
-    public Square(Animal animal, Type type) {
-        this.animal = animal;
+    public Square(Chess chess, Type type) {
+        this.chess = chess;
         this.type = type;
     }
 
-    public Square() { new Square(null, type.NORMAL); }
+    public Square() {
+        new Square(null, type.NORMAL);
+    }
     public Square(Type type) {
 
         new Square(null, type);
     }
+
 }

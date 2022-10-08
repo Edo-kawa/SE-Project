@@ -9,4 +9,6 @@ public class Lion extends Chess{
     public Lion(int x, int y, Animal animal) {
         super(x, y, animal);
     }
+
+
 }

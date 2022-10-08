@@ -9,4 +9,7 @@ public class Wolf extends Chess{
     public Wolf(int x, int y, Animal animal) {
         super(x, y, animal);
     }
+    boolean isValidPath(int x, int y){
+        return false;
+    }
 }
