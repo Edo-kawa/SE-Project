@@ -1,7 +1,7 @@
-package main.model;
+package src.main.model;
 
 
-import main.model.Chesses.Animal;
+import src.main.model.Chesses.Animal;
 
 public class Square {
     private Animal animal;

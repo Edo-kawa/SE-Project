@@ -1,4 +1,4 @@
-package main.view;
+package src.main.view;
 
 /**
  * @Author Anthony Z.

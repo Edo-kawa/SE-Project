@@ -1,7 +1,7 @@
-package main.model.Chesses;
+package src.main.model.Chesses;
 
 public enum Animal {
-    ART(1), CAT(2), DOG(3), WOL(4),
+    RAT(1), CAT(2), DOG(3), WOL(4),
     LEO(5), TIG(6), LIO(7), ELE(8);
 
     private int rank;

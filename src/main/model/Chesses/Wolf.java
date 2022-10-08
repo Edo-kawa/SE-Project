@@ -1,4 +1,4 @@
-package main.model.Chesses;
+package src.main.model.Chesses;
 
 /**
  * @Author Anthony Z.
