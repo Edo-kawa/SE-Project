@@ -14,18 +14,18 @@ public class Square {
     public String toString() {
         if (chess==null){
             switch (type){
-                case NORMAL:return ConsoleColors.GREEN_BACKGROUND + " " + ConsoleColors.RESET;
-                case RIVER:return ConsoleColors.CYAN_BACKGROUND + " " + ConsoleColors.RESET;
+                case NORMAL:return ConsoleColors.GREEN_BACKGROUND + "   " + ConsoleColors.RESET;
+                case RIVER:return ConsoleColors.CYAN_BACKGROUND + "   " + ConsoleColors.RESET;
                 case TRAP1:
-                case TRAP2:return  ConsoleColors.BLACK_BACKGROUND_BRIGHT + " " + ConsoleColors.RESET;
+                case TRAP2:return  ConsoleColors.BLACK_BACKGROUND_BRIGHT + "   " + ConsoleColors.RESET;
                 case DEN1:
-                case DEN2:return ConsoleColors.BLACK_BACKGROUND + " " + ConsoleColors.RESET;
+                case DEN2:return ConsoleColors.BLACK_BACKGROUND + "   " + ConsoleColors.RESET;
             }
         }
         if (chess.getOwner()==1){
-            return ConsoleColors.RED_BACKGROUND + chess.toString() + ConsoleColors.RESET;
+            return ConsoleColors.RED_BACKGROUND + " "+chess.toString() +" "+ ConsoleColors.RESET;
         }else{
-            return ConsoleColors.BLUE_BACKGROUND + chess.toString() + ConsoleColors.RESET;
+            return ConsoleColors.BLUE_BACKGROUND + " "+chess.toString() +" "+ ConsoleColors.RESET;
         }
 
     }
