@@ -11,9 +11,14 @@ import java.util.Scanner;
  * @Date 6/10/2022
  * @Description:
  */
-public class ChessBoardView implements Observable{
+public class ChessBoardView{
 
     public ChessBoardView(){
+        init();
+    }
+
+    public void init(){
+
         Scanner scanner = new Scanner(System.in);
         ChessBoard chessboard = new ChessBoard();
         //1 or 2
@@ -93,17 +98,14 @@ public class ChessBoardView implements Observable{
                 flag=false;
             }
 
-            Chess chess = null;
-
             chessboard.moveTo(index,chessboard.coordinate2index(dx,dy));
 
             player_turn=3-player_turn;
         }
 
-        //ChessBoardView.printChessBoard(chessBoard);
+        chessboard.printChessBoard(chessBoard);
         System.out.println("Player "+checkWinner()+" wins.");
     }
-
     public static void printChessBoard(ChessBoard board){
         System.out.println("----------------------------");
         for(int r=9; r>=1; r--){
@@ -128,10 +130,4 @@ public class ChessBoardView implements Observable{
         return 0;
     }
 
-    @Override
-    public void notifyObservers() {
-
-
-        //chessboard.refreshData(this);
-    }
 }

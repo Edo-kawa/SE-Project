@@ -1,7 +1,7 @@
 package src.main.model;
 
 import src.main.model.Chesses.*;
-import src.main.view.Observable;
+
 
 import java.util.ArrayList;
 

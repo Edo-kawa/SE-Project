@@ -1,6 +1,5 @@
 package src.main.model;
 
-import src.main.view.Observable;
 
 /**
  * @Author Anthony Z.

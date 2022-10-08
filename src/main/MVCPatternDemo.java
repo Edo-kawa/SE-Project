@@ -16,11 +16,6 @@ import java.util.Scanner;
 public class MVCPatternDemo {
 
 
-    /**
-     * This method should be deleted later
-     * @return
-     */
-
 
     public static void main(String args[]){
 
