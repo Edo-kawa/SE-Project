@@ -4,11 +4,13 @@ package src.main.model;
 import src.main.model.Chesses.Chess;
 import src.main.view.ConsoleColors;
 
-public class Square extends ConsoleColors{
+public class Square {
     private Chess chess;
-
     public Chess getContent(){
         return chess;
+    }
+    public void setContent(Chess c){
+        chess=c;
     }
 
     @Override
@@ -24,13 +26,12 @@ public class Square extends ConsoleColors{
             }
         }
         if (chess.getOwner()==1){
-            return ConsoleColors.RED_BACKGROUND + " "+chess.toString() +" "+ ConsoleColors.RESET;
+            return ConsoleColors.RED_BACKGROUND + chess.toString() + ConsoleColors.RESET;
         }else{
-            return ConsoleColors.BLUE_BACKGROUND + " "+chess.toString() +" "+ ConsoleColors.RESET;
+            return ConsoleColors.BLUE_BACKGROUND + chess.toString() + ConsoleColors.RESET;
         }
 
     }
-
 
     private Type type;
 

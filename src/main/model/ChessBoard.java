@@ -11,22 +11,6 @@ public class ChessBoard implements Observer{
     final int ROW = 9;
     final int COL = 7;
 
-    final int[][] RIVER_COORDINATES = new int[][]{
-            {2, 4}, {2, 5}, {2, 6},
-            {3, 4}, {3, 5}, {3, 6},
-            {5, 4}, {5, 5}, {5, 6},
-            {6, 4}, {6, 5}, {6, 6}
-    };
-
-    final int[][] DEN_COORDINATES = new int[][]{
-            {4, 1}, {4, 9}
-    };
-
-    final int[][] TRAP_COORDINATES = new int[][]{
-            {3, 1}, {4, 2}, {5, 1},
-            {3, 9}, {4, 8}, {5, 9}
-    };
-
     private ArrayList<Square> squares;
 
     public Square getSquare(int x, int y){
@@ -60,11 +44,30 @@ public class ChessBoard implements Observer{
      * row 1   0     1         6
      *       col 1 col 2 ... col 7
      */
-    private int coordinate2index(int row, int column){
+    public int coordinate2index(int row, int column){
         return (row-1)*7+column-1;
     }
 
+    /**
+     * move a piece to a position
+     * assuming validity is checked
+     * origin and destination --> ArrayList index
+     */
+    public void moveTo(int origin, int destination){
+        if(squares.get(destination).getContent()!=null){
+            clear(destination);
+        }
+        Chess piece=squares.get(origin).getContent();
+        squares.get(destination).setContent(piece);
+        squares.get(origin).setContent(null);
+        position[(piece.getOwner()-1)*8+piece.getAnimal().getRank()]=destination;
+    }
 
+    public void clear(int sq){
+        Chess piece=squares.get(sq).getContent();
+        squares.get(sq).setContent(null);
+        position[(piece.getOwner()-1)*8+piece.getAnimal().getRank()]=-1;
+    }
     private void init(){
         position[6]=coordinate2index(1,1);
         squares.add(new Square(new Tiger(1,1,1), NORMAL));

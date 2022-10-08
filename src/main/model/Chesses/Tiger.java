@@ -15,6 +15,4 @@ public class Tiger extends Chess{
         return false;
     }
 
-
-
 }

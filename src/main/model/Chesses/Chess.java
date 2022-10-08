@@ -5,9 +5,10 @@ package src.main.model.Chesses;
  * @Date 6/10/2022
  * @Description:
  */
-public class Chess {
+public abstract class Chess {
     private int x;
     private int y;
+
     private int owner;//player: 1 or 2
     public int getOwner(){
         return owner;
