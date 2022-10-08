@@ -78,7 +78,6 @@ public class ChessBoardView{
                     flag=true;
                 }
             }
-            System.out.println("index="+index);
             flag=true;
             int dx = 0, dy = 0;
             while(flag){
