@@ -4,7 +4,7 @@ abstract class AbstractList
 interface List
 
 enum Animal{
-ART
+RAT
 CAT
 DOG
 WOL

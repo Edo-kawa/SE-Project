@@ -4,7 +4,7 @@ package src.main.model;
 import src.main.model.Chesses.Chess;
 import src.main.view.ConsoleColors;
 
-public class Square {
+public class Square extends ConsoleColors{
     private Chess chess;
     public Chess getContent(){
         return chess;
