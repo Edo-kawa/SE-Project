@@ -1,12 +1,13 @@
 package src.main.model;
 
 import src.main.model.Chesses.*;
+import src.main.view.Observable;
 
 import java.util.ArrayList;
 
 import static src.main.model.Type.*;
 
-public class ChessBoard {
+public class ChessBoard implements Observer{
     final int ROW = 9;
     final int COL = 7;
 
@@ -35,6 +36,7 @@ public class ChessBoard {
     public  Square getSquare(int x){
         return squares.get(x);
     }
+
     /**
      * The position (ArrayList index) of a piece
      * -1 if already eaten
@@ -62,7 +64,8 @@ public class ChessBoard {
         return (row-1)*7+column-1;
     }
 
-    void init(){
+
+    private void init(){
         position[6]=coordinate2index(1,1);
         squares.add(new Square(new Tiger(1,1,1), NORMAL));
         squares.add(new Square(null, NORMAL));
@@ -136,5 +139,10 @@ public class ChessBoard {
         squares.add(new Square(null, NORMAL));
         position[6+8]=coordinate2index(9,7);
         squares.add(new Square(new Tiger(9,7,2), NORMAL));
+    }
+
+    @Override
+    public void refreshData(Observable subject) {
+
     }
 }

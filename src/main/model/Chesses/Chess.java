@@ -8,7 +8,6 @@ package src.main.model.Chesses;
 public class Chess {
     private int x;
     private int y;
-
     private int owner;//player: 1 or 2
     public int getOwner(){
         return owner;
