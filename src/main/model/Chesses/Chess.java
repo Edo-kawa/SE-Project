@@ -8,12 +8,15 @@ package src.main.model.Chesses;
 public class Chess {
     private int x;
     private int y;
+
+    private int owner;//player: 1 or 2
     private final Animal animal;
 
-    public Chess(int x, int y, Animal animal){
+    public Chess(int x, int y, Animal animal, int owner){
         this.x = x;
         this.y = y;
         this.animal = animal;
+        this.owner=owner;
     }
 
     public Animal getAnimal() {
