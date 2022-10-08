@@ -6,7 +6,7 @@ package src.main.view;
  * @Description:
  */
 public class ChessBoardView {
-    public void printChessBoard(){
+    public static void printChessBoard(){
 
     }
 }

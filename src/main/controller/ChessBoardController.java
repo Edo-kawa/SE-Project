@@ -1,6 +1,6 @@
 package src.main.controller;
 import src.main.model.ChessBoard;
-import src.main.view.ChessBoardView;
+import src.main.view.*;
 import src.main.model.Chesses.Chess;
 
 import java.util.*;
@@ -26,11 +26,6 @@ public class ChessBoardController {
          * instantiate a chessboard with pieces on initial position
          */
 
-    }
-    public static void printChessboard(){
-        /**
-         * print the chessboard in correct format
-         */
     }
 
     public static int checkWinner(){
@@ -59,15 +54,21 @@ public class ChessBoardController {
         int player_turn=1;
 
         while(checkWinner()==0) {
-            printChessboard();
+            ChessBoardView.printChessBoard();
 
-            System.out.println("Player " + player_turn + "'s turn.");
+            if(player_turn==1) {
+                System.out.println(ConsoleColors.RED + "Player 1's turn." + ConsoleColors.RESET);
+            }else{
+                System.out.println(ConsoleColors.BLUE + "Player 2's turn." + ConsoleColors.RESET);
+            }
             System.out.println("Which piece would you like to move?");
             String piece = scanner.nextLine();
             System.out.println("Please enter destination:");
-            int dx = scanner.nextInt(), dy = scanner.nextInt();
+            String input= scanner.nextLine();
+            int dx = input.charAt(0)-'0';
+            int dy = input.charAt(2)-'0';
 
-            //find the peice from string input
+            //find the piece from string input
             Chess chess = null;
 
             move(chess, dx, dy);
@@ -75,7 +76,7 @@ public class ChessBoardController {
             player_turn=3-player_turn;
         }
 
-        printChessboard();
+        ChessBoardView.printChessBoard();
         System.out.println("Player "+checkWinner()+" wins.");
     }
 }
