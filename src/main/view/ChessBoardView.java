@@ -11,9 +11,14 @@ import java.util.Scanner;
  * @Date 6/10/2022
  * @Description:
  */
-public class ChessBoardView implements Observable{
+public class ChessBoardView{
 
     public ChessBoardView(){
+        init();
+    }
+
+    public void init(){
+
         Scanner scanner = new Scanner(System.in);
 
         //1 or 2
@@ -45,7 +50,6 @@ public class ChessBoardView implements Observable{
         //ChessBoardView.printChessBoard(chessBoard);
         System.out.println("Player "+checkWinner()+" wins.");
     }
-
     public static void printChessBoard(ChessBoard board){
         System.out.println("----------------------------");
         for(int r=9; r>=1; r--){
@@ -71,27 +75,16 @@ public class ChessBoardView implements Observable{
     }
 
     /**
-     * this method should be deleted later
+     * it should send
      * @param piece
      * @param x
      * @param y
      * @return
      */
-    public static boolean move(Chess piece, int x, int y){
-        /**
-         * try to move piece to x,y
-         * return false if move is invalid
-         * otherwise return true and execute the move
-         */
-        return true;
+
+    public void move(Chess chess, int nextX, int nextY) {
+
     }
 
 
-
-    @Override
-    public void notifyObservers() {
-
-
-        //chessboard.refreshData(this);
-    }
 }
