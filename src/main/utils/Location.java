@@ -22,4 +22,6 @@ public class Location extends Pair<Integer, Integer>{
     }
 
 
+
+
 }

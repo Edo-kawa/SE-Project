@@ -60,6 +60,8 @@ public class ChessBoard {
             clear(destination);
         }
         Chess piece=squares.get(origin).getContent();
+        piece.setX(destination/7+1);
+        piece.setY(destination%7+1);
         squares.get(destination).setContent(piece);
         squares.get(origin).setContent(null);
         position[(piece.getOwner()-1)*8+piece.getAnimal().getRank()]=destination;

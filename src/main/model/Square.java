@@ -35,17 +35,13 @@ public class Square{
 
     private Type type;
 
+    public Type getType() {
+        return type;
+    }
+
     public Square(Chess chess, Type type) {
         this.chess = chess;
         this.type = type;
-    }
-
-    public Square() {
-        new Square(null, type.NORMAL);
-    }
-    public Square(Type type) {
-
-        new Square(null, type);
     }
 
 }
