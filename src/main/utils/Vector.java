@@ -24,4 +24,13 @@ public class Vector extends Pair<Integer, Integer>{
         return getB();
     }
 
+    /**
+     * Create a vector from two locations.
+     *
+     * @param from The source location
+     * @param to   The target location
+     */
+    public static Vector buildVectorFromLocations(Location from, Location to) {
+        return new Vector(to.getRow() - from.getRow(), to.getCol() - from.getCol());
+    }
 }

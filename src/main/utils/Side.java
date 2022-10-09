@@ -6,7 +6,7 @@ package src.main.utils;
  * @Description: Enum which denotes the side of chess.
  */
 public enum Side {
-    White, Black;
+    Red, Blue;
     public Side next(){
         return Side.values()[(ordinal() + 1) % Side.values().length];
     }

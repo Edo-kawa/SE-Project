@@ -3,22 +3,22 @@ package src.main.model.Chesses;
 import static java.lang.Math.abs;
 import src.main.model.Square;
 import src.main.model.Type;
+import src.main.utils.Location;
+import src.main.utils.Side;
 
-public abstract class Chess {
-    protected int x;
-    protected int y;
+public class Chess {
+    protected Location location;
 
-    protected int owner;//player: 1 or 2
-    public int getOwner(){
-        return owner;
+    protected Side side;//player: 1 or 2
+    public Side getSide(){
+        return side;
     }
     public final Animal animal;
 
-    public Chess(int x, int y, Animal animal, int owner){
-        this.x = x;
-        this.y = y;
+    public Chess(int x, int y, Animal animal, Side owner){
+        location = new Location(x, y);
         this.animal = animal;
-        this.owner=owner;
+        this.side=owner;
     }
 
     @Override
@@ -30,20 +30,13 @@ public abstract class Chess {
         return animal;
     }
 
-    public int getX() {
-        return x;
+
+    public Location getLocation() {
+        return location;
     }
 
-    public int getY() {
-        return y;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     /**
@@ -51,16 +44,19 @@ public abstract class Chess {
      * overridden in RAT, TIG, LIO
      */
     public boolean canMoveToEmpty(int dx, int dy, Square square){
+        int x = location.getRow();
+        int y = location.getCol();
+
         if(dx<1 || dx>9 || dy<1 || dy>7){
             return false;
         }
         if(square.getType()== Type.RIVER){
             return false;
         }
-        if(square.getType()==Type.DEN1 && owner==1){
+        if(square.getType()==Type.DEN1 && side == Side.Red){
             return false;
         }
-        if(square.getType()==Type.DEN2 && owner==2){
+        if(square.getType()==Type.DEN2 && side == Side.Blue){
             return false;
         }
         if(dx==x && abs(dy-y)==1){
@@ -88,7 +84,7 @@ public abstract class Chess {
      * 2. Rat in river capturing piece on land
      */
     public boolean canTake(Square square){
-        if(square.getContent().getOwner()==owner){
+        if(square.getContent().getSide() == this.side){
             return false;
         }
         switch (square.getType()){
@@ -96,14 +92,16 @@ public abstract class Chess {
                 return outRank(square.getContent().getAnimal());
             case RIVER:
                 return true;
+
             case TRAP1:
-                if(owner==1){
+                if(side == Side.Red){
                     return true;
                 }else{
                     return outRank(square.getContent().getAnimal());
                 }
             case TRAP2:
-                if(owner==2){
+
+                if(side == Side.Blue){
                     return true;
                 }else{
                     return outRank(square.getContent().getAnimal());

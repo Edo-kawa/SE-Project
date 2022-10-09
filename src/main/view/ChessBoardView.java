@@ -92,6 +92,7 @@ public class ChessBoardView{
                 }
                 dx = input.charAt(0)-'0';
                 dy = input.charAt(2)-'0';
+                System.out.println(dx + " " + dy);
                 if(dx<1 || dx>9 || dy<1 || dy>7){
                     continue;
                 }

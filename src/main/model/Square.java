@@ -2,10 +2,12 @@ package src.main.model;
 
 
 import src.main.model.Chesses.Chess;
+import src.main.utils.Side;
 import src.main.view.ConsoleColors;
 
 public class Square{
     private Chess chess;
+    private Type type;
     public Chess getContent(){
         return chess;
     }
@@ -25,7 +27,7 @@ public class Square{
                 case DEN2:return ConsoleColors.BLACK_BACKGROUND + "   " + ConsoleColors.RESET;
             }
         }
-        if (chess.getOwner()==1){
+        if (chess.getSide() == Side.Red){
             return ConsoleColors.RED_BACKGROUND + chess.toString() + ConsoleColors.RESET;
         }else{
             return ConsoleColors.BLUE_BACKGROUND + chess.toString() + ConsoleColors.RESET;
@@ -33,7 +35,6 @@ public class Square{
 
     }
 
-    private Type type;
 
     public Type getType() {
         return type;

@@ -2,6 +2,7 @@ package src.main.model.Chesses;
 
 import src.main.model.Square;
 import src.main.model.Type;
+import src.main.utils.Side;
 
 import static java.lang.Math.abs;
 import static src.main.model.Chesses.Animal.*;
@@ -11,21 +12,23 @@ import static src.main.model.Chesses.Animal.*;
  * @Description:
  */
 public class Lion extends Chess{
-    public Lion(int x, int y, int owner) {
-        super(x, y, LIO, owner);
+    public Lion(int x, int y, Side side) {
+        super(x, y, LIO, side);
     }
 
     public boolean canMoveToEmpty(int dx, int dy, Square square){
+        int x = location.getRow();
+        int y = location.getCol();
         if(dx<1 || dx>9 || dy<1 || dy>7){
             return false;
         }
         if(square.getType()== Type.RIVER){
             return false;
         }
-        if(square.getType()==Type.DEN1 && owner==1){
+        if(square.getType()==Type.DEN1 && side == Side.Red){
             return false;
         }
-        if(square.getType()==Type.DEN2 && owner==2){
+        if(square.getType()==Type.DEN2 && side == Side.Blue){
             return false;
         }
         if(dx==x && abs(dy-y)==1){

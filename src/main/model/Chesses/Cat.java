@@ -1,5 +1,7 @@
 package src.main.model.Chesses;
 
+import src.main.utils.Side;
+
 import static src.main.model.Chesses.Animal.*;
 
 /**
@@ -8,12 +10,9 @@ import static src.main.model.Chesses.Animal.*;
  * @Description:
  */
 public class Cat extends Chess{
-    public Cat(int x, int y, int owner) {
-        super(x, y, CAT, owner);
+    public Cat(int x, int y, Side side) {
+        super(x, y, CAT, side);
     }
-
-
-    // try
 
 
     boolean isValidPath(int x, int y){

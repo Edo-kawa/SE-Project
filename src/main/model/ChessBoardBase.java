@@ -37,7 +37,7 @@ public class ChessBoardBase {
     }
 
     boolean checkCanCapture(Location location, Chess chess){
-
+        return false;
     }
 
 

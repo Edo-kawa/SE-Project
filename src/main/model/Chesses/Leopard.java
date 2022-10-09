@@ -1,5 +1,7 @@
 package src.main.model.Chesses;
 
+import src.main.utils.Side;
+
 import static src.main.model.Chesses.Animal.*;
 /**
  * @Author Anthony Z.
@@ -7,8 +9,8 @@ import static src.main.model.Chesses.Animal.*;
  * @Description:
  */
 public class Leopard extends Chess{
-    public Leopard(int x, int y, int owner) {
-        super(x, y, LEO, owner);
+    public Leopard(int x, int y, Side side) {
+        super(x, y, LEO, side);
     }
     boolean isValidPath(int x, int y){
         return false;
