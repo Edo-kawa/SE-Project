@@ -36,4 +36,9 @@ public class Rat extends Chess {
         }
         return false;
     }
+
+    @Override
+    protected boolean outRank(Animal animal1) {
+        return animal1.getRank()==1 || animal1.getRank()==8;
+    }
 }

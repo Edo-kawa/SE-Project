@@ -130,12 +130,38 @@ public class ChessBoard {
     }
 
 
-    public static int checkWinner(){
+    public int checkWinner(){
         /**
          * returns 0 if no winner
          * 1 if player 1 wins
          * 2 if player 2 wins
          */
+        if(squares.get(coordinate2index(1,4)).getContent()!=null){
+            return 2;
+        }
+        if(squares.get(coordinate2index(9,4)).getContent()!=null){
+            return 1;
+        }
+        boolean flag=true;
+        for(int i=1;i<=8;i++){
+            if(position[i]!=-1){
+                flag=false;
+                break;
+            }
+        }
+        if(flag){
+            return 2;
+        }
+        flag=true;
+        for(int i=9;i<=16;i++){
+            if(position[i]!=-1){
+                flag=false;
+                break;
+            }
+        }
+        if(flag){
+            return 1;
+        }
         return 0;
     }
     private void init(){
