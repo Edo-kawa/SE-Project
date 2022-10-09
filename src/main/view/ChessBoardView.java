@@ -25,8 +25,8 @@ public class ChessBoardView{
         //1 or 2
         int player_turn=1;
 
-        while(checkWinner()==0) {
-            ChessBoardView.printChessBoard(chessboard);
+        while(chessboard.checkWinner()==0) {
+            chessboard.printChessBoard();
 
             if(player_turn==1) {
                 System.out.println(ConsoleColors.RED + "Player 1's turn." + ConsoleColors.RESET);
@@ -97,35 +97,8 @@ public class ChessBoardView{
                 }
                 flag=false;
             }
-
-            if (chessboard.getSquare(index).getContent().canMoveToEmpty(dx,dy,chessboard.getSquare(dx,dy))){
-                int x0=index/7+1, y0=index%7+1;
-                if(abs(dx-x0)<=1 && abs(dy-y0)<=1){
-                    chessboard.moveTo(index,chessboard.coordinate2index(dx,dy));
-                }else{
-                    //jump
-                    boolean rat_in_river=false;
-                    if(x0==dx){
-                        for (int temp=min(y0,dy)+1; temp<max(y0,dy); temp++) {
-                            if(chessboard.getSquare(x0,temp).getContent()!=null){
-                                rat_in_river=true;
-                            }
-                        }
-                    }
-                    if(y0==dy){
-                        for (int temp=min(x0,dx)+1; temp<max(x0,dx); temp++) {
-                            if(chessboard.getSquare(temp,y0).getContent()!=null){
-                                rat_in_river=true;
-                            }
-                        }
-                    }
-                    if(!rat_in_river){
-                        chessboard.moveTo(index,chessboard.coordinate2index(dx,dy));
-                    }else{
-                        System.out.println("Invalid move. Please try again.");
-                        continue;
-                    }
-                }
+            if(chessboard.canMove(index,dx,dy)){
+                chessboard.moveTo(index,chessboard.coordinate2index(dx,dy));
             }else{
                 System.out.println("Invalid move. Please try again.");
                 continue;
@@ -135,31 +108,9 @@ public class ChessBoardView{
             player_turn=3-player_turn;
         }
 
-        printChessBoard(chessboard);
-        System.out.println("Player "+checkWinner()+" wins.");
-    }
-    public static void printChessBoard(ChessBoard board){
-        System.out.println("----------------------------");
-        for(int r=9; r>=1; r--){
-            System.out.print(" "+r+" - ");
-            for(int c=1; c<=7; c++){
-                System.out.print(board.getSquare(r,c));
-            }
-            System.out.println();
-        }
-        System.out.println("      |  |  |  |  |  |  | ");
-        System.out.println("      1  2  3  4  5  6  7 ");
-        System.out.println("----------------------------");
+        chessboard.printChessBoard();
+        System.out.println("Player "+chessboard.checkWinner()+" wins.");
     }
 
-
-    public static int checkWinner(){
-        /**
-         * returns 0 if no winner
-         * 1 if player 1 wins
-         * 2 if player 2 wins
-         */
-        return 0;
-    }
 
 }

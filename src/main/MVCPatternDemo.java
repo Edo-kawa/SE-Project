@@ -14,18 +14,12 @@ import java.util.Scanner;
  * @Description:
  */
 public class MVCPatternDemo {
-
-
-
     public static void main(String args[]){
-
         // model
         ChessBoard chessBoard = new ChessBoard();
         // view
         ChessBoardView chessBoardView = new ChessBoardView();
         // controller
         ChessBoardController controller = new ChessBoardController(chessBoard, chessBoardView);
-
-
     }
 }

@@ -11,7 +11,9 @@ public class Elephant extends Chess{
     public Elephant(int x, int y, int owner) {
         super(x, y, ELE, owner);
     }
-    boolean isValidPath(int x, int y){
-        return false;
+
+    @Override
+    protected boolean outRank(Animal animal1) {
+        return animal1.getRank()!=1;
     }
 }

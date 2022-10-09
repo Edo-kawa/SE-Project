@@ -5,6 +5,7 @@ import src.main.model.Chesses.*;
 
 import java.util.ArrayList;
 
+import static java.lang.Math.*;
 import static src.main.model.Type.*;
 
 public class ChessBoard {
@@ -51,6 +52,48 @@ public class ChessBoard {
     }
 
     /**
+     * checks whether a move is valid
+     * including capturing
+     */
+    public boolean canMove(int index, int dx, int dy){
+
+        if (getSquare(index).getContent().canMoveToEmpty(dx,dy,getSquare(dx,dy))){
+            if(getSquare(dx,dy).getContent()!=null){
+                if(!getSquare(index).getContent().canTake(getSquare(dx,dy))){
+                    return false;
+                }
+                if(getSquare(index).getType()==RIVER && getSquare(dx,dy).getType()!=RIVER){
+                    return false;
+                }
+                if(getSquare(index).getType()!=RIVER && getSquare(dx,dy).getType()==RIVER){
+                    return false;
+                }
+            }
+            int x0=index/7+1, y0=index%7+1;
+            if(abs(dx-x0)<=1 && abs(dy-y0)<=1){
+                return true;
+            }else{
+                boolean rat_in_river=false;
+                if(x0==dx){
+                    for (int temp=min(y0,dy)+1; temp<max(y0,dy); temp++) {
+                        if(getSquare(x0,temp).getContent()!=null){
+                            rat_in_river=true;
+                        }
+                    }
+                }
+                if(y0==dy){
+                    for (int temp=min(x0,dx)+1; temp<max(x0,dx); temp++) {
+                        if(getSquare(temp,y0).getContent()!=null){
+                            rat_in_river=true;
+                        }
+                    }
+                }
+                return !rat_in_river;
+            }
+        }
+        return false;
+    }
+    /**
      * move a piece to a position
      * assuming validity is checked
      * origin and destination --> ArrayList index
@@ -71,6 +114,29 @@ public class ChessBoard {
         Chess piece=squares.get(sq).getContent();
         squares.get(sq).setContent(null);
         position[(piece.getOwner()-1)*8+piece.getAnimal().getRank()]=-1;
+    }
+    public void printChessBoard(){
+        System.out.println("----------------------------");
+        for(int r=9; r>=1; r--){
+            System.out.print(" "+r+" - ");
+            for(int c=1; c<=7; c++){
+                System.out.print(getSquare(r,c));
+            }
+            System.out.println();
+        }
+        System.out.println("      |  |  |  |  |  |  | ");
+        System.out.println("      1  2  3  4  5  6  7 ");
+        System.out.println("----------------------------");
+    }
+
+
+    public static int checkWinner(){
+        /**
+         * returns 0 if no winner
+         * 1 if player 1 wins
+         * 2 if player 2 wins
+         */
+        return 0;
     }
     private void init(){
         position[PLAYER_1 + 6]=coordinate2index(1,1);

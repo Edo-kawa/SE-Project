@@ -28,7 +28,6 @@ public class Lion extends Chess{
         if(square.getType()==Type.DEN2 && owner==2){
             return false;
         }
-
         if(dx==x && abs(dy-y)==1){
             return true;
         }

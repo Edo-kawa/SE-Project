@@ -1,28 +1,24 @@
 package src.main.model.Chesses;
 
-import src.main.utils.Location;
-import src.main.utils.Side;
-
 import static java.lang.Math.abs;
 import src.main.model.Square;
 import src.main.model.Type;
 
-public class Chess {
-    private Location location;
+public abstract class Chess {
+    protected int x;
+    protected int y;
 
-    private int owner;//player: 1 or 2
-
-//    private Side side;
-//    public Side getSide(){
-//        return side;
-//
-//    }
+    protected int owner;//player: 1 or 2
+    public int getOwner(){
+        return owner;
+    }
     public final Animal animal;
 
-    public Chess(int x, int y, Animal animal, Side side){
-        this.location = new Location(x, y);
+    public Chess(int x, int y, Animal animal, int owner){
+        this.x = x;
+        this.y = y;
         this.animal = animal;
-//        this.side = side;
+        this.owner=owner;
     }
 
     @Override
@@ -34,14 +30,21 @@ public class Chess {
         return animal;
     }
 
+    public int getX() {
+        return x;
+    }
 
-//    public void setX(int x) {
-//        this.location
-//    }
-//
-//    public void setY(int y) {
-//        this.y = y;
-//    }
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 
     /**
      * checks whether it is possible to move to an empty
@@ -60,21 +63,52 @@ public class Chess {
         if(square.getType()==Type.DEN2 && owner==2){
             return false;
         }
-        if(dx==location.getRow() && abs(dy-location.getCol())==1){
+        if(dx==x && abs(dy-y)==1){
             return true;
         }
-        if(dy==location.getCol() && abs(dx-location.getRow())==1){
+        if(dy==y && abs(dx-x)==1){
             return true;
         }
         return false;
     }
 
     /**
-     * checks whether it is possible to take a piece on a square
-     * (considers only animal and square type, not position)
+     * checks whether it is possible to take a piece
+     * (conownerrs only animal type, not the square type or position)
+     * overridden in RAT & ELE
      */
-    public void canTake(Square square){
-
+    protected boolean outRank(Animal animal1){
+        return animal.getRank()>=animal1.getRank();
     }
-
+    /**
+     * checks whether it is possible to take a piece on a square
+     * (conownerrs only animal and square type, not position)
+     * special cases to be handled by chessboard:
+     * 1. Capturing a rat in the river from land
+     * 2. Rat in river capturing piece on land
+     */
+    public boolean canTake(Square square){
+        if(square.getContent().getOwner()==owner){
+            return false;
+        }
+        switch (square.getType()){
+            case NORMAL:
+                return outRank(square.getContent().getAnimal());
+            case RIVER:
+                return true;
+            case TRAP1:
+                if(owner==1){
+                    return true;
+                }else{
+                    return outRank(square.getContent().getAnimal());
+                }
+            case TRAP2:
+                if(owner==2){
+                    return true;
+                }else{
+                    return outRank(square.getContent().getAnimal());
+                }
+        }
+        return true;
+    }
 }

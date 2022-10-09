@@ -1,7 +1,5 @@
 package src.main.model.Chesses;
 
-import src.main.utils.Side;
-
 import static src.main.model.Chesses.Animal.*;
 
 /**
@@ -10,8 +8,8 @@ import static src.main.model.Chesses.Animal.*;
  * @Description:
  */
 public class Dog extends Chess{
-    public Dog(int x, int y, Side side) {
-        super(x, y, DOG, side);
+    public Dog(int x, int y, int owner) {
+        super(x, y, DOG, owner);
     }
 
     boolean isValidPath(int x, int y){
