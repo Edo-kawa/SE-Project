@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import static src.main.model.Type.*;
 
-public class ChessBoard implements Observer{
+public class ChessBoard {
     final int ROW = 9;
     final int COL = 7;
     final int PLAYER_1 = 0;
@@ -154,13 +154,9 @@ public class ChessBoard implements Observer{
         squares.add(new Square(null, DEN2));
         squares.add(new Square(null, TRAP2));
         squares.add(new Square(null, NORMAL));
-        
+
         position[PLAYER_2 + 6]=coordinate2index(9,7);
         squares.add(new Square(new Tiger(9,7,2), NORMAL));
     }
 
-    @Override
-    public void refreshData(Observable subject) {
-
-    }
 }

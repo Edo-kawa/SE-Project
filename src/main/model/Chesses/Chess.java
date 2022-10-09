@@ -1,25 +1,28 @@
 package src.main.model.Chesses;
 
+import src.main.utils.Location;
+import src.main.utils.Side;
+
 /**
  * @Author Anthony Z.
  * @Date 6/10/2022
  * @Description:
  */
-public abstract class Chess {
-    private int x;
-    private int y;
+public class Chess {
+    private Location location;
 
-    private int owner;//player: 1 or 2
-    public int getOwner(){
-        return owner;
+//    private int owner;//player: 1 or 2
+
+    private Side side;
+    public Side getSide(){
+        return side;
     }
     private final Animal animal;
 
-    public Chess(int x, int y, Animal animal, int owner){
-        this.x = x;
-        this.y = y;
+    public Chess(int x, int y, Animal animal, Side side){
+        this.location = new Location(x, y);
         this.animal = animal;
-        this.owner=owner;
+        this.side = side;
     }
 
     @Override
@@ -31,19 +34,6 @@ public abstract class Chess {
         return animal;
     }
 
-    public int getX() {
-        return x;
-    }
 
-    public int getY() {
-        return y;
-    }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
 }
