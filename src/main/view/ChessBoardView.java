@@ -6,6 +6,8 @@ import src.main.model.Observer;
 
 import java.util.Scanner;
 
+import static java.lang.Math.*;
+
 /**
  * @Author Anthony Z.
  * @Date 6/10/2022
@@ -18,7 +20,6 @@ public class ChessBoardView{
     }
 
     public void init(){
-
         Scanner scanner = new Scanner(System.in);
         ChessBoard chessboard = new ChessBoard();
         //1 or 2
@@ -97,7 +98,39 @@ public class ChessBoardView{
                 flag=false;
             }
 
-            chessboard.moveTo(index,chessboard.coordinate2index(dx,dy));
+            if (chessboard.getSquare(index).getContent().canMoveToEmpty(dx,dy,chessboard.getSquare(dx,dy))){
+                int x0=index/7+1, y0=index%7+1;
+                if(abs(dx-x0)<=1 && abs(dy-y0)<=1){
+                    chessboard.moveTo(index,chessboard.coordinate2index(dx,dy));
+                }else{
+                    //jump
+                    boolean rat_in_river=false;
+                    if(x0==dx){
+                        for (int temp=min(y0,dy)+1; temp<max(y0,dy); temp++) {
+                            if(chessboard.getSquare(x0,temp).getContent()!=null){
+                                rat_in_river=true;
+                            }
+                        }
+                    }
+                    if(y0==dy){
+                        for (int temp=min(x0,dx)+1; temp<max(x0,dx); temp++) {
+                            if(chessboard.getSquare(temp,y0).getContent()!=null){
+                                rat_in_river=true;
+                            }
+                        }
+                    }
+                    if(!rat_in_river){
+                        chessboard.moveTo(index,chessboard.coordinate2index(dx,dy));
+                    }else{
+                        System.out.println("Invalid move. Please try again.");
+                        continue;
+                    }
+                }
+            }else{
+                System.out.println("Invalid move. Please try again.");
+                continue;
+            }
+
 
             player_turn=3-player_turn;
         }
