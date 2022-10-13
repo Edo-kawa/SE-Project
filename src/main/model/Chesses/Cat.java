@@ -1,5 +1,6 @@
 package src.main.model.Chesses;
 
+import src.main.utils.Location;
 import src.main.utils.Side;
 
 import static src.main.model.Chesses.Animal.*;
@@ -10,8 +11,8 @@ import static src.main.model.Chesses.Animal.*;
  * @Description:
  */
 public class Cat extends Chess{
-    public Cat(int x, int y, Side side) {
-        super(x, y, CAT, side);
+    public Cat(Location location, Side side) {
+        super(location, CAT, side);
     }
 
 

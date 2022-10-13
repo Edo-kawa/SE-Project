@@ -15,8 +15,8 @@ public class Chess {
     }
     public final Animal animal;
 
-    public Chess(int x, int y, Animal animal, Side owner){
-        location = new Location(x, y);
+    public Chess(Location location, Animal animal, Side owner){
+        location = location;
         this.animal = animal;
         this.side=owner;
     }
@@ -30,6 +30,9 @@ public class Chess {
         return animal;
     }
 
+    public void setSide(Side side) {
+        this.side = side;
+    }
 
     public Location getLocation() {
         return location;

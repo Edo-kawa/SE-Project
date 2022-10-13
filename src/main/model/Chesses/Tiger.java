@@ -2,6 +2,7 @@ package src.main.model.Chesses;
 
 import src.main.model.Square;
 import src.main.model.Type;
+import src.main.utils.Location;
 import src.main.utils.Side;
 
 import static java.lang.Math.abs;
@@ -12,8 +13,8 @@ import static src.main.model.Chesses.Animal.*;
  * @Description:
  */
 public class Tiger extends Chess{
-    public Tiger(int x, int y, Side side) {
-        super(x, y, TIG, side);
+    public Tiger(Location location, Side side) {
+        super(location, TIG, side);
     }
 
     boolean isValidPath(int x, int y){
