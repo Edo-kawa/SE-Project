@@ -1,6 +1,10 @@
 package src.main.model;
 
 
+import src.main.model.Chesses.Chess;
+import src.main.utils.Location;
+import src.main.utils.Move;
+
 /**
  * @Author Anthony Z.
  * @Date 8/10/2022
@@ -9,7 +13,18 @@ package src.main.model;
  */
 public interface Observer {
 
-    void chessMoved();
-    void chessRemoved();
+    /**
+     * Called when a chess has moved board.
+     * @param move The move of the chess (from and to location).
+     */
+    void chessMoved(Move move);
+
+    /**
+     * Called when a piece is removed from the bard.
+     *
+     * @param chessMoved
+     * @param originalLocation
+     */
+    void chessRemoved(Chess chessMoved, Location originalLocation);
 
 }

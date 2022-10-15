@@ -11,16 +11,16 @@ import src.main.model.Chesses.*;
  */
 public class BoardBuilder {
 
-    public static ChessBoard boardFactory(String boardName, int height,
-                                          int width){
-
-        if(boardName.equals("ChessBoard")){
-            return new ChessBoard(width, height);
-
-        }
-
-        return null;
-    }
+//    public static ChessBoard boardFactory(String boardName, int height,
+//                                          int width){
+//
+//        if(boardName.equals("ChessBoard")){
+//            return new ChessBoard(width, height);
+//
+//        }
+//
+//        return null;
+//    }
 
     public static Chess chessFactory(String pieceName,
                                      Side sideName, int x, int y){

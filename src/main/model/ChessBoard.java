@@ -23,8 +23,8 @@ public class ChessBoard {
         return squares.get(coordinate2index(x,y));
     }
 
-    public  Square getSquare(int x){
-        return squares.get(x);
+    public Square getSquare(int index){
+        return squares.get(index);
     }
 
     /**
@@ -40,9 +40,6 @@ public class ChessBoard {
     public ChessBoard() {
         squares = new ArrayList<>(ROW*COL);
         init();
-    }
-    public ChessBoard(int width, int height){
-
     }
 
     /**
@@ -109,9 +106,10 @@ public class ChessBoard {
             clear(to);
         }
         Chess piece=squares.get(from).getContent();
-        System.out.println("to:" + to);
-        System.out.println(to/7+1);
-        System.out.println(to%7+1);
+//        test code
+//        System.out.println("to:" + to);
+//        System.out.println(to/7+1);
+//        System.out.println(to%7+1);
         piece.setLocation(new Location(to/7+1, to%7+1));
 
 
