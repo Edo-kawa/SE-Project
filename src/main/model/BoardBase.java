@@ -20,8 +20,8 @@ import static main.model.Type.TRAP2;
  */
 public class BoardBase {
 
-    private int width;
-    private int height;
+    private int row = 9;
+    private int column = 7;
     
     private ArrayList<Square> squares;
     private List<Observer> observers;
@@ -37,17 +37,23 @@ public class BoardBase {
     final int PLAYER_2 = 1; // blue
 
 
-    BoardBase(int width, int height) throws RuntimeException{
-        if(width<0 || height<0){
-            throw new RuntimeException("Invalid size for chess board");
-        }
-        this.width = width;
-        this.height = height;
+    public BoardBase() throws RuntimeException{
+//        if(width<0 || height<0){
+//            throw new RuntimeException("Invalid size for chess board");
+//        }
 
-        squares = new ArrayList<>(this.width*this.height);
+        squares = new ArrayList<>(this.row * this.column);
         observers = new ArrayList<>();
         init();
 
+    }
+
+    public int getPosition(int player, int index) {
+
+        if(player < 0 || player >1 || index < 1 || index > 8){
+            throw new RuntimeException("Invalid parameters");
+        }
+        return position[player][index];
     }
 
     /**
@@ -56,8 +62,8 @@ public class BoardBase {
      * @return true if the location is valid
      */
     boolean checkValidLocation(Location location){
-        return location.getRow() >= 0 && location.getRow() < width
-                && location.getCol() >= 0 && location.getCol() <height;
+        return location.getRow() >= 0 && location.getRow() < row
+                && location.getCol() >= 0 && location.getCol() < column;
 
     }
 
@@ -92,11 +98,11 @@ public class BoardBase {
 
     /**
      * Check if a move is legal/valid, including capturing.
-     * @param index
+     * @param from
      * @param to
      * @return
      */
-    boolean checkLegalMove(Location from, Location to){
+    public boolean checkLegalMove(Location from, Location to){
 
         if(!checkValidLocation(to)){
             return false;
@@ -147,6 +153,10 @@ public class BoardBase {
         return false;
     }
 
+    public boolean checkLegalMove(int index, Location to){
+        return checkLegalMove(index2Location(index), to);
+    }
+
     /**
      * Assuming the move is valid (it has been checked),
      * move a piece to a position. 
@@ -171,6 +181,10 @@ public class BoardBase {
         }else{
             position[PLAYER_2][piece.getAnimal().getRank()] = location2index(to);
         }
+    }
+
+    public void moveTo(int index, Location to){
+        moveTo(index2Location(index), to);
     }
 
     /**
@@ -274,6 +288,7 @@ public class BoardBase {
     }
 
 
+
     /**
      * Send players some reminder of the next step
      * @param location
@@ -298,7 +313,11 @@ public class BoardBase {
      *      col 1  col 2 ... col 7
      */
     private int location2index(Location location){
-        return (location.getRow()-1)*this.width+ location.getCol()-1;
+        return (location.getRow()-1)*this.column+ location.getCol()-1;
+    }
+
+    private Location index2Location(int index){
+        return new Location(index/column + 1,index%column +1);
     }
 
     private void init(){
@@ -410,6 +429,7 @@ public class BoardBase {
 //        squares.add(new Square(new Lion(9,1,Side.Blue), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "LIO", Side.Blue, 9, 1), NORMAL));
+
         squares.add(new Square(null, NORMAL));
         squares.add(new Square(null, TRAP2));
         squares.add(new Square(null, DEN2));

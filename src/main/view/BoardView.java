@@ -1,7 +1,11 @@
 package main.view;
 
+import main.model.BoardBase;
 import main.model.BoardStandard;
+import main.model.Square;
+import main.utils.Location;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -10,6 +14,7 @@ import java.util.Scanner;
  * @Description:
  */
 public class BoardView {
+    BoardBase chessBoard;
 
     public BoardView(){
         init();
@@ -17,12 +22,12 @@ public class BoardView {
 
     public void init(){
         Scanner scanner = new Scanner(System.in);
-        BoardStandard chessboard = new BoardStandard();
+        chessBoard = new BoardBase();
         //1 or 2
         int player_turn=1;
 
-        while(chessboard.checkWinner()==0) {
-            chessboard.printChessBoard();
+        while(chessBoard.checkWinner()==0) {
+            printChessBoard();
 
             if(player_turn==1) {
                 System.out.println(ConsoleColors.RED + "Player 1's turn." + ConsoleColors.RESET);
@@ -39,35 +44,35 @@ public class BoardView {
                 }
                 switch (s.toLowerCase().substring(0, 3)) {
                     case "rat":
-                        index = chessboard.getPosition(1 + 8 * (player_turn - 1));
+                        index = chessBoard.getPosition(player_turn - 1, 1);
                         flag=false;
                         break;
                     case "cat":
-                        index = chessboard.getPosition(2 + 8 * (player_turn - 1));
+                        index = chessBoard.getPosition(player_turn - 1, 2);
                         flag=false;
                         break;
                     case "dog":
-                        index = chessboard.getPosition(3 + 8 * (player_turn - 1));
+                        index = chessBoard.getPosition(player_turn - 1, 3);
                         flag=false;
                         break;
                     case "wol":
-                        index = chessboard.getPosition(4 + 8 * (player_turn - 1));
+                        index = chessBoard.getPosition(player_turn - 1, 4);
                         flag=false;
                         break;
                     case "leo":
-                        index = chessboard.getPosition(5 + 8 * (player_turn - 1));
+                        index = chessBoard.getPosition(player_turn - 1, 5);
                         flag=false;
                         break;
                     case "tig":
-                        index = chessboard.getPosition(6 + 8 * (player_turn - 1));
+                        index = chessBoard.getPosition(player_turn - 1, 6);
                         flag=false;
                         break;
                     case "lio":
-                        index = chessboard.getPosition(7 + 8 * (player_turn - 1));
+                        index = chessBoard.getPosition(player_turn - 1, 7);
                         flag=false;
                         break;
                     case "ele":
-                        index = chessboard.getPosition(8 + 8 * (player_turn - 1));
+                        index = chessBoard.getPosition(player_turn - 1, 8);
                         flag=false;
                         break;
                 }
@@ -94,8 +99,8 @@ public class BoardView {
                 }
                 flag=false;
             }
-            if(chessboard.canMove(index,dx,dy)){
-                chessboard.moveTo(index,chessboard.coordinate2index(dx,dy));
+            if(chessBoard.checkLegalMove(index,new Location(dx, dy))){
+                chessBoard.moveTo(index, new Location(dx, dy));
             }else{
                 System.out.println("Invalid move. Please try again.");
                 continue;
@@ -105,8 +110,23 @@ public class BoardView {
             player_turn=3-player_turn;
         }
 
-        chessboard.printChessBoard();
-        System.out.println("Player "+chessboard.checkWinner()+" wins.");
+        printChessBoard();
+        System.out.println("Player "+chessBoard.checkWinner()+" wins.");
+    }
+
+    void printChessBoard(){
+        System.out.println("----------------------------");
+        for(int r=9; r>=1; r--){
+            System.out.print(" "+r+" - ");
+            for(int c=1; c<=7; c++){
+                System.out.print(chessBoard.getSquare(new Location(r, c)));
+                System.out.println();
+            }
+            System.out.println();
+        }
+        System.out.println("      |  |  |  |  |  |  | ");
+        System.out.println("      1  2  3  4  5  6  7 ");
+        System.out.println("----------------------------");
     }
 
 

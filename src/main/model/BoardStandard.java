@@ -39,7 +39,7 @@ public class BoardStandard {
         return position[x];
     }
     public BoardStandard() {
-        standardChessBoard = new BoardBase(ROW, COL);
+        standardChessBoard = new BoardBase();
     }
 
     /**
