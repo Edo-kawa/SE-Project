@@ -1,6 +1,6 @@
-package src.main.controller;
-import src.main.model.BoardStandard;
-import src.main.view.*;
+package main.controller;
+import main.model.BoardStandard;
+import main.view.*;
 
 public class BoardController {
 

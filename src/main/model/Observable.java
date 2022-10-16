@@ -1,6 +1,6 @@
-package src.main.model;
+package main.model;
 
-import src.main.model.Chesses.Chess;
+import main.model.Chesses.Chess;
 
 /**
  * @Author Anthony Z.

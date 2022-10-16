@@ -1,9 +1,9 @@
-package src.main.model;
+package main.model;
 
 
-import src.main.model.Chesses.Chess;
-import src.main.utils.Location;
-import src.main.utils.Move;
+import main.model.Chesses.Chess;
+import main.utils.Location;
+import main.utils.Move;
 
 /**
  * @Author Anthony Z.

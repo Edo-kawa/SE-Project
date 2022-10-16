@@ -1,6 +1,6 @@
-package src.main.view;
+package main.view;
 
-import src.main.model.BoardStandard;
+import main.model.BoardStandard;
 
 import java.util.Scanner;
 

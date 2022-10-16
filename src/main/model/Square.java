@@ -1,9 +1,9 @@
-package src.main.model;
+package main.model;
 
 
-import src.main.model.Chesses.Chess;
-import src.main.utils.Side;
-import src.main.view.ConsoleColors;
+import main.model.Chesses.Chess;
+import main.utils.Side;
+import main.view.ConsoleColors;
 
 public class Square{
     private Chess chess;

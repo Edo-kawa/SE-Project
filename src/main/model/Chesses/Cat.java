@@ -1,9 +1,9 @@
-package src.main.model.Chesses;
+package main.model.Chesses;
 
-import src.main.utils.Location;
-import src.main.utils.Side;
+import main.utils.Location;
+import main.utils.Side;
 
-import static src.main.model.Chesses.Animal.*;
+import static main.model.Chesses.Animal.*;
 
 /**
  * @Author Anthony Z.

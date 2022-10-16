@@ -1,8 +1,8 @@
-package src.main;
+package main;
 
-import src.main.controller.BoardController;
-import src.main.model.BoardStandard;
-import src.main.view.BoardView;
+import main.controller.BoardController;
+import main.model.BoardStandard;
+import main.view.BoardView;
 
 /**
  * @Author Anthony Z.

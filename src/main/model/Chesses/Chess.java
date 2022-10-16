@@ -1,10 +1,10 @@
-package src.main.model.Chesses;
+package main.model.Chesses;
 
 import static java.lang.Math.abs;
-import src.main.model.Square;
-import src.main.model.Type;
-import src.main.utils.Location;
-import src.main.utils.Side;
+import main.model.Square;
+import main.model.Type;
+import main.utils.Location;
+import main.utils.Side;
 
 public class Chess {
     protected Location location;
@@ -45,8 +45,7 @@ public class Chess {
     /**
      * checks whether it is possible to move to an empty
      * overridden in RAT, TIG, LIO
-     * @param dx
-     * @param dy
+     * @param destination
      * @param square
      * @return
      */

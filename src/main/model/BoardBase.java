@@ -1,7 +1,7 @@
-package src.main.model;
+package main.model;
 
-import src.main.model.Chesses.Chess;
-import src.main.utils.*;
+import main.model.Chesses.Chess;
+import main.utils.*;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -10,8 +10,8 @@ import java.util.Set;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
-import static src.main.model.Type.*;
-import static src.main.model.Type.TRAP2;
+import static main.model.Type.*;
+import static main.model.Type.TRAP2;
 
 /**
  * @Author Anthony Z.
@@ -32,7 +32,7 @@ public class BoardBase {
      * order: /, player1 [0][1-8], player2 [1][1-8]
      */
     
-    private int[][] position = new int[2][8];
+    private int[][] position = new int[2][9];
     final int PLAYER_1 = 0; // red
     final int PLAYER_2 = 1; // blue
 

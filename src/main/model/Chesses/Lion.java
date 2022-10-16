@@ -1,12 +1,12 @@
-package src.main.model.Chesses;
+package main.model.Chesses;
 
-import src.main.model.Square;
-import src.main.model.Type;
-import src.main.utils.Location;
-import src.main.utils.Side;
+import main.model.Square;
+import main.model.Type;
+import main.utils.Location;
+import main.utils.Side;
 
 import static java.lang.Math.abs;
-import static src.main.model.Chesses.Animal.*;
+import static main.model.Chesses.Animal.*;
 /**
  * @Author Anthony Z.
  * @Date 6/10/2022

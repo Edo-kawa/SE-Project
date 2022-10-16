@@ -1,4 +1,4 @@
-package src.main.view;
+package main.view;
 /**
  * Author: shakram02
  * Reference:https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println

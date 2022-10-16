@@ -1,4 +1,4 @@
-package src.main.model;
+package main.model;
 /**
  * @Author Anthony Z.
  * @Date 6/10/2022
