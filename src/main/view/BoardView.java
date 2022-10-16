@@ -44,35 +44,35 @@ public class BoardView {
                 }
                 switch (s.toLowerCase().substring(0, 3)) {
                     case "rat":
-                        index = chessBoard.getPosition(player_turn - 1, 1);
+                        index = chessBoard.getPosition(player_turn - 1, 0);
                         flag=false;
                         break;
                     case "cat":
-                        index = chessBoard.getPosition(player_turn - 1, 2);
+                        index = chessBoard.getPosition(player_turn - 1, 1);
                         flag=false;
                         break;
                     case "dog":
-                        index = chessBoard.getPosition(player_turn - 1, 3);
+                        index = chessBoard.getPosition(player_turn - 1, 2);
                         flag=false;
                         break;
                     case "wol":
-                        index = chessBoard.getPosition(player_turn - 1, 4);
+                        index = chessBoard.getPosition(player_turn - 1, 3);
                         flag=false;
                         break;
                     case "leo":
-                        index = chessBoard.getPosition(player_turn - 1, 5);
+                        index = chessBoard.getPosition(player_turn - 1, 4);
                         flag=false;
                         break;
                     case "tig":
-                        index = chessBoard.getPosition(player_turn - 1, 6);
+                        index = chessBoard.getPosition(player_turn - 1, 5);
                         flag=false;
                         break;
                     case "lio":
-                        index = chessBoard.getPosition(player_turn - 1, 7);
+                        index = chessBoard.getPosition(player_turn - 1, 6);
                         flag=false;
                         break;
                     case "ele":
-                        index = chessBoard.getPosition(player_turn - 1, 8);
+                        index = chessBoard.getPosition(player_turn - 1, 7);
                         flag=false;
                         break;
                 }
@@ -120,7 +120,7 @@ public class BoardView {
             System.out.print(" "+r+" - ");
             for(int c=1; c<=7; c++){
                 System.out.print(chessBoard.getSquare(new Location(r, c)));
-                System.out.println();
+//                System.out.println();
             }
             System.out.println();
         }

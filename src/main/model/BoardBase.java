@@ -29,10 +29,10 @@ public class BoardBase {
     /**
      * The position (ArrayList index) of a piece
      * -1 if already eaten
-     * order: /, player1 [0][1-8], player2 [1][1-8]
+     * order: /, player1 [0][0-7], player2 [1][0-7]
      */
     
-    private int[][] position = new int[2][9];
+    private int[][] position = new int[2][8];
     final int PLAYER_1 = 0; // red
     final int PLAYER_2 = 1; // blue
 
@@ -50,7 +50,7 @@ public class BoardBase {
 
     public int getPosition(int player, int index) {
 
-        if(player < 0 || player >1 || index < 1 || index > 8){
+        if(player < 0 || player >1 || index < 0 || index > 7){
             throw new RuntimeException("Invalid parameters");
         }
         return position[player][index];
@@ -134,7 +134,7 @@ public class BoardBase {
                     for (int temp=min(from.getCol(), to.getCol())+1;
                          temp<max(from.getCol(), to.getCol()); temp++) {
 
-                        if(getSquare(new Location(from.getRow(), temp)).getChessContent()!=null){
+                        if(getSquare(new Location(temp, from.getRow())).getChessContent()!=null){
                             rat_in_river=true;
                         }
                     }
@@ -142,7 +142,7 @@ public class BoardBase {
                 if(from.getCol() == to.getCol()){
                     for (int temp=min(from.getRow(), to.getRow())+1;
                          temp<max(from.getRow(), to.getRow())+1; temp++) {
-                        if(getSquare(new Location(temp, from.getCol())).getChessContent()!=null){
+                        if(getSquare(new Location(from.getCol(), temp)).getChessContent()!=null){
                             rat_in_river=true;
                         }
                     }
@@ -254,10 +254,10 @@ public class BoardBase {
      */
     public boolean setChess(Chess chess, Location location){
         if(checkValidLocation(location)){
-            squares.add(new Square(BoardBuilder.chessFactory(
-                    "LEO", Side.Red, 3, 5), NORMAL));
-            chess.setLocation(location);
-            return true;
+//            squares.add(new Square(BoardBuilder.chessFactory(
+//                    "LEO", Side.Red, 3, 5), NORMAL));
+//            chess.setLocation(location);
+//            return true;
         }
         return false;
     }
@@ -313,15 +313,15 @@ public class BoardBase {
      *      col 1  col 2 ... col 7
      */
     private int location2index(Location location){
-        return (location.getRow()-1)*this.column+ location.getCol()-1;
+        return (location.getRow()-1)*7+ location.getCol()-1;
     }
 
     private Location index2Location(int index){
-        return new Location(index/column + 1,index%column +1);
+        return new Location((index+1)/7+1,(index+1)%7 );
     }
 
     private void init(){
-        position[PLAYER_1][6]=location2index(new Location(1,1));
+        position[PLAYER_1][5]=location2index(new Location(1,1));
 //        squares.add(new Square(new Tiger(1,1,Side.Red), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "TIG", Side.Red, 1, 1), NORMAL));
@@ -332,13 +332,13 @@ public class BoardBase {
         squares.add(new Square(null, TRAP1));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_1][7]=location2index(new Location(1,7));
+        position[PLAYER_1][6]=location2index(new Location(1,7));
 //        squares.add(new Square(new Lion(1,7, Side.Red), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "LIO", Side.Red, 1, 7), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_1][2]=location2index(new Location(2,2));
+        position[PLAYER_1][1]=location2index(new Location(2,2));
 //        squares.add(new Square(new Cat(2,2,Side.Red), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "CAT", Side.Red, 2, 2), NORMAL));
@@ -346,31 +346,31 @@ public class BoardBase {
         squares.add(new Square(null, TRAP1));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_1][3]=location2index(new Location(2,6));
+        position[PLAYER_1][2]=location2index(new Location(2,6));
 //        squares.add(new Square(new Dog(2,6, Side.Red), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "DOG", Side.Red, 2, 6), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_1][8]=location2index(new Location(3,1));
+        position[PLAYER_1][7]=location2index(new Location(3,1));
 //        squares.add(new Square(new Elephant(3,1,Side.Red), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "ELE", Side.Red, 3, 1), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_1][4]=location2index(new Location(3,3));
+        position[PLAYER_1][3]=location2index(new Location(3,3));
 //        squares.add(new Square(new Wolf(3,3,Side.Red), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "WOL", Side.Red, 3, 3), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_1][5]=location2index(new Location(3,5));
+        position[PLAYER_1][4]=location2index(new Location(3,5));
 //        squares.add(new Square(new Leopard(3,5,Side.Red), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "LEO", Side.Red, 3, 5), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_1][1]=location2index(new Location(3,7));
+        position[PLAYER_1][0]=location2index(new Location(3,7));
 //        squares.add(new Square(new Rat(3,7,Side.Red), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "RAT", Side.Red, 3, 7), NORMAL));
@@ -386,32 +386,32 @@ public class BoardBase {
             squares.add(new Square(null, NORMAL));
         }
 
-        position[PLAYER_2][1]=location2index(new Location(7,1));
+        position[PLAYER_2][0]=location2index(new Location(7,1));
 
 //        squares.add(new Square(new Rat(7,1,Side.Blue), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "RAT", Side.Blue, 7, 1), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_2][5]=location2index(new Location(7,3));
+        position[PLAYER_2][4]=location2index(new Location(7,3));
 //        squares.add(new Square(new Leopard(7,3,Side.Blue), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "LEO", Side.Blue, 7, 3), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_2][4]=location2index(new Location(7,5));
+        position[PLAYER_2][3]=location2index(new Location(7,5));
 //        squares.add(new Square(new Wolf(7,5,Side.Blue), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "WOL", Side.Blue, 7, 5), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_2][8]=location2index(new Location(7,7));
+        position[PLAYER_2][7]=location2index(new Location(7,7));
 //        squares.add(new Square(new Elephant(7,7,Side.Blue), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "ELE", Side.Blue, 7, 7), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_2][3]=location2index(new Location(8,2));
+        position[PLAYER_2][2]=location2index(new Location(8,2));
 //        squares.add(new Square(new Dog(8,2,Side.Blue), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "DOG", Side.Blue, 8, 2), NORMAL));
@@ -419,13 +419,13 @@ public class BoardBase {
         squares.add(new Square(null, TRAP2));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_2][2]=location2index(new Location(8,6));
+        position[PLAYER_2][1]=location2index(new Location(8,6));
 //        squares.add(new Square(new Cat(8,6, Side.Blue), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "CAT", Side.Blue, 8, 6), NORMAL));
         squares.add(new Square(null, NORMAL));
 
-        position[PLAYER_2][7]=location2index(new Location(9,1));
+        position[PLAYER_2][6]=location2index(new Location(9,1));
 //        squares.add(new Square(new Lion(9,1,Side.Blue), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "LIO", Side.Blue, 9, 1), NORMAL));
