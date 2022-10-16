@@ -1,0 +1,23 @@
+@startuml
+
+interface Observer{
+    synchornizeState()
+}
+
+interface Observable{
+
+
+    notify()
+}
+
+
+class subject{
+    getState()
+}
+
+class ConcreteObserver{
+    synchornizeState()
+}
+
+
+@enduml
