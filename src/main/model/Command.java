@@ -11,6 +11,7 @@ import src.main.utils.Move;
  */
 public class Command implements Observer{
 
+
     private ChessBoardBase chessBoard;
 
     /**

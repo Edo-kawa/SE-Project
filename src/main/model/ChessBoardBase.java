@@ -97,14 +97,20 @@ public class ChessBoardBase {
         return null;
     }
 
+    /**
+     *
+     * @param location
+     * @return
+     */
     public Set<Move> getLegalMoves(Location location){
         Chess chess = getChess(location);
         if(chess == null){
             return new LinkedHashSet<>();
         }
-        
 
+        return null;
     }
+
     /**
      *
      * @param location
