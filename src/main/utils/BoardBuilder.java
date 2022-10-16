@@ -1,7 +1,5 @@
 package src.main.utils;
 
-import src.main.model.ChessBoard;
-import src.main.model.ChessBoardBase;
 import src.main.model.Chesses.*;
 
 /**

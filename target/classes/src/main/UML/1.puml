@@ -25,6 +25,8 @@ getter()
 setter()
 }
 
+
+
 class Cat{
 }
 class Dog{
@@ -51,4 +53,21 @@ Chess <- Rat
 Chess <- Tiger
 Chess <- Wolf
 
+
+class ChessBoardBase{
+private int width;
+private int height;
+private ArrayList<Square> squares;
+private List<Observer> observers;
+
+ChessBoardBase(int width, int height)
+boolean checkValidLocation(Location location)
+boolean checkCanCapture(Chess chess, Location location)
+public boolean setChess(Chess chess, Location location)
+public Chess getChess(Location location)
+public Square getSquare(Location location)
+public Square getSquare(int index)
+public Set<Move> getLegalMoves(Location location) // we can consider send player reminder
+private int location2index(Location location)
+}
 @enduml

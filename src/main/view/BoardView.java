@@ -1,27 +1,23 @@
 package src.main.view;
 
-import src.main.model.ChessBoard;
-import src.main.model.Chesses.Chess;
-import src.main.model.Observer;
+import src.main.model.BoardStandard;
 
 import java.util.Scanner;
-
-import static java.lang.Math.*;
 
 /**
  * @Author Anthony Z.
  * @Date 6/10/2022
  * @Description:
  */
-public class ChessBoardView{
+public class BoardView {
 
-    public ChessBoardView(){
+    public BoardView(){
         init();
     }
 
     public void init(){
         Scanner scanner = new Scanner(System.in);
-        ChessBoard chessboard = new ChessBoard();
+        BoardStandard chessboard = new BoardStandard();
         //1 or 2
         int player_turn=1;
 

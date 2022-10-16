@@ -1,12 +1,8 @@
 package src.main;
 
-import src.main.controller.ChessBoardController;
-import src.main.model.ChessBoard;
-import src.main.model.Chesses.Chess;
-import src.main.view.ChessBoardView;
-import src.main.view.ConsoleColors;
-
-import java.util.Scanner;
+import src.main.controller.BoardController;
+import src.main.model.BoardStandard;
+import src.main.view.BoardView;
 
 /**
  * @Author Anthony Z.
@@ -16,10 +12,10 @@ import java.util.Scanner;
 public class MVCPatternDemo {
     public static void main(String args[]){
         // model
-        ChessBoard chessBoard = new ChessBoard();
+        BoardStandard boardStandard = new BoardStandard();
         // view
-        ChessBoardView chessBoardView = new ChessBoardView();
+        BoardView boardView = new BoardView();
         // controller
-        ChessBoardController controller = new ChessBoardController(chessBoard, chessBoardView);
+        BoardController controller = new BoardController(boardStandard, boardView);
     }
 }

@@ -8,7 +8,7 @@ import src.main.view.ConsoleColors;
 public class Square{
     private Chess chess;
     private Type type;
-    public Chess getContent(){
+    public Chess getChessContent(){
         return chess;
     }
     public void setContent(Chess c){

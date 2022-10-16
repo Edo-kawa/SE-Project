@@ -20,7 +20,10 @@ public class Rat extends Chess {
         return false;
     }
 
-    public boolean canMoveToEmpty(int dx, int dy, Square square){
+    public boolean canMoveToEmpty(Location destionation, Square square){
+        int dx = destionation.getRow();
+        int dy = destionation.getCol();
+
         if(dx<1 || dx>9 || dy<1 || dy>7){
             return false;
         }

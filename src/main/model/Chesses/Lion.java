@@ -17,12 +17,15 @@ public class Lion extends Chess{
         super(location, LIO, side);
     }
 
-    public boolean canMoveToEmpty(int dx, int dy, Square square){
+    public boolean canMoveToEmpty(Location destination, Square square){
+        int dx = destination.getRow();
+        int dy = destination.getCol();
         int x = location.getRow();
         int y = location.getCol();
-        if(dx<1 || dx>9 || dy<1 || dy>7){
-            return false;
-        }
+
+//        if(dx<1 || dx>9 || dy<1 || dy>7){
+//            return false;
+//        }
         if(square.getType()== Type.RIVER){
             return false;
         }

@@ -12,7 +12,7 @@ import src.main.utils.Move;
 public class Command implements Observer{
 
 
-    private ChessBoardBase chessBoard;
+    private BoardBase chessBoard;
 
     /**
      * If the chess has moved, track it.

@@ -15,10 +15,8 @@ public class Cat extends Chess{
         super(location, CAT, side);
     }
 
-
     boolean isValidPath(int x, int y){
         return false;
     }
-
 
 }

@@ -58,4 +58,8 @@ public class Move extends Pair<Location, Location>{
         Location fromLocation = getFrom();
         return Vector.buildVectorFromLocations(fromLocation, toLocation);
     }
+
+
+
+
 }
