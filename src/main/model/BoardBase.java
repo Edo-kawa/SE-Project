@@ -46,6 +46,7 @@ public class BoardBase {
 
         squares = new ArrayList<>(this.width*this.height);
         observers = new ArrayList<>();
+        init();
 
     }
 
@@ -142,7 +143,6 @@ public class BoardBase {
                 }
                 return !rat_in_river;
             }
-
         }
         return false;
     }
@@ -273,9 +273,6 @@ public class BoardBase {
         return null;
     }
 
-    public Square getSquare(int index){
-        return squares.get(index);
-    }
 
     /**
      * Send players some reminder of the next step
