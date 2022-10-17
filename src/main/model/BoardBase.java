@@ -114,13 +114,13 @@ public class BoardBase {
 
             System.out.println("can you see me?");
             if(getSquare(from).getChessContent() != null){
-                try{
-                    if(!getSquare(from).getChessContent().canTake(getSquare(to))){
-                        return false;
-                    }
-                }catch (Exception e){
-                    System.err.println("error here");
+//                try{
+                if(!getSquare(from).getChessContent().canTake(getSquare(to))){
+                    return false;
                 }
+//                }catch (Exception e){
+//                    System.err.println("error here");
+//                }
 
                 if(getSquare(from).getType()==RIVER && getSquare(to).getType()!=RIVER){
                     return false;
