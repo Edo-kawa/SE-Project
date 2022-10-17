@@ -99,6 +99,8 @@ public class BoardView {
                 }
                 flag=false;
             }
+            System.out.println("index of original point: \t" + index + "in view");
+            System.out.println("destination point: \t" + dx + "\t" + dy + "in view");
             if(chessBoard.checkLegalMove(index,new Location(dx, dy))){
                 chessBoard.moveTo(index, new Location(dx, dy));
             }else{
