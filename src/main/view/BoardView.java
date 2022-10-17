@@ -119,7 +119,7 @@ public class BoardView {
         for(int r=9; r>=1; r--){
             System.out.print(" "+r+" - ");
             for(int c=1; c<=7; c++){
-                
+
                 System.out.print(chessBoard.getSquare(new Location(r, c)));
 //                System.out.println();
             }

@@ -61,8 +61,8 @@ public class BoardBase {
      * @return true if the location is valid
      */
     boolean checkValidLocation(Location location){
-        return location.getRow() >= 0 && location.getRow() < row
-                && location.getCol() >= 0 && location.getCol() < column;
+        return location.getRow() >= 0 && location.getRow() <= row
+                && location.getCol() >= 0 && location.getCol() <= column;
 
     }
 
@@ -280,7 +280,10 @@ public class BoardBase {
      * @return Square
      */
     public Square getSquare(Location location){
+        // testing code
         if(checkValidLocation(location)){
+//            System.out.println(location2index(location));
+//            System.out.println(squares.get(location2index(location)));
             return squares.get(location2index(location));
         }
         return null;
@@ -312,7 +315,7 @@ public class BoardBase {
      *      col 1  col 2 ... col 7
      */
     private int location2index(Location location){
-        return (location.getRow()-1)*7+ location.getCol()-1;
+        return (location.getRow()-1)*7 + location.getCol()-1;
     }
 
     private Location index2Location(int index){

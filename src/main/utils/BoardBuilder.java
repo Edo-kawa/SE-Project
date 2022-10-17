@@ -24,31 +24,31 @@ public class BoardBuilder {
                                      Side sideName, int row, int col){
 
         if(pieceName.equals("ELE")){
-            return new Elephant(new Location(col, row), sideName);
+            return new Elephant(new Location(row, col), sideName);
         }
 
         if(pieceName.equals("LIO")){
-            return new Lion(new Location(col, row), sideName);
+            return new Lion(new Location(row, col), sideName);
         }
         if(pieceName.equals("TIG")){
-            return new Tiger(new Location(col, row), sideName);
+            return new Tiger(new Location(row, col), sideName);
         }
         if(pieceName.equals("LEO")){
-            return new Leopard(new Location(col, row), sideName);
+            return new Leopard(new Location(row, col), sideName);
         }
         if(pieceName.equals("WOL")){
-            return new Wolf(new Location(col, row), sideName);
+            return new Wolf(new Location(row, col), sideName);
         }
         if(pieceName.equals("DOG")){
-            return new Dog(new Location(col, row), sideName);
+            return new Dog(new Location(row, col), sideName);
         }
 
         if(pieceName.equals("CAT")){
-            return new Cat(new Location(col, row), sideName);
+            return new Cat(new Location(row, col), sideName);
         }
 
         if(pieceName.equals("RAT")){
-            return new Rat(new Location(col, row), sideName);
+            return new Rat(new Location(row, col), sideName);
         }
 
         return null;
