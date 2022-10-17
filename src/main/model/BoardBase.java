@@ -1,5 +1,6 @@
 package main.model;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import main.model.Chesses.Chess;
 import main.utils.*;
 
@@ -102,17 +103,25 @@ public class BoardBase {
      * @return
      */
     public boolean checkLegalMove(Location from, Location to){
+        System.out.println(from.getRow());
+        System.out.println(from.getCol());
 
         if(!checkValidLocation(to)){
             return false;
         }
 
-        if(getSquare(from).getChessContent().canMoveToEmpty(to, getSquare(to))){
+        if(getSquare(from).getChessContent().canMoveToEmpty(from, to, getSquare(to))){
 
+            System.out.println("can you see me?");
             if(getSquare(from).getChessContent() != null){
-                if(!getSquare(from).getChessContent().canTake(getSquare(to))){
-                    return false;
+                try{
+                    if(!getSquare(from).getChessContent().canTake(getSquare(to))){
+                        return false;
+                    }
+                }catch (Exception e){
+                    System.err.println("error here");
                 }
+
                 if(getSquare(from).getType()==RIVER && getSquare(to).getType()!=RIVER){
                     return false;
                 }

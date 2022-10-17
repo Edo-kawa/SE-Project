@@ -1,7 +1,7 @@
 package main.view;
 
 import main.model.BoardBase;
-import main.model.BoardStandard;
+//import main.model.BoardStandard;
 import main.model.Square;
 import main.utils.Location;
 

@@ -20,23 +20,25 @@ public class Rat extends Chess {
         return false;
     }
 
-    public boolean canMoveToEmpty(Location destionation, Square square){
+    public boolean canMoveToEmpty(Location from, Location destionation, Square square){
         int dx = destionation.getRow();
         int dy = destionation.getCol();
 
         if(dx<1 || dx>9 || dy<1 || dy>7){
             return false;
         }
-        if(square.getType()==Type.DEN1 && side == Side.Red){
+        if(square.getType()==Type.DEN1 && super.side == Side.Red){
             return false;
         }
-        if(square.getType()==Type.DEN2 && side == Side.Blue){
+        if(square.getType()==Type.DEN2 && super.side == Side.Blue){
             return false;
         }
-        if(dx==location.getRow() && abs(dy-location.getCol())==1){
+//        System.out.println(getLocation().getRow());
+//        System.out.println(getLocation().getCol());
+        if(dx==from.getRow() && abs(dy-from.getCol())==1){
             return true;
         }
-        if(dy==location.getCol() && abs(dx-location.getRow())==1){
+        if(dy==from.getCol() && abs(dx-from.getRow())==1){
             return true;
         }
         return false;
