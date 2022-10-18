@@ -113,8 +113,8 @@ public class BoardBase {
         }
 
         if(getSquare(from).getChessContent().canMoveToEmpty(from, to, getSquare(to))){
-
-            System.out.println("can you see me?");
+//              testing code
+//            System.out.println("can you see me?");
             if(getSquare(to).getChessContent() != null){
 //                try{
                 if(!getSquare(from).getChessContent().canTake(getSquare(to))){
@@ -144,7 +144,7 @@ public class BoardBase {
                     for (int temp=min(from.getCol(), to.getCol())+1;
                          temp<max(from.getCol(), to.getCol()); temp++) {
 
-                        if(getSquare(new Location(temp, from.getRow())).getChessContent()!=null){
+                        if(getSquare(new Location(from.getRow(), temp)).getChessContent()!=null){
                             rat_in_river=true;
                         }
                     }
@@ -152,7 +152,7 @@ public class BoardBase {
                 if(from.getCol() == to.getCol()){
                     for (int temp=min(from.getRow(), to.getRow())+1;
                          temp<max(from.getRow(), to.getRow())+1; temp++) {
-                        if(getSquare(new Location(from.getCol(), temp)).getChessContent()!=null){
+                        if(getSquare(new Location(temp, from.getCol())).getChessContent()!=null){
                             rat_in_river=true;
                         }
                     }
@@ -164,7 +164,7 @@ public class BoardBase {
     }
 
     public boolean checkLegalMove(int index, Location to){
-        System.out.println(index);
+//        System.out.println(index);
         return checkLegalMove(index2Location(index), to);
     }
 
@@ -452,15 +452,15 @@ public class BoardBase {
 
         position[PLAYER_2][6]=location2index(new Location(9,7));
         // testing code
-        System.out.println("9 7 -> " + location2index(new Location(9,7)));
+//        System.out.println("9 7 -> " + location2index(new Location(9,7)));
 
 //        squares.add(new Square(new Tiger(9,7,Side.Blue), NORMAL));
         squares.add(new Square(BoardBuilder.chessFactory(
                 "TIG", Side.Blue, 9, 7), NORMAL));
 
         // testing code
-        System.out.println("PLAYER2' ELE: " + position[PLAYER_2][8] + "when it's initialized");
-        System.out.println("PLAYER2' TIG: " + position[PLAYER_2][6] + "when it's initialized");
+//        System.out.println("PLAYER2' ELE: " + position[PLAYER_2][8] + "when it's initialized");
+//        System.out.println("PLAYER2' TIG: " + position[PLAYER_2][6] + "when it's initialized");
     }
 
 }
