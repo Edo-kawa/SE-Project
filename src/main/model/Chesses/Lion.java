@@ -17,11 +17,11 @@ public class Lion extends Chess{
         super(location, LIO, side);
     }
 
-    public boolean canMoveToEmpty(Location original, Location destination, Square square){
-        int dx = destination.getRow();
-        int dy = destination.getCol();
-        int x = original.getRow();
-        int y = original.getCol();
+    public boolean canMoveToEmpty(Location from, Location to, Square square){
+        int dx = to.getRow();
+        int dy = to.getCol();
+        int x = from.getRow();
+        int y = from.getCol();
 
 //        if(dx<1 || dx>9 || dy<1 || dy>7){
 //            return false;

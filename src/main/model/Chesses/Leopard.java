@@ -13,7 +13,7 @@ public class Leopard extends Chess{
     public Leopard(Location location, Side side) {
         super(location, LEO, side);
     }
-    boolean isValidPath(int x, int y){
+    boolean isValidPath(Location from, Location to){
         return false;
     }
 }

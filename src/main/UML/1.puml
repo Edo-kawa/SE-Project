@@ -1,7 +1,29 @@
 @startuml
 
-abstract class AbstractList
-interface List
+Chess o-- Animal
+Chess o-- Side
+Chess o-- Location
+
+BoardBase o-- Location
+BoardBase o-- Chess
+BoardBase o-- Square
+
+Square o-- Type
+Square o-- Chess
+
+Chess <- Cat
+Chess <- Dog
+Chess <- Elephant
+Chess <- Leopard
+Chess <- Lion
+Chess <- Rat
+Chess <- Tiger
+Chess <- Wolf
+
+Pair <- Location
+
+Location <- Move
+Location <- Vector
 
 enum Animal{
 RAT
@@ -16,63 +38,121 @@ ELE
 +int getRank
 }
 
+enum Side{
+Red
+Blue
+}
+
+enum Type {
+RIVER
+TRAP1
+TRAP2
+DEN1
+DEN2
+NORMAL
+}
+
+class Square{
+private Chess chess;
+private Type type;
+}
 class Chess{
-- int x;
-- int y;
-- final Animal animal;
+protected Location location;
+protected Side side;
+final Animal animal;
+
 
 getter()
 setter()
+public boolean canMoveToEmpty(Location original, Location destination, Square square)
 }
-
-
-
-class Cat{
-}
-class Dog{
-}
-class Elephant{
-}
-class Leopard{
-}
-class Lion{
-}
-class Rat{
-}
-class Tiger{
-}
-class Wolf{
-}
-
-Chess <- Cat
-Chess <- Dog
-Chess <- Elephant
-Chess <- Leopard
-Chess <- Lion
-Chess <- Rat
-Chess <- Tiger
-Chess <- Wolf
-
 
 class BoardBase{
-private int width;
-private int height;
-private ArrayList<Square> squares;
-private List<Observer> observers;
+private final int row
+private final int column
+private ArrayList<Square> squares
+private List<Observer> observers
 
-BoardBase(int width, int height)
-boolean checkValidLocation(Location location)
-boolean checkCanCapture(Chess chess, Location location)
-boolean checkIsEmpty(Location location)
-boolean checkLegalMove(Location from, Location to)
+// player1 [0][1-8], player2 [1][1-8] 1-8 standing for Rank
+private int[2][9] position
+private final int PLAYER_1 = 0
+private final int PLAYER_2 = 1
+
+BoardBase()
+public int getPosition(int player, int index)
+public boolean checkValidLocation(Location location)
+public boolean checkCanCapture(Chess chess, Location location) // 未使用
+public boolean checkIsEmpty(Location location) // 未使用
+public boolean checkLegalMove(Location from, Location to)
+public boolean checkLegalMove(int index, Location to)
 public void moveTo(Location from, Location to)
+public void moveTo(int index, Location to)
 public void clear(Location location)
 public int checkWinner()
-public boolean setChess(Chess chess, Location location)
+public boolean setChess(Chess chess, Location location) // 未使用
 public Chess getChess(Location location)
 public Square getSquare(Location location)
 public Square getSquare(int index)
-public Set<Move> getLegalMoves(Location location) // we can consider send player reminder
+public Set<Move> getLegalMoves(Location location) // 未使用
 private int location2index(Location location)
+private Location index2Location(int index)
+private void init()
 }
+
+class Cat{
+boolean isValidPath(Location from, Location to)
+}
+class Dog{
+boolean isValidPath(Location from, Location to)
+}
+
+class Elephant{
+protected boolean outRank(Animal animal1)
+}
+
+class Leopard{
+boolean isValidPath(Location from, Location to)
+}
+class Lion{
+public boolean canMoveToEmpty(Location from, Location to, Square square)
+}
+class Rat{
+public boolean canMoveToEmpty(Location from, Location destionation, Square square
+}
+class Tiger{
+public boolean canMoveToEmpty(Location original, Location destination, Square square)
+}
+class Wolf{
+public boolean isValidPath(Location from, Location to)
+}
+
+
+class Pair<A, B>{
+private A mA;
+private B mB;
+constructor()
+getters()
+setters()
+// hashcode和equal要不要改 再讨论
+
+}
+
+class Location<Integer, Integer>{
+
+
+public Location getLeft() // 未使用
+public Location getRight() // 未使用
+public Location getAbove() // 未使用
+public Location getBelow() // 未使用
+public Location getIncrement(Vector direction) // 未使用
+}
+class Vector<Location, Location>{
+     // 考虑抽象每一个移动为一个类
+}
+class Move<Location, Location>{
+// 考虑抽象每一个动作为一个类
+}
+
+
+
 @enduml

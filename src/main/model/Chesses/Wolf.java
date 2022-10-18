@@ -13,7 +13,7 @@ public class Wolf extends Chess{
     public Wolf(Location location, Side side) {
         super(location, WOL, side);
     }
-    boolean isValidPath(int x, int y){
+    public boolean isValidPath(Location from, Location to){
         return false;
     }
 }

@@ -21,8 +21,8 @@ import static main.model.Type.TRAP2;
  */
 public class BoardBase {
 
-    private int row = 9;
-    private int column = 7;
+    private final int row = 9;
+    private final int column = 7;
     
     private ArrayList<Square> squares;
     private List<Observer> observers;
@@ -34,8 +34,8 @@ public class BoardBase {
      */
     
     private int[][] position = new int[2][9];
-    final int PLAYER_1 = 0; // red
-    final int PLAYER_2 = 1; // blue
+    private final int PLAYER_1 = 0; // red
+    private final int PLAYER_2 = 1; // blue
 
 
     public BoardBase() throws RuntimeException{

@@ -15,7 +15,7 @@ public class Cat extends Chess{
         super(location, CAT, side);
     }
 
-    boolean isValidPath(int x, int y){
+    boolean isValidPath(Location from, Location to){
         return false;
     }
 
