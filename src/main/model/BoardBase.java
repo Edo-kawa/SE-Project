@@ -108,12 +108,7 @@ public class BoardBase {
                         }
                     }
                 }
-                if(rat_in_river){
-                    System.out.println("rat in river");
-                    return false;
-                }else{
-                    return true;
-                }
+                return !rat_in_river;
             }
         }
         return false;
