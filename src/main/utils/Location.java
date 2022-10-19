@@ -1,64 +1,29 @@
 package main.utils;
 
+public class Location{
 
-
-/**
- * @Author Anthony Z.
- * @Date 9/10/2022
- * @Description:
- */
-public class Location extends Pair<Integer, Integer>{
-
+    private int r,i,c;
     public Location(int row, int column){
-        super(row, column);
+        i=(row-1)*7+column-1;
+        r=row;
+        c=column;
+    }
+
+    public Location(int index){
+        i=index;
+        c=index%7+1;
+        r=index/7+1;
     }
 
     public int getRow(){
-        return getA();
+        return r;
     }
 
     public int getCol(){
-        return getB();
+        return c;
     }
 
-
-    /**
-     * Construct a location that's left of the current location.
-     */
-    public Location getLeft() {
-        return getIncrement(new Vector(0, -1));
+    public int getIndex(){
+        return i;
     }
-
-    /**
-     * Construct a location that's right of the current location.
-     */
-    public Location getRight() {
-        return getIncrement(new Vector(0, 1));
-    }
-
-    /**
-     * Construct a location that's above the current location.
-     */
-    public Location getAbove() {
-        return getIncrement(new Vector(-1, 0));
-    }
-
-    /**
-     * Construct a location that's below the current location.
-     */
-    public Location getBelow() {
-        return getIncrement(new Vector(1, 0));
-    }
-
-    /**
-     * Get a location in a direction.
-     *
-     * @param direction The direction of the location.
-     */
-    public Location getIncrement(Vector direction) {
-        return new Location(getRow() + direction.getVerticalDisplacement(),
-                getCol() + direction.getHorizontalDisplacement());
-    }
-
-
 }

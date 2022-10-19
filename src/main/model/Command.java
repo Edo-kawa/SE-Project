@@ -2,7 +2,6 @@ package main.model;
 
 import main.model.Chesses.Chess;
 import main.utils.Location;
-import main.utils.Move;
 
 /**
  * @Author Anthony Z.
@@ -11,20 +10,6 @@ import main.utils.Move;
  */
 public class Command implements Observer{
 
-
     private BoardBase chessBoard;
 
-    /**
-     * If the chess has moved, track it.
-     * @param move The move of the chess (from and to location).
-     */
-    @Override
-    public void chessMoved(Move move) {
-        Chess moveTo;
-    }
-
-    @Override
-    public void chessRemoved(Chess chessMoved, Location originalLocation) {
-
-    }
 }
