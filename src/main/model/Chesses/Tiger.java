@@ -7,19 +7,12 @@ import main.utils.Side;
 
 import static java.lang.Math.abs;
 import static main.model.Chesses.Animal.*;
-/**
- * @Author Anthony Z.
- * @Date 6/10/2022
- * @Description:
- */
+
 public class Tiger extends Chess{
     public Tiger(Location location, Side side) {
         super(location, TIG, side);
     }
 
-    boolean isValidPath(int x, int y){
-        return false;
-    }
 
     public boolean canMoveToEmpty(Location original, Location destination, Square square){
         int dx = destination.getRow();
@@ -27,9 +20,6 @@ public class Tiger extends Chess{
         int x = original.getRow();
         int y = original.getCol();
 
-//        if(dx<1 || dx>9 || dy<1 || dy>7){
-//            return false;
-//        }
         if(square.getType()== Type.RIVER){
             return false;
         }

@@ -5,7 +5,7 @@ public enum Animal {
     LEO(5), TIG(6), LIO(7), ELE(8);
 
     private int rank;
-    private Animal(int rank){
+    Animal(int rank){
         this.rank = rank;
     }
 
@@ -13,8 +13,5 @@ public enum Animal {
         return rank;
     }
 
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
 }
 
