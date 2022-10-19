@@ -74,7 +74,6 @@ public class BoardBase {
         if(getSquare(from).getChessContent().canMoveToEmpty(from, to, getSquare(to))){
             if(getSquare(to).getChessContent() != null){
                 if(!getSquare(from).getChessContent().canTake(getSquare(to))){
-                    System.out.println("Cannot take.");
                     return false;
                 }
 
@@ -102,8 +101,9 @@ public class BoardBase {
                 }
                 if(from.getCol() == to.getCol()){
                     for (int temp=min(from.getRow(), to.getRow())+1;
-                         temp<max(from.getRow(), to.getRow())+1; temp++) {
+                         temp<max(from.getRow(), to.getRow()); temp++) {
                         if(getSquare(new Location(temp, from.getCol())).getChessContent()!=null){
+
                             rat_in_river=true;
                         }
                     }
@@ -111,10 +111,12 @@ public class BoardBase {
                 if(rat_in_river){
                     System.out.println("rat in river");
                     return false;
+                }else{
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
 
