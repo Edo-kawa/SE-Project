@@ -51,8 +51,8 @@ public class BoardBase {
      * @return true if the location is valid
      */
     boolean checkValidLocation(Location location){
-        return location.getRow() >= 0 && location.getRow() <= row
-                && location.getCol() >= 0 && location.getCol() <= column;
+        return location.getRow() >= 1 && location.getRow() <= row
+                && location.getCol() >= 1 && location.getCol() <= column;
     }
 
     /**
