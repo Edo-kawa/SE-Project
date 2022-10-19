@@ -4,9 +4,6 @@ import main.model.Chesses.Chess;
 import main.utils.*;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
@@ -23,8 +20,8 @@ public class BoardBase {
     private final int row = 9;
     private final int column = 7;
     
-    private ArrayList<Square> squares;
-    private List<Observer> observers;
+    private ArrayList<Square> squares=new ArrayList<Square>();
+
 
     /**
      * The position (ArrayList index) of a piece
@@ -37,15 +34,7 @@ public class BoardBase {
     private final int PLAYER_2 = 1; // blue
 
 
-    public BoardBase() throws RuntimeException{
-//        if(width<0 || height<0){
-//            throw new RuntimeException("Invalid size for chess board");
-//        }
-        squares = new ArrayList<>(this.row * this.column);
-        observers = new ArrayList<>();
-        init();
-
-    }
+    public BoardBase(){}
 
     public Location getPosition(int player, int index) {
 
@@ -83,16 +72,11 @@ public class BoardBase {
         }
 
         if(getSquare(from).getChessContent().canMoveToEmpty(from, to, getSquare(to))){
-//              testing code
-//            System.out.println("can you see me?");
             if(getSquare(to).getChessContent() != null){
-//                try{
                 if(!getSquare(from).getChessContent().canTake(getSquare(to))){
+                    System.out.println("Cannot take.");
                     return false;
                 }
-//                }catch (Exception e){
-//                    System.err.println("error here");
-//                }
 
                 if(getSquare(from).getType()==RIVER && getSquare(to).getType()!=RIVER){
                     return false;
@@ -106,9 +90,7 @@ public class BoardBase {
             if(Math.abs(from.getRow()-to.getRow())<=1 && Math.abs(from.getCol()-to.getCol())<=1){
                 return true;
             }else{
-
                 boolean rat_in_river=false;
-
                 if(from.getRow() == to.getRow()){
                     for (int temp=min(from.getCol(), to.getCol())+1;
                          temp<max(from.getCol(), to.getCol()); temp++) {
@@ -126,10 +108,13 @@ public class BoardBase {
                         }
                     }
                 }
-                return !rat_in_river;
+                if(rat_in_river){
+                    System.out.println("rat in river");
+                    return false;
+                }
             }
         }
-        return false;
+        return true;
     }
 
 
@@ -226,7 +211,7 @@ public class BoardBase {
         return null;
     }
 
-    private void init(){
+    public void init(){
         position[PLAYER_1][6]=new Location(1,1);
         squares.add(new Square(BoardBuilder.chessFactory(
                 "TIG", Side.Red, 1, 1), NORMAL));

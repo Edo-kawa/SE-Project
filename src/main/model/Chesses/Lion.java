@@ -23,9 +23,6 @@ public class Lion extends Chess{
         int x = from.getRow();
         int y = from.getCol();
 
-//        if(dx<1 || dx>9 || dy<1 || dy>7){
-//            return false;
-//        }
         if(square.getType()== Type.RIVER){
             return false;
         }

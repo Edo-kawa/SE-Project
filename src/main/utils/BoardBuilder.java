@@ -9,19 +9,7 @@ import main.model.Chesses.*;
  */
 public class BoardBuilder {
 
-//    public static ChessBoard boardFactory(String boardName, int height,
-//                                          int width){
-//
-//        if(boardName.equals("ChessBoard")){
-//            return new ChessBoard(width, height);
-//
-//        }
-//
-//        return null;
-//    }
-
-    public static Chess chessFactory(String pieceName,
-                                     Side sideName, int row, int col){
+    public static Chess chessFactory(String pieceName, Side sideName, int row, int col){
 
         if(pieceName.equals("ELE")){
             return new Elephant(new Location(row, col), sideName);
@@ -54,7 +42,4 @@ public class BoardBuilder {
         return null;
 
     }
-
-
-
 }

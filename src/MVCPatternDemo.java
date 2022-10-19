@@ -1,5 +1,3 @@
-package main;
-
 import main.controller.BoardController;
 import main.model.BoardBase;
 //import main.model.BoardStandard;
@@ -15,8 +13,8 @@ public class MVCPatternDemo {
         // model
         BoardBase chessBoard = new BoardBase();
         // view
-        BoardView boardView = new BoardView();
+        BoardView boardView = new BoardView(chessBoard);
         // controller
-        BoardController controller = new BoardController(chessBoard, boardView);
+        BoardController controller = new BoardController(boardView);
     }
 }

@@ -50,18 +50,12 @@ public class Chess {
      * @return
      */
     public boolean canMoveToEmpty(Location original, Location destination, Square square){
-        // testing code
 
         int dx = destination.getRow();
         int dy = destination.getCol();
         int x = original.getRow();
         int y = original.getCol();
 
-        // 这一步应该在磁盘中检查valid location 而不是在这里检查！！
-        // 棋子怎么会知道棋盘的属性
-//        if(dx<1 || dx>9 || dy<1 || dy>7){
-//            return false;
-//        }
         if(square.getType()== Type.RIVER){
             return false;
         }

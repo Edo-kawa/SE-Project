@@ -14,106 +14,17 @@ import java.util.Scanner;
  * @Description:
  */
 public class BoardView {
-    BoardBase chessBoard;
+    private BoardBase chessBoard;
 
-    public BoardView(){
-        init();
+    public BoardBase getChessBoard() {
+        return chessBoard;
     }
 
-    public void init(){
-        Scanner scanner = new Scanner(System.in);
-        chessBoard = new BoardBase();
-        //1 or 2
-        int player_turn=1;
-
-        while(chessBoard.checkWinner()==0) {
-            printChessBoard();
-
-            if(player_turn==1) {
-                System.out.println(ConsoleColors.RED + "Player 1's turn." + ConsoleColors.RESET);
-            }else{
-                System.out.println(ConsoleColors.BLUE + "Player 2's turn." + ConsoleColors.RESET);
-            }
-            int index=0;
-            boolean flag=true;
-            while(flag) {
-                System.out.println("Which piece would you like to move?");
-                String s = scanner.nextLine();
-                if(s.length()<3){
-                    continue;
-                }
-                switch (s.toLowerCase().substring(0, 3)) {
-                    case "rat":
-                        index = chessBoard.getPosition(player_turn - 1, 1).getIndex();
-                        flag=false;
-                        break;
-                    case "cat":
-                        index = chessBoard.getPosition(player_turn - 1, 2).getIndex();
-                        flag=false;
-                        break;
-                    case "dog":
-                        index = chessBoard.getPosition(player_turn - 1, 3).getIndex();
-                        flag=false;
-                        break;
-                    case "wol":
-                        index = chessBoard.getPosition(player_turn - 1, 4).getIndex();
-                        flag=false;
-                        break;
-                    case "leo":
-                        index = chessBoard.getPosition(player_turn - 1, 5).getIndex();
-                        flag=false;
-                        break;
-                    case "tig":
-                        index = chessBoard.getPosition(player_turn - 1, 6).getIndex();
-                        flag=false;
-                        break;
-                    case "lio":
-                        index = chessBoard.getPosition(player_turn - 1, 7).getIndex();
-                        flag=false;
-                        break;
-                    case "ele":
-                        index = chessBoard.getPosition(player_turn - 1, 8).getIndex();
-                        flag=false;
-                        break;
-                }
-                if(index == -1){
-                    flag=true;
-                }
-            }
-            flag=true;
-            int dx = 0, dy = 0;
-            while(flag){
-                System.out.println("Please enter destination:");
-                String  input = scanner.nextLine();
-                if(input.length()!=3){
-                    continue;
-                }
-                if(input.charAt(1) != ' ' && input.charAt(1) != ','){
-                    continue;
-                }
-                dx = input.charAt(0)-'0';
-                dy = input.charAt(2)-'0';
-                System.out.println(dx + " " + dy);
-                if(dx<1 || dx>9 || dy<1 || dy>7){
-                    continue;
-                }
-                flag=false;
-            }
-
-            if(chessBoard.checkLegalMove(new Location(index),new Location(dx, dy))){
-                chessBoard.moveTo(new Location(index), new Location(dx, dy));
-            }else{
-                System.out.println("Invalid move. Please try again.");
-                continue;
-            }
-            player_turn=3-player_turn;
-        }
-
-        printChessBoard();
-        System.out.println("Player "+chessBoard.checkWinner()+" wins.");
+    public BoardView(BoardBase model){
+        chessBoard=model;
     }
 
-    void printChessBoard(){
+    public void printChessBoard(){
         System.out.println("----------------------------");
         for(int r=9; r>=1; r--){
             System.out.print(" "+r+" - ");
@@ -126,6 +37,4 @@ public class BoardView {
         System.out.println("      1  2  3  4  5  6  7 ");
         System.out.println("----------------------------");
     }
-
-
 }
