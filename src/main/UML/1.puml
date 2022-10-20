@@ -4,9 +4,9 @@ Chess o-- Animal
 Chess o-- Side
 Chess o-- Location
 
-BoardBase o-- Location
-BoardBase o-- Chess
-BoardBase o-- Square
+ChessBoard o-- Location
+ChessBoard o-- Chess
+ChessBoard o-- Square
 
 Square o-- Type
 Square o-- Chess
@@ -14,16 +14,16 @@ Square o-- Chess
 Chess <- Cat
 Chess <- Dog
 Chess <- Elephant
-Chess <- Leopard
+'Chess <- Leopard
 Chess <- Lion
 Chess <- Rat
 Chess <- Tiger
-Chess <- Wolf
+'Chess <- Wolf
 
-Pair <- Location
+BoardView o-- ChessBoard
 
-Location <- Move
-Location <- Vector
+BoardController o-- ChessBoard
+BoardController o-- BoardView
 
 enum Animal{
 RAT
@@ -34,8 +34,11 @@ LEO
 TIG
 LIO
 ELE
--int rank
-+int getRank
+
+<plain>- rank: int
+
+Animal(int rank)
+<plain>+ getRank(): int
 }
 
 enum Side{
@@ -53,106 +56,114 @@ NORMAL
 }
 
 class Square{
-private Chess chess;
-private Type type;
+<plain>- chess: Chess
+<plain>- type: Type
+
+<plain>+  Square(Chess, Type) // constructor
+<plain>+  getChessContent(): Chess
+<plain>+  setContent(Chess c): void
+<plain>+  getType(): Type
 }
+
 class Chess{
-protected Location location;
-protected Side side;
-final Animal animal;
+<plain># location: Location
+<plain># side: Side
+<plain># animal: Animal
 
-
-getter()
-setter()
-public boolean canMoveToEmpty(Location original, Location destination, Square square)
+<plain>+ Chess(Location, Animal, Side)
+<plain>+ canMoveToEmpty(Location, Location, Square): boolean
+<plain># outRank(Animal): boolean
 }
 
-class BoardBase{
-private final int row
-private final int column
-private ArrayList<Square> squares
-private List<Observer> observers
+class ChessBoard{
+<plain>- row: int
+<plain>- column: int
+<plain>- squares: ArrayList<Square>
+'// player1 [0][1-8], player2 [1][1-8] 1-8 standing for Rank
+<plain>- position: Location[][]
+<plain>- PLAYER_1: int
+<plain>- PLAYER_2: int
 
-// player1 [0][1-8], player2 [1][1-8] 1-8 standing for Rank
-private int[2][9] position
-private final int PLAYER_1 = 0
-private final int PLAYER_2 = 1
-
-BoardBase()
-public int getPosition(int player, int index)
-public boolean checkValidLocation(Location location)
-public boolean checkCanCapture(Chess chess, Location location) // 未使用
-public boolean checkIsEmpty(Location location) // 未使用
-public boolean checkLegalMove(Location from, Location to)
-public boolean checkLegalMove(int index, Location to)
-public void moveTo(Location from, Location to)
-public void moveTo(int index, Location to)
-public void clear(Location location)
-public int checkWinner()
-public boolean setChess(Chess chess, Location location) // 未使用
-public Chess getChess(Location location)
-public Square getSquare(Location location)
-public Square getSquare(int index)
-public Set<Move> getLegalMoves(Location location) // 未使用
-private int location2index(Location location)
-private Location index2Location(int index)
-private void init()
+<plain>+ ChessBoard() // constructor
+<plain>+ getPosition(int, int): Location
+<plain>+ checkValidLocation(Location): boolean
+'<plain>+ checkCanCapture(Chess chess, Location location) // 未使用
+'<plain>+ boolean checkIsEmpty(Location location) // 未使用
+<plain>+ checkLegalMove(Location, Location): boolean 
+'<plain>+ boolean checkLegalMove(int index, Location to)
+<plain>+ moveTo(Location, Location): void
+'<plain>+ void moveTo(int index, Location to)
+<plain>+ clear(Location): void 
+<plain>+ checkWinner(): int 
+'<plain>+ boolean setChess(Chess chess, Location location) // 未使用
+'<plain>+ Chess getChess(Location location)
+<plain>+ getSquare(Location): Square 
+'<plain>+ Square getSquare(int index)
+'<plain>+ Set<Move> getLegalMoves(Location location) // 未使用
+'<plain>- int location2index(Location location)
+'<plain>- Location index2Location(int index)
+<plain>- init(): void 
 }
 
 class Cat{
-boolean isValidPath(Location from, Location to)
+<plain>+ Cat(Location, Side)
 }
 class Dog{
-boolean isValidPath(Location from, Location to)
+<plain>+ Dog(Location, Side)
 }
 
 class Elephant{
-protected boolean outRank(Animal animal1)
+<plain># outRank(Animal): boolean
 }
-
-class Leopard{
-boolean isValidPath(Location from, Location to)
-}
+'
+'class Leopard{
+''boolean isValidPath(Location from, Location to)
+'}
 class Lion{
-public boolean canMoveToEmpty(Location from, Location to, Square square)
+<plain>+ canMoveToEmpty(Location, Location, Square): boolean
 }
 class Rat{
-public boolean canMoveToEmpty(Location from, Location destionation, Square square
+<plain>+ canMoveToEmpty(Location, Location, Square): boolean
+<plain># outRank(Animal animal1): boolean
 }
 class Tiger{
-public boolean canMoveToEmpty(Location original, Location destination, Square square)
+<plain>+ canMoveToEmpty(Location, Location, Square): boolean
 }
-class Wolf{
-public boolean isValidPath(Location from, Location to)
-}
+'class Wolf{
+''<plain>+ boolean isValidPath(Location from, Location to)
+'}
 
 
-class Pair<A, B>{
-private A mA;
-private B mB;
-constructor()
-getters()
-setters()
-// hashcode和equal要不要改 再讨论
+class Location{
 
-}
+<plain>- int row
+<plain>- int column
+<plain>- int index
 
-class Location<Integer, Integer>{
-
-
-public Location getLeft() // 未使用
-public Location getRight() // 未使用
-public Location getAbove() // 未使用
-public Location getBelow() // 未使用
-public Location getIncrement(Vector direction) // 未使用
-}
-class Vector<Location, Location>{
-     // 考虑抽象每一个移动为一个类
-}
-class Move<Location, Location>{
-// 考虑抽象每一个动作为一个类
+<plain>+ Location(int, int)
+<plain>+ Location(int)
+<plain>+ getRow(): int
+<plain>+ getCol(): int
+<plain>+ getIndex(): int
 }
 
+class BoardController{
+<plain>- final ChessBoard model;
+<plain>- final BoardView view;
 
+<plain>+ BoardController(BoardView)
+<plain>+ init(): void
+<plain>+ updateModel(): void
+<plain>+ updateView(): void
+}
+
+class BoardView{
+
+<plain>- chessBoard: ChessBoard
+
+<plain>+ BoardView(ChessBoard)
+<plain>+ getChessBoard(): ChessBoard
+<plain>+ printChessBoard(): void
+}
 
 @enduml
