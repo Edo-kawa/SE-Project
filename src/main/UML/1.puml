@@ -25,6 +25,9 @@ BoardView o-- ChessBoard
 BoardController o-- ChessBoard
 BoardController o-- BoardView
 
+BoardBuilder o-- Side
+BoardBuilder o-- Chess
+
 enum Animal{
 RAT
 CAT
@@ -64,6 +67,34 @@ class Square{
 <plain>+  setContent(Chess c): void
 <plain>+  getType(): Type
 }
+
+class Cat{
+<plain>+ Cat(Location, Side)
+}
+class Dog{
+<plain>+ Dog(Location, Side)
+}
+
+class Elephant{
+<plain># outRank(Animal): boolean
+}
+'
+'class Leopard{
+''boolean isValidPath(Location from, Location to)
+'}
+class Lion{
+<plain>+ canMoveToEmpty(Location, Location, Square): boolean
+}
+class Rat{
+<plain>+ canMoveToEmpty(Location, Location, Square): boolean
+<plain># outRank(Animal animal1): boolean
+}
+class Tiger{
+<plain>+ canMoveToEmpty(Location, Location, Square): boolean
+}
+'class Wolf{
+''<plain>+ boolean isValidPath(Location from, Location to)
+'}
 
 class Chess{
 <plain># location: Location
@@ -105,33 +136,6 @@ class ChessBoard{
 <plain>- init(): void 
 }
 
-class Cat{
-<plain>+ Cat(Location, Side)
-}
-class Dog{
-<plain>+ Dog(Location, Side)
-}
-
-class Elephant{
-<plain># outRank(Animal): boolean
-}
-'
-'class Leopard{
-''boolean isValidPath(Location from, Location to)
-'}
-class Lion{
-<plain>+ canMoveToEmpty(Location, Location, Square): boolean
-}
-class Rat{
-<plain>+ canMoveToEmpty(Location, Location, Square): boolean
-<plain># outRank(Animal animal1): boolean
-}
-class Tiger{
-<plain>+ canMoveToEmpty(Location, Location, Square): boolean
-}
-'class Wolf{
-''<plain>+ boolean isValidPath(Location from, Location to)
-'}
 
 
 class Location{
@@ -164,6 +168,11 @@ class BoardView{
 <plain>+ BoardView(ChessBoard)
 <plain>+ getChessBoard(): ChessBoard
 <plain>+ printChessBoard(): void
+}
+
+
+class BoardBuilder{
+<plain>+ Chess chessFactory(String, Side, int, int)
 }
 
 @enduml
