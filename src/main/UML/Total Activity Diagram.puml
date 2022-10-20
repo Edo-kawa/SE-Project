@@ -18,6 +18,11 @@ start
 #FFE4AA:Start;
 repeat
 if (Enter menu) then ([Start playing])
+    if () then (Start a new game)
+
+    else (Load an existing game)
+        #FFE4AA:Read previously saved data;
+    endif
     #40E0D0:Game Round;
 else ([Read mannual])
     #FFE4AA:Open the user manual;

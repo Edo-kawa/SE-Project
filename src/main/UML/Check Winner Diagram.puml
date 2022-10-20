@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+partition "**Check Winner Diagram**"
+
+<style>
+activityDiagram {
+  BackgroundColor #FFF8DC
+  BorderColor #FFFFFF
+
+  diamond {
+    BackgroundColor #FFE4C4
+  }
+}
+</style>
+
+start
+#FFE4AA:Start;
+#FFE4AA:Check both den squares;
+if (Check both den squares) then ([Both dens are not occupied])
+    if (Check the number of pieces from both sides) then ([Both sides have not lost all pieces])
+        #FFE4AA:Output [No Winner];
+    else ([Any side has lost all pieces])
+        label has_winner1
+        #FFE4AA:Output [The Winner is ...];
+    endif
+else ([Any of dens is occupied])
+    label has_winner2
+    goto has_winner1
+endif
+#FFE4AA:Terminate;
+
+stop
+
+@enduml
