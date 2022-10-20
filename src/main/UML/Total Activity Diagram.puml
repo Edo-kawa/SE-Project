@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+partition "**Total Activity Diagram**"
+
+<style>
+activityDiagram {
+  BackgroundColor #FFF8DC
+  BorderColor #FFFFFF
+
+  diamond {
+    BackgroundColor #FFE4C4
+  }
+}
+</style>
+
+start
+#FFE4AA:Start;
+repeat
+if (Enter menu) then ([Start playing])
+    #40E0D0:Game Round;
+else ([Read mannual])
+    #FFE4AA:Open the user manual;
+endif
+repeat while (Quit?) is ([false])
+->:[true];
+#FFE4AA:Terminate;
+
+stop
+
+@enduml
