@@ -2,14 +2,21 @@ package main.utils;
 
 import main.model.Chesses.*;
 
-/**
- * @Author Anthony Z.
- * @Date 9/10/2022
- * @Description:
- */
 public class BoardBuilder {
 
-    public static Chess chessFactory(String pieceName, Side sideName, int row, int col){
+//    public static ChessBoard boardFactory(String boardName, int height,
+//                                          int width){
+//
+//        if(boardName.equals("ChessBoard")){
+//            return new ChessBoard(width, height);
+//
+//        }
+//
+//        return null;
+//    }
+
+    public static Chess chessFactory(String pieceName,
+                                     Side sideName, int row, int col){
 
         if(pieceName.equals("ELE")){
             return new Elephant(new Location(row, col), sideName);
@@ -22,10 +29,10 @@ public class BoardBuilder {
             return new Tiger(new Location(row, col), sideName);
         }
         if(pieceName.equals("LEO")){
-            return new Leopard(new Location(row, col), sideName);
+            return new Chess(new Location(row, col), Animal.LEO, sideName);
         }
         if(pieceName.equals("WOL")){
-            return new Wolf(new Location(row, col), sideName);
+            return new Chess(new Location(row, col), Animal.WOL, sideName);
         }
         if(pieceName.equals("DOG")){
             return new Dog(new Location(row, col), sideName);
@@ -42,4 +49,5 @@ public class BoardBuilder {
         return null;
 
     }
+
 }
