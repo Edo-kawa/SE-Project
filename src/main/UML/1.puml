@@ -10,9 +10,9 @@ ChessBoard o-- Square
 
 Square o-- Type
 Square o-- Chess
-
-Chess <- Cat
-Chess <- Dog
+'
+'Chess <- Cat
+'Chess <- Dog
 Chess <- Elephant
 'Chess <- Leopard
 Chess <- Lion
@@ -68,12 +68,7 @@ class Square{
 <plain>+  getType(): Type
 }
 
-class Cat{
-<plain>+ Cat(Location, Side)
-}
-class Dog{
-<plain>+ Dog(Location, Side)
-}
+
 
 class Elephant{
 <plain># outRank(Animal): boolean

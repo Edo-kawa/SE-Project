@@ -24,11 +24,11 @@ public class BoardBuilder {
             return new Chess(new Location(row, col), Animal.WOL, sideName);
         }
         if(pieceName.equals("DOG")){
-            return new Dog(new Location(row, col), sideName);
+            return new Chess(new Location(row, col), Animal.DOG, sideName);
         }
 
         if(pieceName.equals("CAT")){
-            return new Cat(new Location(row, col), sideName);
+            return new Chess(new Location(row, col), Animal.CAT, sideName);
         }
 
         if(pieceName.equals("RAT")){
