@@ -15,7 +15,7 @@ import static main.model.Type.TRAP2;
  * @Date 9/10/2022
  * @Description: the name of this class should be modified into ChessBoard
  */
-public class BoardBase {
+public class ChessBoard {
 
     private final int row = 9;
     private final int column = 7;
@@ -34,7 +34,7 @@ public class BoardBase {
     private final int PLAYER_2 = 1; // blue
 
 
-    public BoardBase(){}
+    public ChessBoard(){}
 
     public Location getPosition(int player, int index) {
 

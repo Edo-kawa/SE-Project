@@ -1,5 +1,5 @@
 package main.controller;
-import main.model.BoardBase;
+import main.model.ChessBoard;
 //import main.model.BoardStandard;
 import main.utils.Location;
 import main.view.*;
@@ -7,7 +7,8 @@ import main.view.*;
 import java.util.Scanner;
 
 public class BoardController {
-    private final BoardBase model;
+
+    private final ChessBoard model;
     private final BoardView view;
     public BoardController(BoardView v){
         view=v;
