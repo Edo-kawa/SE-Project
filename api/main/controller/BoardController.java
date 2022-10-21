@@ -14,10 +14,20 @@ public class BoardController {
 
     int player_turn;    // 0 for player 1; otherwise player 2
     int dx, dy, index;    // Destination's location
-    public void init(); // Initialize the Controller to process user's input
 
-    public void updateModel();  // Update the Model according to user's input
+    /**
+     * Initialize the Controller to process user's input
+     */
+    public void init();
 
-    public void updateView();   // Update the View
+    /**
+     * Update the Model according to user's input
+     */
+    public void updateModel();
+
+    /**
+     * Update the View
+     */
+    public void updateView();
 
 }
