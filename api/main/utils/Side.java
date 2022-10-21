@@ -1,13 +1,15 @@
 package main.utils;
 
 /**
- * @Author Anthony Z.
- * @Date 9/10/2022
- * @Description: Enum which denotes the side of chess.
+ * Two sides representing two players.
  */
 public enum Side {
     Red, Blue;
+
+    /**
+     * @return Side  the next player based on the turn.
+     */
     public Side next(){
-        return Side.values()[(ordinal() + 1) % Side.values().length];
+        return null;
     }
 }
