@@ -1,38 +1,38 @@
 @startuml
 
-package "Model" {
+package "Model" #FFF8DC {
     'ChessBoard o-- Location
-    ChessBoard *- Chess
-    ChessBoard *- Square
+    ChessBoard "1" *- "2..*" Piece: contains >
+    ChessBoard "1" *-- "63" Square: comprises >
 
     'Square o-- Type
-    Square "1" *--o "1" Chess
+    Square "1" *-o "0..1" Piece: contains >
     '
-    Chess --|> Cat      : instantiate
-    Chess --|> Dog      : instantiate
-    Chess --|> Elephant : instantiate
-    Chess --|> Leopard  : instantiate
-    Chess --|> Lion     : instantiate
-    Chess --|> Rat      : instantiate
-    Chess --|> Tiger    : instantiate
-    Chess --|> Wolf     : instantiate
+    Piece --|> Cat      : instantiate
+    Piece --|> Dog      : instantiate
+    Piece --|> Elephant : instantiate
+    Piece --|> Leopard  : instantiate
+    Piece --|> Lion     : instantiate
+    Piece --|> Rat      : instantiate
+    Piece --|> Tiger    : instantiate
+    Piece --|> Wolf     : instantiate
 }
 
-package "View" {
+package "View" #FFF8DC {
     BoardView -- ChessBoard
 }
 
-package "Controller" {
+package "Controller" #FFF8DC {
     BoardController -- ChessBoard
     BoardController - BoardView
 }
 
-package "Utilities" {
+package "Utilities" #FFF8DC {
     class Animal
     class Location
     enum Side
     enum Type
-    BoardBuilder - Chess: create >
+    BoardBuilder - Piece: create >
     'Chess o-- Animal
     'Chess o-- Side
     'Chess o-- Location
@@ -70,12 +70,12 @@ NORMAL
 }
 
 class Square{
-<plain>- chess: Chess
+<plain>- piece: Piece
 <plain>- type: Type
 
 '<plain>+  Square(Chess, Type) // constructor
 '<plain>+  getChessContent(): Chess
-<plain>+  setContent(Chess c): void
+<plain>+  setContent(Piece c): void
 <plain>+  getType(): Type
 }
 
@@ -102,7 +102,7 @@ class Wolf{
 '<plain>+ boolean isValidPath(Location from, Location to)
 }
 
-class Chess{
+class Piece{
 <plain># location: Location
 <plain># side: Side
 <plain># animal: Animal
@@ -179,7 +179,7 @@ class BoardView{
 
 
 class BoardBuilder{
-<plain>+ Chess chessFactory(String, Side, int, int)
+<plain>+ Piece chessFactory(String, Side, int, int)
 }
 
 @enduml
