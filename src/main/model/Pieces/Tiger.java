@@ -1,4 +1,4 @@
-package main.model.Chesses;
+package main.model.Pieces;
 
 import main.model.Square;
 import main.model.Type;
@@ -6,22 +6,19 @@ import main.utils.Location;
 import main.utils.Side;
 
 import static java.lang.Math.abs;
-import static main.model.Chesses.Animal.*;
-/**
- * @Author Anthony Z.
- * @Date 6/10/2022
- * @Description:
- */
-public class Lion extends Chess{
-    public Lion(Location location, Side side) {
-        super(location, LIO, side);
+import static main.model.Pieces.Animal.*;
+
+public class Tiger extends Piece {
+    public Tiger(Location location, Side side) {
+        super(location, TIG, side);
     }
 
-    public boolean canMoveToEmpty(Location from, Location to, Square square){
-        int dx = to.getRow();
-        int dy = to.getCol();
-        int x = from.getRow();
-        int y = from.getCol();
+
+    public boolean canMoveToEmpty(Location original, Location destination, Square square){
+        int dx = destination.getRow();
+        int dy = destination.getCol();
+        int x = original.getRow();
+        int y = original.getCol();
 
         if(square.getType()== Type.RIVER){
             return false;
@@ -32,6 +29,7 @@ public class Lion extends Chess{
         if(square.getType()==Type.DEN2 && side == Side.Blue){
             return false;
         }
+
         if(dx==x && abs(dy-y)==1){
             return true;
         }
@@ -52,4 +50,5 @@ public class Lion extends Chess{
 
         return false;
     }
+
 }

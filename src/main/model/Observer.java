@@ -1,9 +1,6 @@
 package main.model;
 
 
-import main.model.Chesses.Chess;
-import main.utils.Location;
-
 /**
  * @Author Anthony Z.
  * @Date 8/10/2022

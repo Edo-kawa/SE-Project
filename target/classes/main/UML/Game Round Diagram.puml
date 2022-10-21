@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+partition "**Game Round Diagram**"
+
+<style>
+activityDiagram {
+  BackgroundColor #FFF8DC
+  BorderColor #FFFFFF
+
+  diamond {
+    BackgroundColor #FFE4C4
+  }
+}
+</style>
+
+start
+#FFE4AA:Start;
+#FFE4AA:Initialize the chessboard (with pre-defined/saved data);
+
+repeat
+repeat
+#FFE4AA:Ask for users' move;
+#40E0D0:Check Move Validity;
+repeat while () is ([Invalid Move])
+->[Valid Move];
+#FFE4AA:Update the model;
+#40E0D0:Check Winner;
+repeat while () is ([No Winner])
+->[The Winner is ...];
+#FFE4AA:Terminate;
+
+stop
+
+@enduml

@@ -1,0 +1,185 @@
+@startuml
+
+package "Model" #FFF8DC {
+    'ChessBoard o-- Location
+    ChessBoard "1" *- "2..*" Piece: contains >
+    ChessBoard "1" *-- "63" Square: comprises >
+
+    'Square o-- Type
+    Square "1" *-o "0..1" Piece: contains >
+    '
+    Piece --|> Cat      : instantiate
+    Piece --|> Dog      : instantiate
+    Piece --|> Elephant : instantiate
+    Piece --|> Leopard  : instantiate
+    Piece --|> Lion     : instantiate
+    Piece --|> Rat      : instantiate
+    Piece --|> Tiger    : instantiate
+    Piece --|> Wolf     : instantiate
+}
+
+package "View" #FFF8DC {
+    BoardView -- ChessBoard
+}
+
+package "Controller" #FFF8DC {
+    BoardController -- ChessBoard
+    BoardController - BoardView
+}
+
+package "Utilities" #FFF8DC {
+    class Animal
+    class Location
+    enum Side
+    enum Type
+    BoardBuilder - Piece: create >
+    'Chess o-- Animal
+    'Chess o-- Side
+    'Chess o-- Location
+    'BoardBuilder o-- Side
+}
+
+enum Animal{
+RAT
+CAT
+DOG
+WOL
+LEO
+TIG
+LIO
+ELE
+
+'<plain>- rank: int
+
+'Animal(int rank)
+<plain>+ getRank(): int
+}
+
+enum Side{
+Red
+Blue
+}
+
+enum Type {
+RIVER
+TRAP1
+TRAP2
+DEN1
+DEN2
+NORMAL
+}
+
+class Square{
+<plain>- piece: Piece
+<plain>- type: Type
+
+'<plain>+  Square(Chess, Type) // constructor
+'<plain>+  getChessContent(): Chess
+<plain>+  setContent(Piece c): void
+<plain>+  getType(): Type
+}
+
+
+
+class Elephant{
+'<plain># outRank(Animal): boolean
+}
+'
+class Leopard{
+'boolean isValidPath(Location from, Location to)
+}
+class Lion{
+'<plain>+ canMoveToEmpty(Location, Location, Square): boolean
+}
+class Rat{
+'<plain>+ canMoveToEmpty(Location, Location, Square): boolean
+'<plain># outRank(Animal animal1): boolean
+}
+class Tiger{
+'<plain>+ canMoveToEmpty(Location, Location, Square): boolean
+}
+class Wolf{
+'<plain>+ boolean isValidPath(Location from, Location to)
+}
+
+class Piece{
+<plain># location: Location
+<plain># side: Side
+<plain># animal: Animal
+
+'<plain>+ Chess(Location, Animal, Side)
+<plain>+ canMoveToEmpty(Location, Location, Square): boolean
+'<plain># outRank(Animal): boolean
+<plain>+ canTake(Square): boolean
+}
+
+class ChessBoard{
+<plain>- row: int
+<plain>- column: int
+<plain>- squares: ArrayList<Square>
+'// player1 [0][1-8], player2 [1][1-8] 1-8 standing for Rank
+<plain>- position: Location[][]
+<plain>- PLAYER_1: int
+<plain>- PLAYER_2: int
+
+'<plain>+ ChessBoard() // constructor
+'<plain>+ getPosition(int, int): Location
+<plain>+ checkValidLocation(Location): boolean
+'<plain>+ checkCanCapture(Chess chess, Location location) // 未使用
+'<plain>+ boolean checkIsEmpty(Location location) // 未使用
+<plain>+ checkLegalMove(Location, Location): boolean
+'<plain>+ boolean checkLegalMove(int index, Location to)
+<plain>+ moveTo(Location, Location): void
+'<plain>+ void moveTo(int index, Location to)
+<plain>+ clear(Location): void
+<plain>+ checkWinner(): int
+'<plain>+ boolean setChess(Chess chess, Location location) // 未使用
+'<plain>+ Chess getChess(Location location)
+'<plain>+ getSquare(Location): Square
+'<plain>+ Square getSquare(int index)
+'<plain>+ Set<Move> getLegalMoves(Location location) // 未使用
+'<plain>- int location2index(Location location)
+'<plain>- Location index2Location(int index)
+'<plain>- init(): void
+}
+
+
+
+class Location{
+
+<plain>- int row
+<plain>- int column
+<plain>- int index
+
+'<plain>+ Location(int, int)
+'<plain>+ Location(int)
+'<plain>+ getRow(): int
+'<plain>+ getCol(): int
+'<plain>+ getIndex(): int
+}
+
+class BoardController{
+<plain>- final ChessBoard model;
+<plain>- final BoardView view;
+
+'<plain>+ BoardController(BoardView)
+'<plain>+ init(): void
+<plain>+ updateModel(): void
+<plain>+ updateView(): void
+}
+
+class BoardView{
+
+<plain>- chessBoard: ChessBoard
+
+'<plain>+ BoardView(ChessBoard)
+'<plain>+ getChessBoard(): ChessBoard
+<plain>+ printChessBoard(): void
+}
+
+
+class BoardBuilder{
+<plain>+ Piece chessFactory(String, Side, int, int)
+}
+
+@enduml

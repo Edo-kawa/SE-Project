@@ -1,10 +1,10 @@
-package main.model.Chesses;
+package main.model.Pieces;
 
 import main.utils.Location;
 import main.utils.Side;
 
-import static main.model.Chesses.Animal.*;
-public class Elephant extends Chess{
+import static main.model.Pieces.Animal.*;
+public class Elephant extends Piece {
     public Elephant(Location location, Side side) {
         super(location, ELE, side);
     }

@@ -1,6 +1,6 @@
 package main.model;
 
-import main.model.Chesses.Chess;
+import main.model.Pieces.Piece;
 import main.utils.*;
 
 import java.util.ArrayList;
@@ -126,7 +126,7 @@ public class BoardBase {
         if(squares.get(to.getIndex()).getChessContent()!=null){
             clear(to);
         }
-        Chess piece=squares.get(from.getIndex())
+        Piece piece=squares.get(from.getIndex())
                 .getChessContent();
 
         piece.setLocation(to);
@@ -146,7 +146,7 @@ public class BoardBase {
      * @param location
      */
     public void clear(Location location){
-        Chess piece = squares.get(location.getIndex()).getChessContent();
+        Piece piece = squares.get(location.getIndex()).getChessContent();
         squares.get(location.getIndex()).setContent(null);
 
         if(piece.getSide() == Side.Red){

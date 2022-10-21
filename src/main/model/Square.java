@@ -1,23 +1,23 @@
 package main.model;
 
 
-import main.model.Chesses.Chess;
+import main.model.Pieces.Piece;
 import main.utils.Side;
 import main.view.ConsoleColors;
 
 public class Square{
-    private Chess chess;
+    private Piece piece;
     private Type type;
-    public Chess getChessContent(){
-        return chess;
+    public Piece getChessContent(){
+        return piece;
     }
-    public void setContent(Chess c){
-        chess=c;
+    public void setContent(Piece c){
+        piece =c;
     }
 
     @Override
     public String toString() {
-        if (chess==null){
+        if (piece ==null){
             switch (type){
                 case NORMAL:return ConsoleColors.GREEN_BACKGROUND + "   " + ConsoleColors.RESET;
                 case RIVER:return ConsoleColors.CYAN_BACKGROUND + "   " + ConsoleColors.RESET;
@@ -27,10 +27,10 @@ public class Square{
                 case DEN2:return ConsoleColors.BLACK_BACKGROUND + "   " + ConsoleColors.RESET;
             }
         }
-        if (chess.getSide() == Side.Red){
-            return ConsoleColors.RED_BACKGROUND + chess.toString() + ConsoleColors.RESET;
+        if (piece.getSide() == Side.Red){
+            return ConsoleColors.RED_BACKGROUND + piece.toString() + ConsoleColors.RESET;
         }else{
-            return ConsoleColors.BLUE_BACKGROUND + chess.toString() + ConsoleColors.RESET;
+            return ConsoleColors.BLUE_BACKGROUND + piece.toString() + ConsoleColors.RESET;
         }
 
     }
@@ -40,8 +40,8 @@ public class Square{
         return type;
     }
 
-    public Square(Chess chess, Type type) {
-        this.chess = chess;
+    public Square(Piece chess, Type type) {
+        this.piece = chess;
         this.type = type;
     }
 

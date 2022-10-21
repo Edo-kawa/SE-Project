@@ -1,6 +1,6 @@
 package main.model;
 
-import main.model.Chesses.Chess;
+import main.model.Pieces.Piece;
 
 /**
  * @Author Anthony Z.
@@ -9,7 +9,7 @@ import main.model.Chesses.Chess;
  */
 public interface Observable {
 
-    void move(Chess chess, int nextX, int nextY);
+    void move(Piece chess, int nextX, int nextY);
 
     void notifyObservers();
 }

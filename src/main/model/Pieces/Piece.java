@@ -1,4 +1,4 @@
-package main.model.Chesses;
+package main.model.Pieces;
 
 import static java.lang.Math.abs;
 import main.model.Square;
@@ -6,7 +6,7 @@ import main.model.Type;
 import main.utils.Location;
 import main.utils.Side;
 
-public class Chess {
+public class Piece {
     protected Location location;
 
     protected Side side;//player: 1 or 2
@@ -15,7 +15,7 @@ public class Chess {
     }
     public final Animal animal;
 
-    public Chess(Location location, Animal animal, Side owner){
+    public Piece(Location location, Animal animal, Side owner){
         location = location;
         this.animal = animal;
         this.side=owner;
@@ -84,7 +84,6 @@ public class Chess {
     protected boolean outRank(Animal animal1){
         return animal.getRank()>=animal1.getRank();
     }
-
 
     /**
      * checks whether it is possible to take a piece on a square
