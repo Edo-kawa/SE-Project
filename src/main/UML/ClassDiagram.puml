@@ -10,11 +10,11 @@ package "Model" #FFF8DC {
     '
     'Piece --|> Cat      : instantiate
     'Piece --|> Dog      : instantiate
-    Piece --|> Elephant : instantiate
+    Piece --|> Elephant
     'Piece --|> Leopard  : instantiate
-    Piece --|> Lion     : instantiate
-    Piece --|> Rat      : instantiate
-    Piece --|> Tiger    : instantiate
+    Piece --|> Lion
+    Piece --|> Rat
+    Piece --|> Tiger
     'Piece --|> Wolf     : instantiate
 }
 
