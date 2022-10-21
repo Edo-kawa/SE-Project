@@ -8,14 +8,14 @@ package "Model" #FFF8DC {
     'Square o-- Type
     Square "1" *-o "0..1" Piece: contains >
     '
-    Piece --|> Cat      : instantiate
-    Piece --|> Dog      : instantiate
+    'Piece --|> Cat      : instantiate
+    'Piece --|> Dog      : instantiate
     Piece --|> Elephant : instantiate
-    Piece --|> Leopard  : instantiate
+    'Piece --|> Leopard  : instantiate
     Piece --|> Lion     : instantiate
     Piece --|> Rat      : instantiate
     Piece --|> Tiger    : instantiate
-    Piece --|> Wolf     : instantiate
+    'Piece --|> Wolf     : instantiate
 }
 
 package "View" #FFF8DC {
@@ -85,9 +85,9 @@ class Elephant{
 '<plain># outRank(Animal): boolean
 }
 '
-class Leopard{
-'boolean isValidPath(Location from, Location to)
-}
+'class Leopard{
+''boolean isValidPath(Location from, Location to)
+'}
 class Lion{
 '<plain>+ canMoveToEmpty(Location, Location, Square): boolean
 }
@@ -98,9 +98,9 @@ class Rat{
 class Tiger{
 '<plain>+ canMoveToEmpty(Location, Location, Square): boolean
 }
-class Wolf{
-'<plain>+ boolean isValidPath(Location from, Location to)
-}
+'class Wolf{
+''<plain>+ boolean isValidPath(Location from, Location to)
+'}
 
 class Piece{
 <plain># location: Location
