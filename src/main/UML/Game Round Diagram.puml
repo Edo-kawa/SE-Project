@@ -23,11 +23,11 @@ repeat
 #FFE4AA:Ask for users' move;
 #40E0D0:Check Move Validity;
 repeat while () is ([Invalid Move])
-->:[Valid Move];
+->[Valid Move];
 #FFE4AA:Update the model;
 #40E0D0:Check Winner;
 repeat while () is ([No Winner])
-->:[The Winner is ...];
+->[The Winner is ...];
 #FFE4AA:Terminate;
 
 stop
