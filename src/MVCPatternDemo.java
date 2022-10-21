@@ -1,5 +1,5 @@
 import main.controller.BoardController;
-import main.model.BoardBase;
+import main.model.ChessBoard;
 //import main.model.BoardStandard;
 import main.view.BoardView;
 
@@ -11,7 +11,7 @@ import main.view.BoardView;
 public class MVCPatternDemo {
     public static void main(String args[]){
         // model
-        BoardBase chessBoard = new BoardBase();
+        ChessBoard chessBoard = new ChessBoard();
         // view
         BoardView boardView = new BoardView(chessBoard);
         // controller
