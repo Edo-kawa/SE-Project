@@ -2,11 +2,15 @@ package model;
 
 import model.Pieces.Piece;
 
+import utils.BoardBuilder;
 import utils.Location;
+import utils.Side;
+
 import java.util.ArrayList;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
+import static model.Type.*;
 
 
 /**
@@ -76,10 +80,10 @@ public class ChessBoard {
                     return false;
                 }
 
-                if(getSquare(from).getType()==RIVER && getSquare(to).getType()!=RIVER){
+                if(getSquare(from).getType()==Type.RIVER && getSquare(to).getType()!=Type.RIVER){
                     return false;
                 }
-                if(getSquare(from).getType()!=RIVER && getSquare(to).getType()==RIVER){
+                if(getSquare(from).getType()!=Type.RIVER && getSquare(to).getType()==Type.RIVER){
                     return false;
                 }
             }
