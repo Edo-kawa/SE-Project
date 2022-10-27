@@ -26,4 +26,13 @@ public class Location{
     public int getIndex(){
         return i;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Location){
+            Location location = (Location) obj;
+            return this.i == location.i;
+        }
+        return false;
+    }
 }
