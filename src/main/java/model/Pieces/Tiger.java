@@ -1,9 +1,8 @@
 package model.Pieces;
 
-import main.model.Square;
-import main.model.Type;
-import main.utils.Location;
-import main.utils.Side;
+import model.*;
+import model.Pieces.*;
+import utils.*;
 
 import static java.lang.Math.abs;
 import static model.Pieces.Animal.*;

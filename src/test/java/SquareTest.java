@@ -1,7 +1,10 @@
-/**
- * @Author Anthony Z.
- * @Date 27/10/2022
- * @Description:
- */
+import org.junit.jupiter.api.Test;
+
+
 public class SquareTest {
+
+
+
+
+
 }

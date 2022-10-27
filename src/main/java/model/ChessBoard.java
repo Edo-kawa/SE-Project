@@ -1,14 +1,13 @@
 package model;
 
-import main.model.Pieces.Piece;
-import main.utils.*;
+import model.Pieces.Piece;
 
+import utils.Location;
 import java.util.ArrayList;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
-import static main.model.Type.*;
-import static main.model.Type.TRAP2;
+
 
 /**
  * @Author Anthony Z.

@@ -1,6 +1,6 @@
 package utils;
 
-import main.model.Pieces.*;
+import model.Pieces.*;
 
 public class BoardBuilder {
 

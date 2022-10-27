@@ -1,9 +1,10 @@
 package model.Pieces;
 
-import main.utils.Location;
-import main.utils.Side;
+import utils.*;
 
-import static main.model.Pieces.Animal.*;
+import model.Pieces.Animal;
+import static model.Pieces.Animal.ELE;
+
 public class Elephant extends Piece {
     public Elephant(Location location, Side side) {
         super(location, ELE, side);

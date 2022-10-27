@@ -1,8 +1,8 @@
 package controller;
-import main.model.ChessBoard;
-//import main.model.BoardStandard;
-import main.utils.Location;
-import main.view.*;
+import model.*;
+//import model.BoardStandard;
+import utils.*;
+import view.*;
 
 import java.util.Scanner;
 

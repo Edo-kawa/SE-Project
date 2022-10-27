@@ -1,8 +1,9 @@
 package view;
 
-import main.model.ChessBoard;
+import model.ChessBoard;
+
 //import main.model.BoardStandard;
-import main.utils.Location;
+import utils.*;
 
 /**
  * @Author Anthony Z.

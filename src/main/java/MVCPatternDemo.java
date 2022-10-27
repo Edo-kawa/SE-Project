@@ -1,7 +1,7 @@
-import main.controller.BoardController;
-import main.model.ChessBoard;
+import controller.BoardController;
+import model.ChessBoard;
 //import main.model.BoardStandard;
-import main.view.BoardView;
+import view.BoardView;
 
 /**
  * @Author Anthony Z.

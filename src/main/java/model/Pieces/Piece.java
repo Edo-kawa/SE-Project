@@ -1,10 +1,8 @@
 package model.Pieces;
 
 import static java.lang.Math.abs;
-import main.model.Square;
-import main.model.Type;
-import main.utils.Location;
-import main.utils.Side;
+import model.*;
+import utils.*;
 
 public class Piece {
     protected Location location;

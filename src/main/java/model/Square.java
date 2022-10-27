@@ -1,9 +1,8 @@
 package model;
 
-
-import main.model.Pieces.Piece;
-import main.utils.Side;
-import main.view.ConsoleColors;
+import model.Pieces.*;
+import utils.*;
+import view.*;
 
 public class Square{
     private Piece piece;
