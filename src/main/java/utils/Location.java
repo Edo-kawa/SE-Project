@@ -8,13 +8,6 @@ public class Location{
         r=row;
         c=column;
     }
-
-    public Location(int index){
-        i=index;
-        c=index%7+1;
-        r=index/7+1;
-    }
-
     public int getRow(){
         return r;
     }
