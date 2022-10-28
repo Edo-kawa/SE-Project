@@ -20,7 +20,7 @@ public class ChessBoard {
     /**
      * The position (ArrayList index) of a piece
      * -1 if already eaten
-     * order: /, player1 [0][1-8], player2 [1][1-8] 1-8 standing for Rank
+     * order: player1 [0][1-8], player2 [1][1-8] 1-8 standing for Rank
      */
     
     private final Location[][] position = new Location[2][9];
@@ -31,9 +31,7 @@ public class ChessBoard {
     public ChessBoard(){}
 
     public Location getPosition(int player, int index) {
-
         if(player < 0 || player >1 || index < 1 || index > 8){
-            System.out.println(player+"|"+index);
             throw new RuntimeException("Invalid parameters");
         }
         return position[player][index];
@@ -58,10 +56,6 @@ public class ChessBoard {
      * @return true is valid, false if invalid
      */
     public boolean checkLegalMove(Location from, Location to){
-
-        // testing code
-        System.out.println("From: \t" + from.getRow() + "\t, " + from.getCol());
-        System.out.println("To: \t" + to.getRow() + "\t, " + to.getCol());
 
         if(!checkValidLocation(to)){
             return false;
@@ -99,7 +93,6 @@ public class ChessBoard {
                     for (int temp=min(from.getRow(), to.getRow())+1;
                          temp<max(from.getRow(), to.getRow()); temp++) {
                         if(getSquare(new Location(temp, from.getCol())).getChessContent()!=null){
-
                             rat_in_river=true;
                         }
                     }
@@ -122,9 +115,7 @@ public class ChessBoard {
         if(squares.get(to.getIndex()).getChessContent()!=null){
             clear(to);
         }
-        Piece piece =squares.get(from.getIndex())
-                .getChessContent();
-
+        Piece piece =squares.get(from.getIndex()).getChessContent();
 
         squares.get(to.getIndex()).setContent(piece);
         squares.get(from.getIndex()).setContent(null);
@@ -159,12 +150,10 @@ public class ChessBoard {
      */
     public int checkWinner(){
         
-        if(squares.get(3)
-                .getChessContent()!=null){
+        if(squares.get(3).getChessContent()!=null){
             return 2;
         }
-        if(squares.get(59)
-                .getChessContent()!=null){
+        if(squares.get(59).getChessContent()!=null){
             return 1;
         }
         
@@ -196,7 +185,6 @@ public class ChessBoard {
     }
 
     public Square getSquare(Location location){
-        // testing code
         if(checkValidLocation(location)){
             return squares.get(location.getIndex());
         }
