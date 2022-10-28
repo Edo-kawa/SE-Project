@@ -5,16 +5,14 @@ import model.*;
 import utils.*;
 
 public class Piece {
-    protected Location location;
 
-    protected Side side;//player: 1 or 2
+    protected Side side;
     public Side getSide(){
         return side;
     }
     public final Animal animal;
 
-    public Piece(Location location, Animal animal, Side owner){
-        location = location;
+    public Piece(Animal animal, Side owner){
         this.animal = animal;
         this.side=owner;
     }
@@ -27,24 +25,12 @@ public class Piece {
         return animal;
     }
 
-    public void setSide(Side side) {
-        this.side = side;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
     /**
-     * checks whether it is possible to move to an empty
+     * checks whether it is possible to move to an empty square
      * overridden in RAT, TIG, LIO
-     * @param destination
-     * @param square
-     * @return
+     * @param destination the destination location
+     * @param square the destination square
+     * @return true if possible, false if impossible
      */
     public boolean canMoveToEmpty(Location original, Location destination, Square square){
 
@@ -66,16 +52,13 @@ public class Piece {
         if(dx==x && abs(dy-y)==1){
             return true;
         }
-        if(dy==y && abs(dx-x)==1){
-            return true;
-        }
-        return false;
+        return dy == y && abs(dx - x) == 1;
     }
 
 
     /**
-     * This method would be overriden in RAT & ELE
-     * @param animal1
+     * This method would be overridden in RAT & ELE
+     * @param animal1 the other animal
      * @return true if it is possible to take a piece
      */
     protected boolean outRank(Animal animal1){
@@ -84,11 +67,10 @@ public class Piece {
 
     /**
      * checks whether it is possible to take a piece on a square
-     *
      * special cases to be handled by chessboard:
      * 1. Capturing a rat in the river from land
      * 2. Rat in river capturing piece on land
-     * @param square
+     * @param square the square that contains the target
      * @return true if it is possible to take a piece on a square
      */
     public boolean canTake(Square square){

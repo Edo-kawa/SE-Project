@@ -11,11 +11,8 @@ import static model.Pieces.Animal.*;
  * @Description:
  */
 public class Rat extends Piece {
-    public Rat(Location location, Side side) {
-        super(location, RAT, side);
-    }
-    public boolean isValidPath(int nextX, int nextY){
-        return false;
+    public Rat(Side side) {
+        super(RAT, side);
     }
 
     public boolean canMoveToEmpty(Location from, Location destionation, Square square){
@@ -31,8 +28,6 @@ public class Rat extends Piece {
         if(square.getType()==Type.DEN2 && super.side == Side.Blue){
             return false;
         }
-//        System.out.println(getLocation().getRow());
-//        System.out.println(getLocation().getCol());
         if(dx==from.getRow() && abs(dy-from.getCol())==1){
             return true;
         }

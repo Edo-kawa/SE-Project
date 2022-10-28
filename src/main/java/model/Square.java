@@ -6,7 +6,7 @@ import view.*;
 
 public class Square{
     private Piece piece;
-    private Type type;
+    private final Type type;
     public Piece getChessContent(){
         return piece;
     }

@@ -6,14 +6,9 @@ import utils.*;
 
 import static java.lang.Math.abs;
 import static model.Pieces.Animal.*;
-/**
- * @Author Anthony Z.
- * @Date 6/10/2022
- * @Description:
- */
 public class Lion extends Piece {
-    public Lion(Location location, Side side) {
-        super(location, LIO, side);
+    public Lion(Side side) {
+        super(LIO, side);
     }
 
     public boolean canMoveToEmpty(Location from, Location to, Square square){
@@ -38,17 +33,13 @@ public class Lion extends Piece {
             return true;
         }
 
-        /**
-         * Jump over the river
-         * Special case to be checked by Chessboard: rat in the river
+        /*
+         Jump over the river
+         Special case to be checked by Chessboard: rat in the river
          */
         if(x>=4 && x<=6 && dx==x && abs(dy-y)==3){
             return true;
         }
-        if((x==3 || x==7) && (y==2 || y==3 || y==5 || y==6) && y==dy && abs(x-dx)==4){
-            return true;
-        }
-
-        return false;
+        return (x == 3 || x == 7) && (y == 2 || y == 3 || y == 5 || y == 6) && y == dy && abs(x - dx) == 4;
     }
 }
