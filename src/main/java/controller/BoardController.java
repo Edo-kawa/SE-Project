@@ -72,7 +72,8 @@ public class BoardController {
                             break;
                     }
                 }catch(NullPointerException e){
-                    flag=true;
+                    //getPosition() is null means the piece is eaten
+                    //do nothing and continue the loop
                 }
             }
             flag=true;

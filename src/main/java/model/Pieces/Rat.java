@@ -15,9 +15,9 @@ public class Rat extends Piece {
         super(RAT, side);
     }
 
-    public boolean canMoveToEmpty(Location from, Location destionation, Square square){
-        int dx = destionation.getRow();
-        int dy = destionation.getCol();
+    public boolean canMoveToEmpty(Location from, Location destination, Square square){
+        int dx = destination.getRow();
+        int dy = destination.getCol();
 
         if(dx<1 || dx>9 || dy<1 || dy>7){
             return false;
@@ -31,10 +31,7 @@ public class Rat extends Piece {
         if(dx==from.getRow() && abs(dy-from.getCol())==1){
             return true;
         }
-        if(dy==from.getCol() && abs(dx-from.getRow())==1){
-            return true;
-        }
-        return false;
+        return dy == from.getCol() && abs(dx - from.getRow()) == 1;
     }
 
     @Override

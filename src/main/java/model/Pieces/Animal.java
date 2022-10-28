@@ -12,6 +12,5 @@ public enum Animal {
     public int getRank() {
         return rank;
     }
-
 }
 

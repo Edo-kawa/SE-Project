@@ -4,14 +4,8 @@ import model.ChessBoard;
 
 //import main.model.BoardStandard;
 import utils.*;
-
-/**
- * @Author Anthony Z.
- * @Date 6/10/2022
- * @Description:
- */
 public class BoardView {
-    private ChessBoard chessBoard;
+    private final ChessBoard chessBoard;
 
     public ChessBoard getChessBoard() {
         return chessBoard;
