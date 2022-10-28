@@ -10,7 +10,7 @@ public class Piece {
     public Side getSide(){
         return side;
     }
-    public final Animal animal;
+    private final Animal animal;
 
     public Piece(Animal animal, Side owner){
         this.animal = animal;

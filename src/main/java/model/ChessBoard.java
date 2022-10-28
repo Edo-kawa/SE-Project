@@ -38,29 +38,12 @@ public class ChessBoard {
     }
 
     /**
-     * Check if the location is on the chess board.
-     * @param location the location to be checked
-     * @return true if the location is valid
-     */
-    boolean checkValidLocation(Location location){
-        int row = 9;
-        int column = 7;
-        return location.getRow() >= 1 && location.getRow() <= row
-                && location.getCol() >= 1 && location.getCol() <= column;
-    }
-
-    /**
      * Check if a move is legal/valid, including capturing.
      * @param from the source
      * @param to the destination
      * @return true is valid, false if invalid
      */
     public boolean checkLegalMove(Location from, Location to){
-
-        if(!checkValidLocation(to)){
-            return false;
-        }
-
         if(getSquare(from).getChessContent().canMoveToEmpty(from, to, getSquare(to))){
             if(getSquare(to).getChessContent() != null){
                 if(!getSquare(from).getChessContent().canTake(getSquare(to))){
@@ -185,10 +168,7 @@ public class ChessBoard {
     }
 
     public Square getSquare(Location location){
-        if(checkValidLocation(location)){
-            return squares.get(location.getIndex());
-        }
-        return null;
+        return squares.get(location.getIndex());
     }
 
     public void init(){
