@@ -11,6 +11,7 @@ public class MVCPatternDemo {
         // view
         BoardView boardView = new BoardView(chessBoard);
         // controller
-        new BoardController(boardView);
+        BoardController controller = new BoardController(boardView);
+        controller.init();
     }
 }

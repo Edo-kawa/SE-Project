@@ -14,7 +14,6 @@ public class BoardController {
         view=v;
         model=v.getChessBoard();
         model.init();
-        init();
     }
     //1 or 2
     int player_turn=1;
