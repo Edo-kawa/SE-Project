@@ -2,7 +2,7 @@
 
 package "Model" #FFF8DC {
     'ChessBoard o-- Location
-    ChessBoard "1" *- "2..*" Piece: contains >
+    ChessBoard "1" *-- "2..*" Piece: contains >
     ChessBoard "1" *-- "63" Square: comprises >
 
     'Square o-- Type
