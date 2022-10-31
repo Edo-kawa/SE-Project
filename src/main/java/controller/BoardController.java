@@ -16,7 +16,7 @@ public class BoardController {
     public BoardController(BoardView v){
         view=v;
         model=v.getChessBoard();
-        model.init();
+        model.init(null);
     }
     //1 or 2
     private int player_turn=1;

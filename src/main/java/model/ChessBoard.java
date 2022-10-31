@@ -1,5 +1,6 @@
 package model;
 
+import model.Pieces.Animal;
 import model.Pieces.Piece;
 
 import utils.BoardBuilder;
@@ -15,7 +16,11 @@ import static model.Type.*;
 public class ChessBoard {
 
     private final ArrayList<Square> squares= new ArrayList<>();
-
+    private final String[] rank2Name = {null, "RAT", "CAT", "DOG", "WOL", "LEO", "TIG", "LIO", "ELE"};
+    private final int[][] defaultLocations = {
+            {-1, 20, 8, 12, 16, 18, 0, 6, 14},
+            {-1, 42, 54, 50, 46, 44, 62, 56, 48}
+    };
 
     /**
      * The position (ArrayList index) of a piece
@@ -26,7 +31,6 @@ public class ChessBoard {
     private final Location[][] position = new Location[2][9];
     private final int PLAYER_1 = 0; // red
     private final int PLAYER_2 = 1; // blue
-
 
     public ChessBoard(){}
 
@@ -171,7 +175,61 @@ public class ChessBoard {
         return squares.get(location.getIndex());
     }
 
-    public void init(){
+    public void setPositionByDefault() {
+        for (int i = 1; i < 9; i++) {
+            squares.get(defaultLocations[0][i]).setContent(BoardBuilder.chessFactory(rank2Name[i], Side.Red));
+            this.position[0][i] = Location.parseIndex(defaultLocations[0][i]);
+
+            squares.get(defaultLocations[1][i]).setContent(BoardBuilder.chessFactory(rank2Name[i], Side.Blue));
+            this.position[1][i] = Location.parseIndex(defaultLocations[1][i]);
+        }
+    }
+
+    public void init(Location[][] locations) {
+        for (int i = 0; i < 63; i++) {
+            switch (i) {
+                case 3:
+                    squares.add(new Square(null, DEN1));
+                    break;
+                case 59:
+                    squares.add(new Square(null, DEN2));
+                    break;
+                case 22: case 23: case 25: case 26: case 29: case 30:
+                case 32: case 33: case 36: case 37: case 39: case 40:
+                    squares.add(new Square(null, RIVER));
+                    break;
+                case 2: case 4: case 10:
+                    squares.add(new Square(null, TRAP1));
+                    break;
+                case 52: case 58: case 60:
+                    squares.add(new Square(null, TRAP2));
+                    break;
+                default:
+                    squares.add(new Square(null, NORMAL));
+            }
+        }
+
+        if (locations == null) {
+            setPositionByDefault();
+            return;
+        }
+
+        Location tempLOC;
+        Side tempSN;
+        for (int i = 0; i < 2; i++) {
+            tempSN = (i == 0)? Side.Red: Side.Blue;
+            for (int j = 0; j < 9; j++) {
+                tempLOC = locations[i][j];
+                if (tempLOC != null) {
+                    this.squares.get(locations[i][j].getIndex()).
+                            setContent(BoardBuilder.chessFactory(rank2Name[j], tempSN));
+                }
+                this.position[i][j] = locations[i][j];
+            }
+        }
+    }
+
+    /*public void init(){
         position[PLAYER_1][6]=new Location(1,1);
         squares.add(new Square(BoardBuilder.chessFactory("TIG", Side.Red), NORMAL));
         squares.add(new Square(null, NORMAL));
@@ -246,6 +304,6 @@ public class ChessBoard {
         position[PLAYER_2][6]=new Location(9,7);
         squares.add(new Square(BoardBuilder.chessFactory("TIG", Side.Blue), NORMAL));
 
-    }
+    }*/
 
 }

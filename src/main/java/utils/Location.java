@@ -20,4 +20,10 @@ public class Location{
     public int getIndex(){
         return i;
     }
+
+    public static Location parseIndex(int index) {
+        int row = index / 7 + 1;
+        int col = index - (row - 1) * 7 + 1;
+        return new Location(row, col);
+    }
 }
