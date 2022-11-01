@@ -8,10 +8,16 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class SaverLoader {
-    public static final String SAVE_PATH = "./save";
+    public static final String SAVE_PATH = "./save/";
 
     public static void save(String fileName, int playerTurn, Location[][] positions) {
         File file = new File(SAVE_PATH + fileName + ".json");
+        File directory = new File(SAVE_PATH);
+
+        if (!directory.isDirectory()) {
+            directory.mkdir();
+        }
+
         if (!file.exists()) {
             try {
                 file.createNewFile();
