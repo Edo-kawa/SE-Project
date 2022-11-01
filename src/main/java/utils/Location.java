@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Objects;
+
 public class Location{
 
     private final int r,i,c;
@@ -32,5 +34,20 @@ public class Location{
         int row = index / 7 + 1;
         int col = index - (row - 1) * 7 + 1;
         return new Location(row, col);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj instanceof Location){
+            Location location = (Location) obj;
+            return this.i == location.i;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(i);
     }
 }

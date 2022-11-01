@@ -22,4 +22,8 @@ public class LocationTest {
     void testGetIndex(){
         assertEquals(9, location.getIndex());
     }
+    @Test
+    void testLocationComparison(){
+        assertEquals(location, new Location(2,3));
+    }
 }

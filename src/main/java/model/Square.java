@@ -4,6 +4,8 @@ import model.Pieces.*;
 import utils.*;
 import view.*;
 
+import java.util.Objects;
+
 public class Square{
     private Piece piece;
     private final Type type;
@@ -44,4 +46,20 @@ public class Square{
         this.type = type;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj instanceof Square){
+            Square square = (Square) obj;
+            return this.piece == square.piece &&
+                    this.type == square.type;
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(piece, type);
+    }
 }

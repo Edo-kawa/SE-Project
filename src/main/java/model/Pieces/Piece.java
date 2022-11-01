@@ -4,6 +4,8 @@ import static java.lang.Math.abs;
 import model.*;
 import utils.*;
 
+import java.util.Objects;
+
 public class Piece {
 
     protected Side side;
@@ -98,5 +100,21 @@ public class Piece {
                 }
         }
         return true;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj instanceof Piece){
+            Piece piece = (Piece) obj;
+            return this.side == piece.side &&
+                    this.animal == piece.animal;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(side, animal);
     }
 }
