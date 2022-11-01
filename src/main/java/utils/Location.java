@@ -11,6 +11,13 @@ public class Location{
         r = row;
         c = column;
     }
+    public Location(int index) {
+        if (index < 0 || index > 62) throw new RuntimeException("Illegal access");
+        i = index;
+        r = index / 7 + 1;
+        c = index - (r - 1) * 7 + 1;
+    }
+
     public int getRow(){
         return r;
     }

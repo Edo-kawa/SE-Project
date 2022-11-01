@@ -41,6 +41,10 @@ public class ChessBoard {
         return position[player][index];
     }
 
+    public Location[][] getPositions() {
+        return this.position;
+    }
+
     /**
      * Check if a move is legal/valid, including capturing.
      * @param from the source

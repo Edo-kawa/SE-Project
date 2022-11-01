@@ -13,16 +13,60 @@ public class BoardController {
     private final BoardView view;
 
     private Location userInputLocation;
-    public BoardController(BoardView v){
-        view=v;
-        model=v.getChessBoard();
-        model.init(null);
-    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
     //1 or 2
-    private int player_turn=1;
+    private int player_turn;
+
+    // Initialize a saved ChessBoard
+    public BoardController(BoardView v, Location[][] savedPositions, int playerTurn){
+        view = v;
+        model = v.getChessBoard();
+        model.init(savedPositions);
+        player_turn = playerTurn;
+    }
+
+    // Initialize by default
+    public BoardController(BoardView v){
+        this(v, null, 1);
+    }
+
+    public static BoardController getController(BoardView v) {
+        BoardController boardController = null;
+
+        System.out.println("Welcome to the Jungle!");
+        System.out.println("1. Start a New Game");
+        System.out.println("2. Load a Saved Game");
+        System.out.println("3. End the Game\n");
+
+        int mode = 0;
+        do {
+            try {
+                System.out.println("Please input your preferred mode: ");
+                mode = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } while (mode < 1 || mode > 3);
+
+        if (mode == 1) return new BoardController(v);
+        if (mode == 3) return null;
+
+        System.out.println("Please enter the name of your saved game: ");
+        String fileName = scanner.nextLine();
+
+        try {
+            boardController = SaverLoader.load(fileName, v);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return boardController;
+    }
+
     private int dx,dy;
-    public void init(){
-        Scanner scanner = new Scanner(System.in);
+    public void startPlaying(){
         while(model.checkWinner()==0) {
             updateView();
             if(player_turn==1) {
@@ -62,6 +106,11 @@ public class BoardController {
                     case "ele":
                         userInputLocation = model.getPosition(player_turn - 1, 8);
                         break;
+                    case "sav":
+                        System.out.println("Please name your saved game: ");
+                        String fileName = scanner.nextLine();
+                        SaverLoader.save(fileName, player_turn, model.getPositions());
+                        return;
                 }
             }
             boolean flag=true;
@@ -89,6 +138,7 @@ public class BoardController {
         updateView();
         System.out.println("Player "+model.checkWinner()+" wins.");
     }
+
     public void updateModel(){
         if(model.checkLegalMove(userInputLocation,new Location(dx, dy))){
             model.moveTo(userInputLocation, new Location(dx, dy));
@@ -103,4 +153,16 @@ public class BoardController {
         view.printChessBoard();
     }
 
+    public boolean ifCont() {
+        System.out.println("If continue? (Y/y for yes, otherwise no): ");
+        char flag = scanner.nextLine().charAt(0);
+        boolean result = Character.toLowerCase(flag) == 'y';
+
+        try {
+            if (!result) scanner.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
