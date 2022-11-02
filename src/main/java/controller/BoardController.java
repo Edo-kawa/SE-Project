@@ -32,6 +32,10 @@ public class BoardController {
         this(v, null, 1);
     }
 
+    public ChessBoard getModel() {
+        return this.model;
+    }
+
     public static BoardController getController(BoardView v) {
         BoardController boardController = null;
 
@@ -53,14 +57,16 @@ public class BoardController {
         if (mode == 1) return new BoardController(v);
         if (mode == 3) return null;
 
-        System.out.println("Please enter the name of your saved game: ");
-        String fileName = scanner.nextLine();
+        do {
+            System.out.println("Please enter the name of your saved game: ");
+            String fileName = scanner.nextLine();
 
-        try {
-            boardController = SaverLoader.load(fileName, v);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            try {
+                boardController = SaverLoader.load(fileName, v);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } while (boardController == null);
 
         return boardController;
     }

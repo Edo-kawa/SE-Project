@@ -57,8 +57,16 @@ public class SaverLoader {
     public static BoardController load(String fileName, BoardView view) {
         BufferedReader loader = null;
         BoardController boardController = null;
+        String filePath = SAVE_PATH + fileName + ".json";
+        File file = new File(filePath);
+
+        if (!file.exists() || !file.isFile()) {
+            System.out.println("File " + fileName + " does not exist!");
+            return null;
+        }
+
         try {
-            FileInputStream fileInputStream = new FileInputStream(SAVE_PATH + fileName + ".json");
+            FileInputStream fileInputStream = new FileInputStream(filePath);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
             loader = new BufferedReader(inputStreamReader);
 
