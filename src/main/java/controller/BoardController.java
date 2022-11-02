@@ -107,8 +107,12 @@ public class BoardController {
                         userInputLocation = model.getPosition(player_turn - 1, 8);
                         break;
                     case "sav":
-                        System.out.println("Please name your saved game: ");
+                        System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
                         String fileName = scanner.nextLine();
+                        while (fileName.contains("*") || fileName.contains(".")) {
+                            System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
+                            fileName = scanner.nextLine();
+                        }
                         SaverLoader.save(fileName, player_turn, model.getPositions());
                         return;
                 }

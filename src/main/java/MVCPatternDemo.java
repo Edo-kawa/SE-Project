@@ -22,5 +22,7 @@ public class MVCPatternDemo {
             }
             controller.startPlaying();
         } while (controller.ifCont());
+
+        System.out.println("End!");
     }
 }

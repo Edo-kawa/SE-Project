@@ -1,4 +1,4 @@
-package model;
+package utils;
 
 import controller.BoardController;
 import utils.Location;
