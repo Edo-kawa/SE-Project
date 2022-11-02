@@ -1,21 +1,28 @@
-import controller.BoardController;
-import model.ChessBoard;
-import org.junit.Test;
-
+import org.junit.jupiter.api.BeforeEach;
 import utils.SaverLoader;
 import view.BoardView;
+import controller.BoardController;
+import model.ChessBoard;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SaverLoaderTest {
+    private ChessBoard chessBoard;
+    private BoardView boardView;
+    private BoardController boardController;
+
+    @BeforeEach
+    void setUp() {
+        this.chessBoard = new ChessBoard();
+        this.chessBoard.init(null);
+        this.boardView = new BoardView(this.chessBoard);
+        this.boardController = new BoardController(this.boardView);
+    }
+
     @Test
-    public void checkSaverAndLoader() {
-        // Initialization
-        ChessBoard chessBoard = new ChessBoard();
-        chessBoard.init(null);
-        BoardView boardView = new BoardView(chessBoard);
-        BoardController boardController = new BoardController(boardView);
-        assert true;
+    void checkSaverAndLoader() {
+        assertEquals(SaverLoader.SAVE_PATH, "./save/");
 
         // Test loading only with invalid file names or with both invalid file names and invalid BoardViews
         assertNull(SaverLoader.load(null, null));
@@ -23,10 +30,20 @@ public class SaverLoaderTest {
         assertNull(SaverLoader.load(null, new BoardView(new ChessBoard())));
         assertNull(SaverLoader.load("FileNotExist", new BoardView(new ChessBoard())));
 
-        // Test whether the saving process can work
-        SaverLoader.save("UnitTest1", 1, chessBoard.getPositions());
-        SaverLoader.save("UnitTest2", 2, chessBoard.getPositions());
-        assert true;
+        // Test save() with different cases
+        // fileName is invalid:
+        assertFalse(SaverLoader.save(null, 0, null));
+        assertFalse(SaverLoader.save("*", 0, null));
+        assertFalse(SaverLoader.save(".", 0, null));
+        // playerTurn is invalid:
+        assertFalse(SaverLoader.save("TestName", 0, null));
+        assertFalse(SaverLoader.save("TestName", 3, null));
+        // positions is null
+        assertFalse(SaverLoader.save("TestName", 1, null));
+        // All valid
+        assertTrue(SaverLoader.save("TestName", 1, chessBoard.getPositions()));
+        assertTrue(SaverLoader.save("UnitTest1", 1, chessBoard.getPositions()));
+        assertTrue(SaverLoader.save("UnitTest2", 2, chessBoard.getPositions()));
 
         // Test whether the original positions and the loaded positions are identical or not
         BoardController LoadBC1 = SaverLoader.load("UnitTest1", boardView);
@@ -40,4 +57,5 @@ public class SaverLoaderTest {
             }
         }
     }
+
 }

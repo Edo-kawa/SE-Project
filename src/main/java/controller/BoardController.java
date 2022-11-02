@@ -115,11 +115,10 @@ public class BoardController {
                     case "sav":
                         System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
                         String fileName = scanner.nextLine();
-                        while (fileName.contains("*") || fileName.contains(".")) {
+                        while (!SaverLoader.save(fileName, player_turn, model.getPositions())) {
                             System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
                             fileName = scanner.nextLine();
                         }
-                        SaverLoader.save(fileName, player_turn, model.getPositions());
                         return;
                 }
             }
