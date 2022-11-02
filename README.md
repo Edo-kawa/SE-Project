@@ -25,9 +25,10 @@ deal with conflicts**, which means that you would not override/delete others' ch
 
 That's all we need. Here are some doc files on which we will be collaborating soon. 
 
-Pharse 1: [Specification](https://docs.google.com/document/d/1FHJ2V_QZfpAiVPxzHIL-Wg8UxEIY0nZLl1rtVvac5i8/edit?usp=sharing)  
-Pharse 2: [API Design Document](https://docs.google.com/document/d/17DxQoORduj-6nSCnCfsyIzovcu1E7xcl2DVZd4oHq0c/edit?usp=sharing)
-          p.s. An example to refer to: [Link](https://drive.google.com/drive/folders/1U6J8npngO1CWVsuh5pCoGTqzj82vkt9A)
+Pharse 1: [Requirement Specification Document](https://docs.google.com/document/d/1FHJ2V_QZfpAiVPxzHIL-Wg8UxEIY0nZLl1rtVvac5i8/edit?usp=sharing)  
+Pharse 2: [API Design Document](https://docs.google.com/document/d/17DxQoORduj-6nSCnCfsyIzovcu1E7xcl2DVZd4oHq0c/edit?usp=sharing)  
+Pharse 3: JUnit Test Set and [Revisions to the API Design](https://docs.google.com/document/d/1bBEOvfmo_a-T20Ug0Z_EOaALATudKr94yJdUQfe97WI/edit?usp=sharing)  
+          
 
 1. [Agenda](https://docs.google.com/document/d/1vqpjrZECn_EYZOaj-g_TxiI4yO58m8w-kYtKI85QfWk/edit?usp=sharing)
 2. [Project Report](https://docs.google.com/document/d/1JE3fOi-wDLmoxJkHFv0VrS4U5Ac7JAF_5eupDwSHs7A/edit?usp=sharing)
