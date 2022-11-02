@@ -51,7 +51,7 @@ public class Square{
         if(this == obj) return true;
         if(obj instanceof Square){
             Square square = (Square) obj;
-            return this.piece == square.piece &&
+            return this.piece.equals(square.piece) &&
                     this.type == square.type;
         }
 

@@ -8,7 +8,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class SaverLoader {
-    public static final String SAVE_PATH = "./save/";
+    public static final String SAVE_PATH = "./src/main/resources/saved/";
 
     public static void save(String fileName, int playerTurn, Location[][] positions) {
         File file = new File(SAVE_PATH + fileName + ".json");
