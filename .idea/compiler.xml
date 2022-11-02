@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="COMP3211" />
-        <module name="SE-Project" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SE-Project" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
