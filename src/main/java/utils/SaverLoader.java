@@ -1,7 +1,6 @@
 package utils;
 
 import controller.BoardController;
-import utils.Location;
 import view.BoardView;
 
 import java.io.*;
@@ -10,7 +9,20 @@ import java.nio.charset.StandardCharsets;
 public class SaverLoader {
     public static final String SAVE_PATH = "./save/";
 
-    public static void save(String fileName, int playerTurn, Location[][] positions) {
+    public static boolean save(String fileName, int playerTurn, Location[][] positions) {
+        if (fileName == null || fileName.contains("*") || fileName.contains(".")) {
+            System.out.println("Invalid File Name!");
+            return false;
+        }
+        if (playerTurn > 2 || playerTurn < 1) {
+            System.out.println("Invalid Player Turn!");
+            return false;
+        }
+        if (positions == null) {
+            System.out.println("Invalid Positions");
+            return false;
+        }
+
         File file = new File(SAVE_PATH + fileName + ".json");
         File directory = new File(SAVE_PATH);
 
@@ -52,6 +64,8 @@ public class SaverLoader {
                 e.printStackTrace();
             }
         }
+
+        return true;
     }
 
     public static BoardController load(String fileName, BoardView view) {
