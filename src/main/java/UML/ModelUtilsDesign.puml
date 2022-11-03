@@ -1,0 +1,113 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package "Model" {
+    ChessBoard "1" *-- "2..*" Piece: contains >
+    ChessBoard "1" *-- "63" Square: comprises >
+
+    Square "1" *-o "0..1" Piece: contains >
+
+    Piece -|> Animal
+    Animal --|> Elephant
+    Animal --|> Lion
+    Animal --|> Rat
+    Animal --|> Tiger
+}
+
+package "Utils" {
+    class Location
+    class SaverLoader
+    enum Side
+    enum Type
+    class BoardBuilder
+}
+
+Piece - BoardBuilder
+
+class ChessBoard {
+<plain>- row: int
+<plain>- column: int
+<plain>- squares: ArrayList<Square>
+<plain>- position: Location[][]
+<plain>- PLAYER_1: int
+<plain>- PLAYER_2: int
+
+<plain>+ ChessBoard() // constructor
+<plain>+ getPosition(int, int): Location
+<plain>+ checkValidLocation(Location): boolean
+<plain>+ checkLegalMove(Location, Location): boolean
+<plain>+ boolean checkLegalMove(int index, Location to)
+<plain>+ moveTo(Location, Location): void
+<plain>+ void moveTo(int index, Location to)
+<plain>+ checkWinner(): int
+<plain>+ clear(Location): void
+}
+
+class Square {
+    <plain>- piece: Piece
+    <plain>- type: Type
+
+    <plain>+  Square(Chess, Type) // constructor
+    <plain>+  getChessContent(): Chess
+    <plain>+  setContent(Piece c): void
+    <plain>+  getType(): Type
+}
+
+class Piece {
+    <plain># location: Location
+    <plain># side: Side
+    <plain># animal: Animal
+
+    <plain>+ Piece(Location, Animal, Side)
+    <plain>+ canMoveToEmpty(Location, Location, Square): boolean
+    <plain># outRank(Animal): boolean
+    <plain>+ canTake(Square): boolean
+}
+
+enum Animal {
+    RAT
+    CAT
+    DOG
+    WOL
+    LEO
+    TIG
+    LIO
+    ELE
+}
+
+enum Side {
+    RED
+    BLUE
+}
+
+enum Type {
+    RIVER
+    TRAP1
+    TRAP2
+    DEN1
+    DEN2
+    NORMAL
+}
+
+class Location {
+    <plain>-int row
+    <plain>-int column
+    <plain>-int index
+    <plain>+Location(int row, int column)   // Constructor 1
+    <plain>+Location(int index) // Constructor 2
+    <plain>+getRow(): int
+    <plain>+getCol(): int
+    <plain>+getIndex(): int
+    <plain>+parseIndex(int index): Location
+}
+
+class SaverLoader {
+    <plain>+save(String fileName, int playerTurn, Location[][] positions): boolean
+    <plain>+load(String fileName, BoardView view): BoardController
+}
+
+class BoardBuilder {
+    <plain>+ Piece chessFactory(String, Side, int, int)
+}
+
+@enduml
