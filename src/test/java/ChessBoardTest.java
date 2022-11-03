@@ -33,6 +33,7 @@ public class ChessBoardTest {
         chessBoard2.init(locations);
         assertEquals(chessBoard2.getPosition(1,7),new Location(5,2));
     }
+
     @Test
     void clearTest(){
         chessBoard1.init(null);

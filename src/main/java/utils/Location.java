@@ -30,13 +30,6 @@ public class Location{
         return i;
     }
 
-    public static Location parseIndex(int index) {
-        if (index < 0 || index > 62) throw new RuntimeException("Illegal access");
-        int row = index / 7 + 1;
-        int col = index - (row - 1) * 7 + 1;
-        return new Location(row, col);
-    }
-
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;

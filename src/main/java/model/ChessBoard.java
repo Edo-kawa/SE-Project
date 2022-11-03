@@ -17,8 +17,8 @@ public class ChessBoard {
     private final ArrayList<Square> squares= new ArrayList<>();
     private final String[] rank2Name = {null, "RAT", "CAT", "DOG", "WOL", "LEO", "TIG", "LIO", "ELE"};
     private final int[][] defaultLocations = {
-            {-1, 20, 8, 12, 16, 18, 0, 6, 14},
-            {-1, 42, 54, 50, 46, 44, 62, 56, 48}
+        {-1, 20, 8, 12, 16, 18, 0, 6, 14},
+        {-1, 42, 54, 50, 46, 44, 62, 56, 48}
     };
 
     /**
@@ -28,15 +28,15 @@ public class ChessBoard {
      */
     
     private final Location[][] position = new Location[2][9];
-    private final int PLAYER_1_INDEX = Side.Red.getNum() - 1; // red
-    private final int PLAYER_2_INDEX = Side.Blue.getNum() - 1; // blue
+    private final int PLAYER_RED_INDEX = Side.Red.getNum() - 1; // red
+    private final int PLAYER_BLUE_INDEX = Side.Blue.getNum() - 1; // blue
 
     private final int minIndex = 1, maxIndex = 8;
 
     public ChessBoard(){}
 
     public Location getPosition(int player, int index) {
-        if(player < PLAYER_1_INDEX || player > PLAYER_2_INDEX || index < minIndex || index > maxIndex){
+        if(player < PLAYER_RED_INDEX || player > PLAYER_BLUE_INDEX || index < minIndex || index > maxIndex){
             throw new RuntimeException("Invalid parameters");
         }
         return position[player][index];
@@ -113,9 +113,9 @@ public class ChessBoard {
         squares.get(from.getIndex()).setContent(null);
         
         if(piece.getSide() == Side.Red){
-            position[PLAYER_1_INDEX][piece.getAnimal().getRank()] = to;
+            position[PLAYER_RED_INDEX][piece.getAnimal().getRank()] = to;
         }else{
-            position[PLAYER_2_INDEX][piece.getAnimal().getRank()] = to;
+            position[PLAYER_BLUE_INDEX][piece.getAnimal().getRank()] = to;
         }
     }
 
@@ -128,9 +128,9 @@ public class ChessBoard {
         squares.get(location.getIndex()).setContent(null);
 
         if(piece.getSide() == Side.Red){
-            position[PLAYER_1_INDEX][piece.getAnimal().getRank()]=null;
+            position[PLAYER_RED_INDEX][piece.getAnimal().getRank()]=null;
         }else{
-            position[PLAYER_2_INDEX][piece.getAnimal().getRank()]=null;
+            position[PLAYER_BLUE_INDEX][piece.getAnimal().getRank()]=null;
         }
     }
 
@@ -152,7 +152,7 @@ public class ChessBoard {
         // check if player_1 has lost all pieces
         boolean flag = true;
         for(int i = minIndex; i <= maxIndex; i++){
-            if(position[PLAYER_1_INDEX][i] != null){
+            if(position[PLAYER_RED_INDEX][i] != null){
                 flag=false;
                 break;
             }
@@ -164,7 +164,7 @@ public class ChessBoard {
         // check if player_2 has lost all pieces
         flag = true;
         for(int i = maxIndex; i <= maxIndex; i++){
-            if(position[PLAYER_2_INDEX][i] != null){
+            if(position[PLAYER_BLUE_INDEX][i] != null){
                 flag = false;
                 break;
             }
@@ -183,10 +183,10 @@ public class ChessBoard {
     public void setPositionByDefault() {
         for (int i = minIndex; i <= maxIndex; i++) {
             squares.get(defaultLocations[0][i]).setContent(BoardBuilder.chessFactory(rank2Name[i], Side.Red));
-            this.position[0][i] = Location.parseIndex(defaultLocations[0][i]);
+            this.position[0][i] = new Location(defaultLocations[0][i]);
 
             squares.get(defaultLocations[1][i]).setContent(BoardBuilder.chessFactory(rank2Name[i], Side.Blue));
-            this.position[1][i] = Location.parseIndex(defaultLocations[1][i]);
+            this.position[1][i] = new Location(defaultLocations[1][i]);
         }
     }
 
@@ -221,8 +221,8 @@ public class ChessBoard {
 
         Location tempLOC;
         Side tempSN;
-        for (int i = PLAYER_1_INDEX; i <= PLAYER_2_INDEX; i++) {
-            tempSN = (i == 0)? Side.Red: Side.Blue;
+        for (int i = PLAYER_RED_INDEX; i <= PLAYER_BLUE_INDEX; i++) {
+            tempSN = (i == PLAYER_RED_INDEX)? Side.Red: Side.Blue;
             for (int j = minIndex; j <= maxIndex; j++) {
                 tempLOC = locations[i][j];
                 if (tempLOC != null) {

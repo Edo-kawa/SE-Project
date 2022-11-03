@@ -1,10 +1,6 @@
-import model.Pieces.Animal;
-import model.Pieces.Piece;
 import org.junit.jupiter.api.BeforeEach;
-
 import org.junit.jupiter.api.Test;
 import utils.Location;
-import utils.Side;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -64,27 +60,13 @@ public class LocationTest {
         assertNotEquals(location1, new Location(0));
         assertNotEquals(location2, new Location(9, 1));
         assertNotEquals(location3, new Location(61));
-        assertFalse(location3.equals(new Piece(Animal.WOL, Side.Red)));
     }
-
-    @Test
-    // Test ParseIndex static method.
-    void testParseIndex(){
-        assertEquals(new Location(2, 6), Location.parseIndex(12));
-        assertEquals(new Location(1, 1), Location.parseIndex(0));
-        assertEquals(new Location(9,7), Location.parseIndex(62));
-        Throwable exception1 = assertThrows(RuntimeException.class, () -> Location.parseIndex(63));
-        assertEquals("Illegal access", exception1.getMessage());
-        Throwable exception2 = assertThrows(RuntimeException.class, () -> Location.parseIndex(-1));
-        assertEquals("Illegal access", exception2.getMessage());
-    }
-
     @Test
     void testHashCode(){
         Location x = new Location(2, 3);
         Location y = new Location(2,3);
         assertTrue(x.equals(y) && y.equals(x));
-        assertTrue(x.hashCode() == y.hashCode());
+        assertEquals(x.hashCode(), y.hashCode());
     }
 
 }
