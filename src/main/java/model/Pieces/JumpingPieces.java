@@ -5,8 +5,8 @@ import model.Square;
 import utils.*;
 
 import static java.lang.Math.abs;
-public abstract class BigCats extends Piece {
-    public BigCats(Animal animal, Side side){
+public abstract class JumpingPieces extends Piece {
+    public JumpingPieces(Animal animal, Side side){
         super(animal,side);
     }
 
