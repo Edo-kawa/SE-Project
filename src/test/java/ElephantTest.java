@@ -5,7 +5,6 @@ import utils.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 public class ElephantTest{
 
     Elephant elephant1,elephant2;

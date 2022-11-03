@@ -11,13 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PieceTest {
 
-
     Piece leo,wol,dog,cat;
     Square square1, square2, square3, square4, square5, square6, square7, square8;
-    Location location1,location2,location3,location4,location5,location6;
+    Location location1,location2,location3,location4;
 
     @BeforeEach
-    void test() {
+    void setup() {
         leo = new Piece(Animal.LEO,Side.Red);
         wol = new Piece(Animal.WOL,Side.Red);
         dog = new Piece(Animal.DOG,Side.Blue);
@@ -27,8 +26,6 @@ public class PieceTest {
         location2 = new Location(1,6);
         location3 = new Location(7,1);
         location4 = new Location(8,1);
-        location5 = new Location(5,7);
-        location6 = new Location(5,4);
         square1 = new Square(new Piece(Animal.LEO, Side.Red), Type.NORMAL);
         square2 = new Square(new Piece(Animal.WOL, Side.Red), Type.RIVER);
         square3 = new Square(new Piece(Animal.DOG, Side.Blue), Type.DEN1);
@@ -63,6 +60,7 @@ public class PieceTest {
         assertTrue(leo.canTake(square6));
         assertTrue(dog.canTake(square7));
         assertTrue(leo.canTake(square8));
+        assertTrue(leo.canTake(square3));
 
     }
 

@@ -8,16 +8,14 @@ import utils.Side;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class LionTest {
-
 
     Lion lion1,lion2;
     Square square1, square2, square3, square4;
     Location location1,location2,location3,location4,location5,location6,location7,location8;
 
     @BeforeEach
-    void test() {
+    void setup() {
         lion1 = new Lion(Side.Red);
         lion2 = new Lion(Side.Blue);
         location1 = new Location(1,7);
@@ -50,7 +48,6 @@ public class LionTest {
         assertTrue(lion1.canMoveToEmpty(location3,location4,square1));
         assertTrue(lion1.canMoveToEmpty(location5,location6,square1));
         assertTrue(lion1.canMoveToEmpty(location7,location8,square1));
-
 
     }
 }

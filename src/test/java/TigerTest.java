@@ -11,13 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TigerTest {
 
-
     Tiger Tiger1,Tiger2;
     Square square1, square2, square3, square4;
     Location location1,location2,location3,location4,location5,location6,location7,location8;
 
     @BeforeEach
-    void test() {
+    void setup() {
         Tiger1 = new Tiger(Side.Red);
         Tiger2 = new Tiger(Side.Blue);
         location1 = new Location(1,7);
@@ -50,7 +49,6 @@ public class TigerTest {
         assertTrue(Tiger1.canMoveToEmpty(location3,location4,square1));
         assertTrue(Tiger1.canMoveToEmpty(location5,location6,square1));
         assertTrue(Tiger1.canMoveToEmpty(location7,location8,square1));
-
 
     }
 }
