@@ -1,10 +1,6 @@
 import controller.BoardController;
 import model.ChessBoard;
-//import main.model.BoardStandard;
 import view.BoardView;
-
-import java.util.Scanner;
-
 
 public class MVCPatternDemo {
     public static void main(String[] args){

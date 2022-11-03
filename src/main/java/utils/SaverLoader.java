@@ -14,7 +14,7 @@ public class SaverLoader {
             System.out.println("Invalid File Name!");
             return false;
         }
-        if (playerTurn > 2 || playerTurn < 1) {
+        if (playerTurn > Side.Blue.getNum() || playerTurn < Side.Red.getNum()) {
             System.out.println("Invalid Player Turn!");
             return false;
         }
