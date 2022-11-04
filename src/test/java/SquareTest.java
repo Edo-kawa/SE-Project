@@ -36,14 +36,14 @@ public class SquareTest {
 
     @Test
     void testGettersAndSetters() {
-        // getters
+        // test getters method in different circumstances.
         assertEquals(square1.getType(), Type.RIVER);
         assertNull(square1.getChessContent());
         assertNull(square2.getChessContent());
         assertNull(square3.getChessContent());
         assertEquals(square7.getChessContent(), new Piece(Animal.DOG, Side.Red));
         assertEquals(square8.getChessContent(), new Piece(Animal.DOG, Side.Blue));
-        // setters
+        // test setters method in different circumstances.
         square6.setContent(new Piece(Animal.DOG, Side.Red));
         assertEquals(square6.getChessContent(), new Piece(Animal.DOG, Side.Red));
 
@@ -65,7 +65,6 @@ public class SquareTest {
         assertEquals(ConsoleColors.GREEN_BACKGROUND + "   " + ConsoleColors.RESET, toString4);
         assertNotEquals(toString5, square7.getChessContent().toString());
         assertNotEquals(toString6, square8.getChessContent().toString());
-
     }
 
     @Test
