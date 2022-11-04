@@ -7,11 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ChessBoardTest {
     //This is the test for the class ChessBoard.
-    private ChessBoard chessBoard1, chessBoard2;
+    private ChessBoard chessBoard1, chessBoard2, chessBoard3;
     @BeforeEach
     void setup(){
         chessBoard1 = new ChessBoard();
         chessBoard2 = new ChessBoard();
+        chessBoard3 = new ChessBoard();
     }
 
     @Test
@@ -34,26 +35,6 @@ public class ChessBoardTest {
         }
         chessBoard2.init(locations);
         assertEquals(chessBoard2.getPosition(1,7),new Location(5,2));
-    }
-
-    @Test
-    void clearTest(){
-        //tests whether clear() can remove the content of a square and set it to null
-        chessBoard1.init(null);
-        //originally, there is a tiger
-        assertEquals(chessBoard1.getSquare(new Location(1,1)).
-                        getChessContent().getAnimal(),Animal.TIG);
-        chessBoard1.clear(new Location(1,1));
-        //it is cleared
-        assertNull(chessBoard1.getSquare(new Location(1, 1)).
-                getChessContent());
-
-        //same thing for the other player
-        assertEquals(chessBoard1.getSquare(new Location(8,6)).
-                getChessContent().getAnimal(),Animal.CAT);
-        chessBoard1.clear(new Location(8,6));
-        assertNull(chessBoard1.getSquare(new Location(8, 6)).
-                getChessContent());
     }
 
     @Test
@@ -148,17 +129,15 @@ public class ChessBoardTest {
         assertEquals(chessBoard1.checkWinner(),2);
 
         //player Red loses all pieces
-        chessBoard2.init(null);
-        for(int i=1;i<=8;i++){
-            chessBoard2.clear(chessBoard2.getPosition(0,i));
-        }
+        final Location[][] temp1={{null,null,null,null,null,null,null,null,null},
+                {null,new Location(5),null,null,null,null,null,null,null}};
+        chessBoard2.init(temp1);
         assertEquals(chessBoard2.checkWinner(),2);
 
         //player Blue loses all pieces
-        chessBoard2.init(null);
-        for(int i=1;i<=8;i++){
-            chessBoard2.clear(chessBoard2.getPosition(1,i));
-        }
-        assertEquals(chessBoard2.checkWinner(),1);
+        final Location[][] temp2={{null,null,new Location(5),null,null,null,null,null,null},
+                {null,null,null,null,null,null,null,null,null}};
+        chessBoard3.init(temp2);
+        assertEquals(chessBoard3.checkWinner(),1);
     }
 }
