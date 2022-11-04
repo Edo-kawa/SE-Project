@@ -61,7 +61,9 @@ public class LocationTest {
         assertNotEquals(location3, new Location(61));
     }
     @Test
+    // Tests if two locations are equal and their hashCode are the same.
     void testHashCode(){
+
         Location x = new Location(2, 3);
         Location y = new Location(2,3);
         assertTrue(x.equals(y) && y.equals(x));

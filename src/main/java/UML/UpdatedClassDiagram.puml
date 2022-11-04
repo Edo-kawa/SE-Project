@@ -2,12 +2,12 @@
 'https://plantuml.com/class-diagram
 
 package "Model" {
-    ChessBoard "1" *-- "2..*" Piece: contains >
+    ChessBoard "1" o-- "0..*" Piece: contains >
     ChessBoard "1" *-- "63" Square: comprises >
 
-    Square "1" --o "0..1" Piece: contains >
+    Square "1" o-- "0..1" Piece: contains >
 
-    Piece "1" --o "1" Animal
+    Piece "1" *-- "1" Animal
     Piece --|> Elephant
     Piece --|> JumpingPieces
     Piece --|> Rat
@@ -41,7 +41,7 @@ class ChessBoard {
 <plain>+ moveTo(Location, Location): void
 <plain>+ void moveTo(int index, Location to)
 <plain>+ checkWinner(): int
-<plain>+ clear(Location): void
+<plain>- clear(Location): void
 }
 
 class Square {
@@ -54,11 +54,36 @@ class Square {
     <plain>+  getType(): Type
 }
 
+Abstract class JumpingPieces{
+    <plain>+ JumpingPieces(Animal, Side)
+    <plain>+ canMoveToEmpty(Location, Location, Square): boolean
+
+}
+class Elephant{
+    <plain>+ Elephant(Side)
+
+
+    <plain># boolean outRank(Animal)
+}
+class Tiger{
+    <plain>+ Tiger(Side)
+}
+
+class Lion{
+    <plain>+ Lion(Side)
+}
+
+class Rat{
+    <plain>+ Rat(Side)
+    <plain>+ canMoveToEmpty(Location, Location, Square): boolean
+    <plain># outRank(Animal): boolean
+}
+
 class Piece {
     <plain># side: Side
     <plain># animal: Animal
 
-    <plain>+ Piece(Location, Animal, Side)
+    <plain>+ Piece(Animal, Side)
     <plain>+ canMoveToEmpty(Location, Location, Square): boolean
     <plain># outRank(Animal): boolean
     <plain>+ canTake(Square): boolean
@@ -90,15 +115,15 @@ enum Type {
 }
 
 class Location {
-    <plain>-int row
-    <plain>-int column
-    <plain>-int index
+    <plain>-row: int
+    <plain>-column: int
+    <plain>-index: int
     <plain>+Location(int row, int column)   // Constructor 1
     <plain>+Location(int index) // Constructor 2
     <plain>+getRow(): int
     <plain>+getCol(): int
     <plain>+getIndex(): int
-    <plain>+parseIndex(int index): Location
+
 }
 
 class SaverLoader {
