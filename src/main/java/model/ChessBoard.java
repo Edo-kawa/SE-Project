@@ -26,7 +26,6 @@ public class ChessBoard {
      * -1 if already eaten
      * order: player1 [0][1-8], player2 [1][1-8] 1-8 standing for Rank
      */
-    
     private final Location[][] position = new Location[2][9];
     private final int PLAYER_RED_INDEX = Side.Red.getNum() - 1; // red
     private final int PLAYER_BLUE_INDEX = Side.Blue.getNum() - 1; // blue
@@ -190,6 +189,10 @@ public class ChessBoard {
         }
     }
 
+    /**
+     * Initialize the ChessBoard with loaded positions or positions by default
+     * @param locations the pre-saved locations loded by SaverLoader
+     */
     public void init(Location[][] locations) {
         for (int i = 0; i < 63; i++) {
             switch (i) {

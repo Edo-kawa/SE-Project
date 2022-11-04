@@ -15,6 +15,13 @@ public class Rat extends Piece {
         super(RAT, side);
     }
 
+    /**
+     *
+     * @param from the starting location
+     * @param destination the destination location
+     * @param square the destination square
+     * @return true if the piece can move to the specified destination; false otherwise
+     */
     public boolean canMoveToEmpty(Location from, Location destination, Square square){
         int dx = destination.getRow();
         int dy = destination.getCol();
@@ -34,6 +41,11 @@ public class Rat extends Piece {
         return dy == from.getCol() && abs(dx - from.getRow()) == 1;
     }
 
+    /**
+     *
+     * @param animal1 the other animal
+     * @return true if the other animal is a rat or an elephant
+     */
     @Override
     protected boolean outRank(Animal animal1) {
         return animal1.getRank()==1 || animal1.getRank()==8;

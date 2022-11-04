@@ -10,6 +10,12 @@ public abstract class JumpingPieces extends Piece {
         super(animal,side);
     }
 
+    /**
+     * checks whether it is possible to move to an empty square
+     * @param destination the destination location
+     * @param square the destination square
+     * @return true if possible, false if impossible
+     */
     public boolean canMoveToEmpty(Location from, Location to, Square square){
         int dx = to.getRow();
         int dy = to.getCol();
