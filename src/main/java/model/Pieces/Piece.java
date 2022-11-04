@@ -29,7 +29,7 @@ public class Piece {
 
     /**
      * checks whether it is possible to move to an empty square
-     * overridden in RAT, TIG, LIO
+     * overridden in class Rat, JumpingPieces
      * @param destination the destination location
      * @param square the destination square
      * @return true if possible, false if impossible
