@@ -9,6 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *  Test Suite for the SaverLoader class
+ *  This Test Suite may fail to achieve perfect line coverage
+ *  as some try-catch statements are triggered by system-level errors,
+ *  which cannot be covered in the test
  */
 public class SaverLoaderTest {
     private ChessBoard chessBoard;
