@@ -16,6 +16,7 @@ public class LionTest {
 
     @BeforeEach
     void setup() {
+        //Setup
         lion1 = new Lion(Side.Red);
         lion2 = new Lion(Side.Blue);
         location1 = new Location(1,7);
@@ -34,18 +35,25 @@ public class LionTest {
 
     @Test
     void checkLion() {
+        //Test if Lion Class is valid
         assertEquals(lion1, new Piece(Animal.LIO, Side.Red));
         assertEquals(lion2, new Piece(Animal.LIO, Side.Blue));
     }
 
     @Test
     void testcanMovetoEmpty() {
-
+        //Test canMoveToEmpty() with different cases
+        //River is invalid
         assertFalse(lion1.canMoveToEmpty(location1,location2,square2));
+        //Red side in Den1 is invalid
         assertFalse(lion1.canMoveToEmpty(location1,location2,square3));
+        //Blue side in Den2 is invalid
         assertFalse(lion2.canMoveToEmpty(location1,location2,square4));
+        //Same row move 1 column is valid
         assertTrue(lion1.canMoveToEmpty(location1,location2,square1));
+        //Same column move 1 row is valid
         assertTrue(lion1.canMoveToEmpty(location3,location4,square1));
+        //Jump over the river is valid
         assertTrue(lion1.canMoveToEmpty(location5,location6,square1));
         assertTrue(lion1.canMoveToEmpty(location7,location8,square1));
 

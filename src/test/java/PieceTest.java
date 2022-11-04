@@ -17,11 +17,12 @@ public class PieceTest {
 
     @BeforeEach
     void setup() {
+
+        //Setup
         leo = new Piece(Animal.LEO,Side.Red);
         wol = new Piece(Animal.WOL,Side.Red);
         dog = new Piece(Animal.DOG,Side.Blue);
         cat = new Piece(Animal.CAT,Side.Blue);
-
         location1 = new Location(1,7);
         location2 = new Location(1,6);
         location3 = new Location(7,1);
@@ -39,12 +40,17 @@ public class PieceTest {
 
 
     @Test
-    void testcanMovetoEmpty() {
-
+    void testcanMoveToEmpty() {
+        //Test canMoveToEmpty() with different cases
+        //River is invalid
         assertFalse(leo.canMoveToEmpty(location1,location2,square2));
+        //Ride side in Den1 is invalid
         assertFalse(wol.canMoveToEmpty(location1,location2,square3));
+        //Blue side in Den2 is invalid
         assertFalse(dog.canMoveToEmpty(location1,location2,square4));
+        //Same row move 1 column is valid
         assertTrue(cat.canMoveToEmpty(location1,location2,square1));
+        //Same column move 1 row is valid
         assertTrue(cat.canMoveToEmpty(location3,location4,square1));
 
     }
@@ -52,12 +58,16 @@ public class PieceTest {
 
     @Test
     void testcanTake() {
-
+        //Test canTake() with different cases
+        //Same side is invalid
         assertFalse(leo.canTake(square2));
         assertFalse(dog.canTake(square1));
+        //River is valid
         assertTrue(dog.canTake(square2));
+        //Ride side in Trap1 is valid
         assertTrue(dog.canTake(square5));
         assertTrue(leo.canTake(square6));
+        //Blue side in Trap2 is valid
         assertTrue(dog.canTake(square7));
         assertTrue(leo.canTake(square8));
         assertTrue(leo.canTake(square3));

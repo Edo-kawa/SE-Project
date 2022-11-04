@@ -15,6 +15,7 @@ public class RatTest {
 
     @BeforeEach
     void setup() {
+        //Setup
         rat1 = new Rat(Side.Red);
         rat2 = new Rat(Side.Blue);
         location1 = new Location(2,5);
@@ -29,10 +30,14 @@ public class RatTest {
 
     @Test
     void checkRat() {
-
+        //Test canMoveToEmpty() with different cases
+        //Red side in Den1 is invalid
         assertFalse(rat1.canMoveToEmpty(location1,location2,square2));
+        //Blue side in Den2 is invalid
         assertFalse(rat2.canMoveToEmpty(location1,location2,square3));
+        //Same row move 1 column is valid
         assertTrue(rat2.canMoveToEmpty(location1,location2,square1));
+        //Same column move 1 row is valid
         assertTrue(rat2.canMoveToEmpty(location3,location4,square1));
 
     }
