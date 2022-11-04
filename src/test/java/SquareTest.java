@@ -13,7 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-
+/**
+ *  This is the test for the class Square.
+ */
 public class SquareTest {
     Square square1, square2, square3, square4,
             square5, square6, square7, square8;
@@ -21,8 +23,8 @@ public class SquareTest {
 
     @BeforeEach
     void test() {
-        // All the Types
-        //RIVER, TRAP1, TRAP2, DEN1, DEN2, NORMAL
+        // All Types:
+        // RIVER, TRAP1, TRAP2, DEN1, DEN2, NORMAL
         square1 = new Square(null, Type.RIVER);
         square2 = new Square(null, Type.TRAP1);
         square3 = new Square(null, Type.TRAP2);
@@ -36,14 +38,14 @@ public class SquareTest {
 
     @Test
     void testGettersAndSetters() {
-        // getters
+        // Getters
         assertEquals(square1.getType(), Type.RIVER);
         assertNull(square1.getChessContent());
         assertNull(square2.getChessContent());
         assertNull(square3.getChessContent());
         assertEquals(square7.getChessContent(), new Piece(Animal.DOG, Side.Red));
         assertEquals(square8.getChessContent(), new Piece(Animal.DOG, Side.Blue));
-        // setters
+        // Setters
         square6.setContent(new Piece(Animal.DOG, Side.Red));
         assertEquals(square6.getChessContent(), new Piece(Animal.DOG, Side.Red));
 
@@ -51,7 +53,6 @@ public class SquareTest {
 
     @Test
     void testToStringMethod() {
-
         String toString1 = square1.toString();
         String toString2 = square2.toString();
         String toString3 = square4.toString();

@@ -5,20 +5,23 @@ import utils.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ *  This is the test for the class Elephant.
+ */
 public class ElephantTest{
 
     Elephant elephant1,elephant2;
 
     @BeforeEach
     void setUp(){
-        //Setup
+        // Setup
         elephant1 = new Elephant(Side.Blue);
         elephant2 = new Elephant(Side.Red);
     }
 
     @Test
     void checkElephant(){
-        //Test if Elephant class is valid
+        // Test if Elephant class is valid
         assertEquals(elephant1,new Piece(Animal.ELE,Side.Blue));
         assertEquals(elephant2,new Piece(Animal.ELE,Side.Red));
     }

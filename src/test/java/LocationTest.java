@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @Description: Test for the class Location.
  */
-
 public class LocationTest {
 
     Location location1, location2, location3, location4,

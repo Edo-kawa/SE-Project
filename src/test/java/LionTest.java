@@ -8,6 +8,9 @@ import utils.Side;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ *  This is the test for the class Lion.
+ */
 public class LionTest {
 
     Lion lion1,lion2;

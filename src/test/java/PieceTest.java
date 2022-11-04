@@ -8,7 +8,9 @@ import utils.Side;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ *  This is the test for the class Piece.
+ */
 public class PieceTest {
 
     Piece leo,wol,dog,cat;
@@ -18,7 +20,7 @@ public class PieceTest {
     @BeforeEach
     void setup() {
 
-        //Setup
+        // Setup
         leo = new Piece(Animal.LEO,Side.Red);
         wol = new Piece(Animal.WOL,Side.Red);
         dog = new Piece(Animal.DOG,Side.Blue);
@@ -41,16 +43,16 @@ public class PieceTest {
 
     @Test
     void testcanMoveToEmpty() {
-        //Test canMoveToEmpty() with different cases
-        //River is invalid
+        // Test canMoveToEmpty() with different cases
+        // River is invalid
         assertFalse(leo.canMoveToEmpty(location1,location2,square2));
-        //Ride side in Den1 is invalid
+        // Ride side in Den1 is invalid
         assertFalse(wol.canMoveToEmpty(location1,location2,square3));
-        //Blue side in Den2 is invalid
+        // Blue side in Den2 is invalid
         assertFalse(dog.canMoveToEmpty(location1,location2,square4));
-        //Same row move 1 column is valid
+        // Same row move 1 column is valid
         assertTrue(cat.canMoveToEmpty(location1,location2,square1));
-        //Same column move 1 row is valid
+        // Same column move 1 row is valid
         assertTrue(cat.canMoveToEmpty(location3,location4,square1));
 
     }
@@ -58,16 +60,16 @@ public class PieceTest {
 
     @Test
     void testcanTake() {
-        //Test canTake() with different cases
-        //Same side is invalid
+        // Test canTake() with different cases
+        // Same side is invalid
         assertFalse(leo.canTake(square2));
         assertFalse(dog.canTake(square1));
-        //River is valid
+        // River is valid
         assertTrue(dog.canTake(square2));
-        //Ride side in Trap1 is valid
+        // Ride side in Trap1 is valid
         assertTrue(dog.canTake(square5));
         assertTrue(leo.canTake(square6));
-        //Blue side in Trap2 is valid
+        // Blue side in Trap2 is valid
         assertTrue(dog.canTake(square7));
         assertTrue(leo.canTake(square8));
         assertTrue(leo.canTake(square3));

@@ -8,7 +8,9 @@ import utils.Side;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ *  This is the test for the class Tiger.
+ */
 public class TigerTest {
 
     Tiger Tiger1,Tiger2;
@@ -17,7 +19,7 @@ public class TigerTest {
 
     @BeforeEach
     void setup() {
-        //Setup
+        // Setup
         Tiger1 = new Tiger(Side.Red);
         Tiger2 = new Tiger(Side.Blue);
         location1 = new Location(1,7);
@@ -36,25 +38,25 @@ public class TigerTest {
 
     @Test
     void checkTiger() {
-        //Test if Tiger Class is valid
+        // Test if Tiger Class is valid
         assertEquals(Tiger1, new Piece(Animal.TIG, Side.Red));
         assertEquals(Tiger2, new Piece(Animal.TIG, Side.Blue));
     }
 
     @Test
     void testcanMovetoEmpty() {
-        //Test canMoveToEmpty() with different cases
-        //River is invalid
+        // Test canMoveToEmpty() with different cases
+        // River is invalid
         assertFalse(Tiger1.canMoveToEmpty(location1,location2,square2));
-        //Red side in Den1 is invalid
+        // Red side in Den1 is invalid
         assertFalse(Tiger1.canMoveToEmpty(location1,location2,square3));
-        //Blue side in Den2 is invalid
+        // Blue side in Den2 is invalid
         assertFalse(Tiger2.canMoveToEmpty(location1,location2,square4));
-        //Same row move 1 column is valid
+        // Same row move 1 column is valid
         assertTrue(Tiger1.canMoveToEmpty(location1,location2,square1));
-        //Same column move 1 row is valid
+        // Same column move 1 row is valid
         assertTrue(Tiger1.canMoveToEmpty(location3,location4,square1));
-        //Jump over the river is valid
+        // Jump over the river is valid
         assertTrue(Tiger1.canMoveToEmpty(location5,location6,square1));
         assertTrue(Tiger1.canMoveToEmpty(location7,location8,square1));
 

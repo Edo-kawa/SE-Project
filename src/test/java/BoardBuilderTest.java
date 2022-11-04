@@ -13,7 +13,10 @@ public class BoardBuilderTest {
 
     BoardBuilder boardBuilder;
 
-    @Test // Test if chess factory can produce the expected piece.
+    /**
+     *  Test if chess factory can produce the expected piece.
+     */
+    @Test
     void checkEquals(){
         assertEquals(BoardBuilder.chessFactory("ELE", Side.Red), new Elephant(Side.Red));
         assertEquals(BoardBuilder.chessFactory("LIO", Side.Blue), new Lion(Side.Blue));
@@ -25,7 +28,10 @@ public class BoardBuilderTest {
         assertEquals(BoardBuilder.chessFactory("CAT", Side.Blue), new Piece(Animal.CAT, Side.Blue));
     }
 
-    @Test // Test if chess factory would return null if the piece name is wrong.
+    /**
+     *  Test if chess factory would return null if the piece name is wrong.
+     */
+    @Test
     void checkInvalidInput(){
         assertNull(BoardBuilder.chessFactory("Rabbit", Side.Red), "Invalid input checked");
         assertNull(BoardBuilder.chessFactory("Dragon", Side.Blue), "Invalid input checked");
