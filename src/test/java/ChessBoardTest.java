@@ -48,18 +48,18 @@ public class ChessBoardTest {
         chessBoard1.init(null);
         // Originally, there is a tiger
         assertEquals(chessBoard1.getSquare(new Location(1,1)).
-                        getChessContent().getAnimal(),Animal.TIG);
+                        getPieceContent().getAnimal(),Animal.TIG);
         chessBoard1.clear(new Location(1,1));
         // It is cleared
         assertNull(chessBoard1.getSquare(new Location(1, 1)).
-                getChessContent());
+                getPieceContent());
 
         // Same thing for the other player
         assertEquals(chessBoard1.getSquare(new Location(8,6)).
-                getChessContent().getAnimal(),Animal.CAT);
+                getPieceContent().getAnimal(),Animal.CAT);
         chessBoard1.clear(new Location(8,6));
         assertNull(chessBoard1.getSquare(new Location(8, 6)).
-                getChessContent());
+                getPieceContent());
     }
 
     /**
