@@ -9,7 +9,7 @@ import static java.lang.Math.abs;
 /**
  * TODO: 看一看还有没有要补充的
  * Jumping pieces abstract class is inherited by Lion and Tiger,
- * since
+ * since only these two types of animals are capable of jumping.
  */
 public abstract class JumpingPieces extends Piece {
     public JumpingPieces(Animal animal, Side side){
