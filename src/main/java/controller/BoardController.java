@@ -9,11 +9,8 @@ import java.util.Scanner;
 public class BoardController {
 
     private final ChessBoard model;
-
     private final BoardView view;
-
     private Location userInputLocation;
-
     private static final Scanner scanner = new Scanner(System.in);
 
     //1 or 2
@@ -36,6 +33,7 @@ public class BoardController {
         return this.model;
     }
 
+    // TODO: Hi, Edokawa, could you add some comments in this method?
     public static BoardController getController(BoardView v) {
         BoardController boardController = null;
 
@@ -72,6 +70,8 @@ public class BoardController {
     }
 
     private int dx,dy;
+
+    // TODO: Hi, 志林, could you add some comments in this method?
     public void startPlaying(){
         while(model.checkWinner()==0) {
             updateView();

@@ -3,7 +3,15 @@ package utils;
 import model.Pieces.*;
 
 public class BoardBuilder {
+
     // Create pieces by String
+
+    /**
+     *
+     * @param pieceName
+     * @param sideName
+     * @return
+     */
     public static Piece chessFactory(String pieceName, Side sideName){
         if(pieceName.equals("ELE")){
             return new Elephant(sideName);

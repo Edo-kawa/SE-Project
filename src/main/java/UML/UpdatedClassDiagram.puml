@@ -37,9 +37,9 @@ class ChessBoard {
 <plain>+ getPosition(int, int): Location
 <plain>+ checkValidLocation(Location): boolean
 <plain>+ checkLegalMove(Location, Location): boolean
-<plain>+ boolean checkLegalMove(int index, Location to)
+'<plain>+ boolean checkLegalMove(int index, Location to)
 <plain>+ moveTo(Location, Location): void
-<plain>+ void moveTo(int index, Location to)
+'<plain>+ void moveTo(int index, Location to)
 <plain>+ checkWinner(): int
 <plain>- clear(Location): void
 }
@@ -48,8 +48,8 @@ class Square {
     <plain>- piece: Piece
     <plain>- type: Type
 
-    <plain>+  Square(Chess, Type) // constructor
-    <plain>+  getChessContent(): Chess
+    <plain>+  Square(Piece, Type) // constructor
+    <plain>+  getPieceContent(): Piece
     <plain>+  setContent(Piece c): void
     <plain>+  getType(): Type
 }

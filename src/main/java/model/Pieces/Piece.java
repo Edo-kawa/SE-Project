@@ -76,12 +76,12 @@ public class Piece {
      * @return true if it is possible to take a piece on a square
      */
     public boolean canTake(Square square){
-        if(square.getChessContent().getSide() == this.side){
+        if(square.getPieceContent().getSide() == this.side){
             return false;
         }
         switch (square.getType()){
             case NORMAL:
-                return outRank(square.getChessContent().getAnimal());
+                return outRank(square.getPieceContent().getAnimal());
             case RIVER:
                 return true;
 
@@ -89,14 +89,14 @@ public class Piece {
                 if(side == Side.Red){
                     return true;
                 }else{
-                    return outRank(square.getChessContent().getAnimal());
+                    return outRank(square.getPieceContent().getAnimal());
                 }
 
             case TRAP2:
                 if(side == Side.Blue){
                     return true;
                 }else{
-                    return outRank(square.getChessContent().getAnimal());
+                    return outRank(square.getPieceContent().getAnimal());
                 }
         }
         return true;

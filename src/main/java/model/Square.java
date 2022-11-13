@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Square{
     private Piece piece;
     private final Type type;
-    public Piece getChessContent(){
+    public Piece getPieceContent(){
         return piece;
     }
     public void setContent(Piece c){

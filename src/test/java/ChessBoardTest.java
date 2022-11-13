@@ -70,23 +70,23 @@ public class ChessBoardTest {
         chessBoard1.init(null);
         // target is originally empty
         assertNull(chessBoard1.getSquare(new Location(1, 2)).
-                getChessContent());
+                getPieceContent());
         chessBoard1.moveTo(new Location(1,1), new Location(1,2));
         // target is filled after moveTo()
         assertEquals(chessBoard1.getSquare(new Location(1,2)).
-                getChessContent().getAnimal(),Animal.TIG);
+                getPieceContent().getAnimal(),Animal.TIG);
         chessBoard1.moveTo(new Location(1,7),new Location(1,2));
         // target is again updated
         assertEquals(chessBoard1.getSquare(new Location(1,2)).
-                getChessContent().getAnimal(),Animal.LIO);
+                getPieceContent().getAnimal(),Animal.LIO);
 
         // Originally (8,6) contains a cat
         assertEquals(chessBoard1.getSquare(new Location(8,6)).
-                getChessContent().getAnimal(), Animal.CAT);
+                getPieceContent().getAnimal(), Animal.CAT);
         chessBoard1.moveTo(new Location(8,6), new Location(8,5));
         // After the move, it contains nothing
         assertNull(chessBoard1.getSquare(new Location(8, 6)).
-                getChessContent());
+                getPieceContent());
     }
 
     /**

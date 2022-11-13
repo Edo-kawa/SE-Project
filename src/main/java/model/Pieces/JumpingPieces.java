@@ -5,6 +5,12 @@ import model.Square;
 import utils.*;
 
 import static java.lang.Math.abs;
+
+/**
+ * TODO: 看一看还有没有要补充的
+ * Jumping pieces abstract class is inherited by Lion and Tiger,
+ * since
+ */
 public abstract class JumpingPieces extends Piece {
     public JumpingPieces(Animal animal, Side side){
         super(animal,side);
@@ -12,7 +18,8 @@ public abstract class JumpingPieces extends Piece {
 
     /**
      * checks whether it is possible to move to an empty square
-     * @param destination the destination location
+     * @param from the destination location
+     * @param to the destination location
      * @param square the destination square
      * @return true if possible, false if impossible
      */

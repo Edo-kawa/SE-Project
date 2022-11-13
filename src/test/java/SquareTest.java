@@ -40,14 +40,16 @@ public class SquareTest {
     void testGettersAndSetters() {
         // Getters
         assertEquals(square1.getType(), Type.RIVER);
-        assertNull(square1.getChessContent());
-        assertNull(square2.getChessContent());
-        assertNull(square3.getChessContent());
-        assertEquals(square7.getChessContent(), new Piece(Animal.DOG, Side.Red));
-        assertEquals(square8.getChessContent(), new Piece(Animal.DOG, Side.Blue));
-        // Setters
+
+        assertNull(square1.getPieceContent());
+        assertNull(square2.getPieceContent());
+        assertNull(square3.getPieceContent());
+        assertEquals(square7.getPieceContent(), new Piece(Animal.DOG, Side.Red));
+        assertEquals(square8.getPieceContent(), new Piece(Animal.DOG, Side.Blue));
+        // test setters method in different circumstances.
+
         square6.setContent(new Piece(Animal.DOG, Side.Red));
-        assertEquals(square6.getChessContent(), new Piece(Animal.DOG, Side.Red));
+        assertEquals(square6.getPieceContent(), new Piece(Animal.DOG, Side.Red));
 
     }
 
@@ -64,8 +66,9 @@ public class SquareTest {
         assertEquals(ConsoleColors.BLACK_BACKGROUND_BRIGHT + "   " + ConsoleColors.RESET, toString2);
         assertEquals(ConsoleColors.BLACK_BACKGROUND + "   " + ConsoleColors.RESET, toString3);
         assertEquals(ConsoleColors.GREEN_BACKGROUND + "   " + ConsoleColors.RESET, toString4);
-        assertNotEquals(toString5, square7.getChessContent().toString());
-        assertNotEquals(toString6, square8.getChessContent().toString());
+
+        assertNotEquals(toString5, square7.getPieceContent().toString());
+        assertNotEquals(toString6, square8.getPieceContent().toString());
 
     }
 

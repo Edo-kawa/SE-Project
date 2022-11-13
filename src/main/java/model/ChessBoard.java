@@ -52,9 +52,9 @@ public class ChessBoard {
      * @return true is valid, false if invalid
      */
     public boolean checkLegalMove(Location from, Location to){
-        if(getSquare(from).getChessContent().canMoveToEmpty(from, to, getSquare(to))){
-            if(getSquare(to).getChessContent() != null){
-                if(!getSquare(from).getChessContent().canTake(getSquare(to))){
+        if(getSquare(from).getPieceContent().canMoveToEmpty(from, to, getSquare(to))){
+            if(getSquare(to).getPieceContent() != null){
+                if(!getSquare(from).getPieceContent().canTake(getSquare(to))){
                     return false;
                 }
 
@@ -75,7 +75,7 @@ public class ChessBoard {
                     for (int temp=min(from.getCol(), to.getCol())+1;
                          temp<max(from.getCol(), to.getCol()); temp++) {
 
-                        if(getSquare(new Location(from.getRow(), temp)).getChessContent()!=null){
+                        if(getSquare(new Location(from.getRow(), temp)).getPieceContent()!=null){
                             rat_in_river=true;
                         }
                     }
@@ -83,7 +83,7 @@ public class ChessBoard {
                 if(from.getCol() == to.getCol()){
                     for (int temp=min(from.getRow(), to.getRow())+1;
                          temp<max(from.getRow(), to.getRow()); temp++) {
-                        if(getSquare(new Location(temp, from.getCol())).getChessContent()!=null){
+                        if(getSquare(new Location(temp, from.getCol())).getPieceContent()!=null){
                             rat_in_river=true;
                         }
                     }
@@ -103,10 +103,10 @@ public class ChessBoard {
      * @param to the destination
      */
     public void moveTo(Location from, Location to){
-        if(squares.get(to.getIndex()).getChessContent()!=null){
+        if(squares.get(to.getIndex()).getPieceContent()!=null){
             clear(to);
         }
-        Piece piece =squares.get(from.getIndex()).getChessContent();
+        Piece piece =squares.get(from.getIndex()).getPieceContent();
 
         squares.get(to.getIndex()).setContent(piece);
         squares.get(from.getIndex()).setContent(null);
@@ -123,7 +123,7 @@ public class ChessBoard {
      * @param location the location
      */
     private void clear(Location location){
-        Piece piece = squares.get(location.getIndex()).getChessContent();
+        Piece piece = squares.get(location.getIndex()).getPieceContent();
         squares.get(location.getIndex()).setContent(null);
 
         if(piece.getSide() == Side.Red){
@@ -141,10 +141,10 @@ public class ChessBoard {
      */
     public int checkWinner(){
         
-        if(squares.get(3).getChessContent()!=null){
+        if(squares.get(3).getPieceContent()!=null){
             return 2;
         }
-        if(squares.get(59).getChessContent()!=null){
+        if(squares.get(59).getPieceContent()!=null){
             return 1;
         }
         
