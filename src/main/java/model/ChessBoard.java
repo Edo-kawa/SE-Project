@@ -164,7 +164,7 @@ public class ChessBoard {
 
         // check if player_2 has lost all pieces
         flag = true;
-        for(int i = maxIndex; i <= maxIndex; i++){
+        for(int i = minIndex; i <= maxIndex; i++){
             if(position[PLAYER_BLUE_INDEX][i] != null){
                 flag = false;
                 break;
