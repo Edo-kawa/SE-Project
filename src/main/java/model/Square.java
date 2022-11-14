@@ -29,9 +29,9 @@ public class Square{
             }
         }
         if (piece.getSide() == Side.Red){
-            return ConsoleColors.RED_BACKGROUND + piece.toString() + ConsoleColors.RESET;
+            return ConsoleColors.RED_BACKGROUND_BRIGHT + ConsoleColors.WHITE_BOLD + piece.toString() + ConsoleColors.RESET;
         }else{
-            return ConsoleColors.BLUE_BACKGROUND + piece.toString() + ConsoleColors.RESET;
+            return ConsoleColors.BLUE_BACKGROUND + ConsoleColors.WHITE_BOLD + piece.toString() + ConsoleColors.RESET;
         }
 
     }
