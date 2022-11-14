@@ -26,9 +26,6 @@ public class Rat extends Piece {
         int dx = destination.getRow();
         int dy = destination.getCol();
 
-        if(dx<1 || dx>9 || dy<1 || dy>7){
-            return false;
-        }
         if(square.getType()==Type.DEN1 && super.side == Side.Red){
             return false;
         }

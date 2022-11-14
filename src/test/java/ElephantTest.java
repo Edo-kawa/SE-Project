@@ -3,7 +3,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.*;
 
+import java.lang.reflect.Method;
+
+import static model.Pieces.Animal.DOG;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  *  This is the test for the class Elephant.
@@ -26,6 +30,20 @@ public class ElephantTest{
         assertEquals(elephant2,new Piece(Animal.ELE,Side.Red));
     }
 
+    @Test
+    void testOutRank(){
+        Class c = elephant1.getClass();
+        try{
+            Method method = c.getDeclaredMethod("outRank", new Class[]{Animal.class});
+            method.setAccessible(true);
+            Object result = method.invoke(elephant1, new Object[]{DOG});
+            assertEquals(true, result);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
 
 }
+
+
 

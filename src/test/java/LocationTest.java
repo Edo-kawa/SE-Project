@@ -1,3 +1,5 @@
+import model.ChessBoard;
+import model.Pieces.Piece;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.Location;
@@ -66,6 +68,7 @@ public class LocationTest {
 
         Location x = new Location(2, 3);
         Location y = new Location(2,3);
+        assertFalse(x.equals(new ChessBoard()));
         assertTrue(x.equals(y) && y.equals(x));
         assertEquals(x.hashCode(), y.hashCode());
     }

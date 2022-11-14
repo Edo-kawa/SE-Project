@@ -35,7 +35,6 @@ class ChessBoard {
 
 <plain>+ ChessBoard() // constructor
 <plain>+ getPosition(int, int): Location
-<plain>+ checkValidLocation(Location): boolean
 <plain>+ checkLegalMove(Location, Location): boolean
 '<plain>+ boolean checkLegalMove(int index, Location to)
 <plain>+ moveTo(Location, Location): void

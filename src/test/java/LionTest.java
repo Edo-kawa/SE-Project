@@ -44,7 +44,7 @@ public class LionTest {
     }
 
     @Test
-    void testcanMovetoEmpty() {
+    void testCanMovetoEmpty() {
         //Test canMoveToEmpty() with different cases
         //River is invalid
         assertFalse(lion1.canMoveToEmpty(location1,location2,square2));

@@ -1,3 +1,4 @@
+import model.ChessBoard;
 import model.Pieces.*;
 import model.Square;
 import model.Type;
@@ -74,6 +75,12 @@ public class PieceTest {
         assertTrue(leo.canTake(square8));
         assertTrue(leo.canTake(square3));
 
+    }
+
+
+    @Test
+    void testEquals(){
+        assertFalse(leo.equals(new ChessBoard()));
     }
 
 }

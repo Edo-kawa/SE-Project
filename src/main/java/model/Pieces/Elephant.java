@@ -17,4 +17,6 @@ public class Elephant extends Piece {
     protected boolean outRank(Animal animal1) {
         return animal1.getRank()!=1;
     }
+
 }
+
