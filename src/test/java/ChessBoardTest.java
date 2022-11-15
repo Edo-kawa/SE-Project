@@ -3,6 +3,10 @@ import model.Pieces.Animal;
 import org.junit.jupiter.api.*;
 import utils.Location;
 
+import java.lang.reflect.Method;
+
+import static model.Pieces.Animal.DOG;
+import static model.Pieces.Animal.ELE;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -49,7 +53,16 @@ public class ChessBoardTest {
         // Originally, there is a tiger
         assertEquals(chessBoard1.getSquare(new Location(1,1)).
                         getPieceContent().getAnimal(),Animal.TIG);
-        chessBoard1.clear(new Location(1,1));
+
+        try{
+            Class c = chessBoard1.getClass();
+            Method method = c.getDeclaredMethod("clear", new Class[]{Location.class});
+            method.setAccessible(true);
+            method.invoke(chessBoard1, new Object[]{new Location(1, 1)});
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
         // It is cleared
         assertNull(chessBoard1.getSquare(new Location(1, 1)).
                 getPieceContent());
@@ -57,7 +70,14 @@ public class ChessBoardTest {
         // Same thing for the other player
         assertEquals(chessBoard1.getSquare(new Location(8,6)).
                 getPieceContent().getAnimal(),Animal.CAT);
-        chessBoard1.clear(new Location(8,6));
+        try{
+            Class c = chessBoard1.getClass();
+            Method method = c.getDeclaredMethod("clear", new Class[]{Location.class});
+            method.setAccessible(true);
+            method.invoke(chessBoard1, new Object[]{new Location(8, 6)});
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
         assertNull(chessBoard1.getSquare(new Location(8, 6)).
                 getPieceContent());
     }
@@ -161,14 +181,28 @@ public class ChessBoardTest {
         // Player Red loses all pieces
         chessBoard2.init(null);
         for(int i=1;i<=8;i++){
-            chessBoard2.clear(chessBoard2.getPosition(0,i));
+            try{
+                Class c = chessBoard2.getClass();
+                Method method = c.getDeclaredMethod("clear", new Class[]{Location.class});
+                method.setAccessible(true);
+                method.invoke(chessBoard2, new Object[]{chessBoard2.getPosition(0, i)});
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
         }
         assertEquals(chessBoard2.checkWinner(),2);
 
         // Player Blue loses all pieces
         chessBoard2.init(null);
         for(int i=1;i<=8;i++){
-            chessBoard2.clear(chessBoard2.getPosition(1,i));
+            try{
+                Class c = chessBoard2.getClass();
+                Method method = c.getDeclaredMethod("clear", new Class[]{Location.class});
+                method.setAccessible(true);
+                method.invoke(chessBoard2, new Object[]{chessBoard2.getPosition(1, i)});
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
         }
         assertEquals(chessBoard2.checkWinner(),1);
     }

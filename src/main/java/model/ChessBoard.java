@@ -123,7 +123,7 @@ public class ChessBoard {
      * @param location the location
      */
 
-    public void clear(Location location){
+    private void clear(Location location){
         Piece piece = squares.get(location.getIndex()).getPieceContent();
 
         squares.get(location.getIndex()).setContent(null);
