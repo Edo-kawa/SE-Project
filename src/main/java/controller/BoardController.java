@@ -112,6 +112,12 @@ public class BoardController {
                     case "ele":
                         userInputLocation = model.getPosition(player_turn - 1, 8);
                         break;
+                    case "exi":
+                        System.out.println("Do you want to save current game? (Y/y for yes, otherwise no)");
+                        char flag = scanner.nextLine().charAt(0);
+                        if (Character.toLowerCase(flag) != 'y') {
+                            return;
+                        }
                     case "sav":
                         System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
                         String fileName = scanner.nextLine();
@@ -163,7 +169,7 @@ public class BoardController {
     }
 
     public boolean ifCont() {
-        System.out.println("If continue? (Y/y for yes, otherwise no): ");
+        System.out.println("Back to the main menu? (Y/y for yes, otherwise no): ");
         char flag = scanner.nextLine().charAt(0);
         boolean result = Character.toLowerCase(flag) == 'y';
 
