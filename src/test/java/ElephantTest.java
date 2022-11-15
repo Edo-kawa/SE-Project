@@ -6,6 +6,7 @@ import utils.*;
 import java.lang.reflect.Method;
 
 import static model.Pieces.Animal.DOG;
+import static model.Pieces.Animal.RAT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -36,8 +37,10 @@ public class ElephantTest{
         try{
             Method method = c.getDeclaredMethod("outRank", new Class[]{Animal.class});
             method.setAccessible(true);
-            Object result = method.invoke(elephant1, new Object[]{DOG});
-            assertEquals(true, result);
+            Object result1 = method.invoke(elephant1, new Object[]{DOG});
+            assertEquals(true, result1);
+            Object result2 = method.invoke(elephant1, new Object[]{RAT});
+            assertEquals(false, result2);
         }catch (Exception ex){
             ex.printStackTrace();
         }

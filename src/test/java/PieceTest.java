@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Test;
 import utils.Location;
 import utils.Side;
 
+import java.lang.reflect.Method;
+
+import static model.Pieces.Animal.DOG;
+import static model.Pieces.Animal.ELE;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -83,4 +87,18 @@ public class PieceTest {
         assertFalse(leo.equals(new ChessBoard()));
     }
 
+    @Test
+    void testOutRank(){
+        Class c = wol.getClass();
+        try{
+            Method method = c.getDeclaredMethod("outRank", new Class[]{Animal.class});
+            method.setAccessible(true);
+            Object result1 = method.invoke(wol, new Object[]{DOG});
+            assertEquals(true, result1);
+            Object result2 = method.invoke(wol, new Object[]{ELE});
+            assertEquals(false, result2);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
 }

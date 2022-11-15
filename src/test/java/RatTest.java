@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import utils.Location;
 import utils.Side;
 
+import java.lang.reflect.Method;
+
+import static model.Pieces.Animal.DOG;
+import static model.Pieces.Animal.ELE;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -44,5 +48,18 @@ public class RatTest {
         assertTrue(rat2.canMoveToEmpty(location3,location4,square1));
 
     }
-
+    @Test
+    void testOutRank(){
+        Class c = rat1.getClass();
+        try{
+            Method method = c.getDeclaredMethod("outRank", new Class[]{Animal.class});
+            method.setAccessible(true);
+            Object result1 = method.invoke(rat1, new Object[]{ELE});
+            assertEquals(true, result1);
+            Object result2 = method.invoke(rat1, new Object[]{DOG});
+            assertEquals(false, result2);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
 }
