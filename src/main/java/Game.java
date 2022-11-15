@@ -2,7 +2,7 @@ import controller.BoardController;
 import model.ChessBoard;
 import view.BoardView;
 
-public class MVCPatternDemo {
+public class Game {
     public static void main(String[] args){
         // model
         ChessBoard chessBoard;
