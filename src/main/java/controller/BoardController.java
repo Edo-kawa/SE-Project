@@ -73,6 +73,8 @@ public class BoardController {
 
     // TODO: Hi, 志林, could you add some comments in this method?
     public void startPlaying(){
+        String fileName;
+
         while(model.checkWinner()==0) {
             updateView();
             if(player_turn==1) {
@@ -112,18 +114,24 @@ public class BoardController {
                     case "ele":
                         userInputLocation = model.getPosition(player_turn - 1, 8);
                         break;
-                    case "exi":
-                        System.out.println("Do you want to save current game? (Y/y for yes, otherwise no)");
-                        char flag = scanner.nextLine().charAt(0);
-                        if (Character.toLowerCase(flag) != 'y') {
-                            return;
-                        }
                     case "sav":
                         System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
-                        String fileName = scanner.nextLine();
+                        fileName = scanner.nextLine();
                         while (!SaverLoader.save(fileName, player_turn, model.getPositions())) {
                             System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
                             fileName = scanner.nextLine();
+                        }
+                        break;
+                    case "exi":
+                        System.out.println("Do you want to save current game? (Y/y for yes, otherwise no)");
+                        char flag = scanner.nextLine().charAt(0);
+                        if (Character.toLowerCase(flag) == 'y') {
+                            System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
+                            fileName = scanner.nextLine();
+                            while (!SaverLoader.save(fileName, player_turn, model.getPositions())) {
+                                System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
+                                fileName = scanner.nextLine();
+                            }
                         }
                         return;
                 }
