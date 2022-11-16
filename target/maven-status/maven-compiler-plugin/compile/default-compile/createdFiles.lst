@@ -1,11 +1,11 @@
 model\Pieces\Piece$1.class
+model\Pieces\Elephant.class
+controller\BoardController.class
+utils\Side.class
 model\Pieces\Piece.class
 model\Pieces\Tiger.class
 utils\Location.class
 model\Type.class
-model\Pieces\Elephant.class
 model\Square.class
-controller\BoardController.class
 model\Pieces\Animal.class
 model\Square$1.class
-utils\Side.class
