@@ -115,10 +115,10 @@ public class BoardController {
                         userInputLocation = model.getPosition(player_turn - 1, 8);
                         break;
                     case "sav":
-                        System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
+                        System.out.println("Please name your saved game (only alphabets and numbers can be used): ");
                         fileName = scanner.nextLine();
                         while (!SaverLoader.save(fileName, player_turn, model.getPositions())) {
-                            System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
+                            System.out.println("Please name your saved game (only alphabets and numbers can be used): ");
                             fileName = scanner.nextLine();
                         }
                         break;
@@ -126,10 +126,10 @@ public class BoardController {
                         System.out.println("Do you want to save current game? (Y/y for yes, otherwise no)");
                         char flag = scanner.nextLine().charAt(0);
                         if (Character.toLowerCase(flag) == 'y') {
-                            System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
+                            System.out.println("Please name your saved game (only alphabets and numbers can be used): ");
                             fileName = scanner.nextLine();
                             while (!SaverLoader.save(fileName, player_turn, model.getPositions())) {
-                                System.out.println("Please name your saved game (Special characters \"*\", \".\" are not allowed to use): ");
+                                System.out.println("Please name your saved game (only alphabets and numbers can be used): ");
                                 fileName = scanner.nextLine();
                             }
                         }

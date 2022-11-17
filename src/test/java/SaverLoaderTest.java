@@ -30,6 +30,22 @@ public class SaverLoaderTest {
     }
 
     /**
+     *  Check if the function isValidFileName() works
+     */
+    @Test
+    void checkIsValidFileName() {
+        assertFalse(SaverLoader.isValidFileName(null));
+        assertFalse(SaverLoader.isValidFileName("!@#$%^&*()"));
+        assertTrue(SaverLoader.isValidFileName("123"));
+        assertTrue(SaverLoader.isValidFileName("ABC"));
+        assertTrue(SaverLoader.isValidFileName("abc"));
+        assertTrue(SaverLoader.isValidFileName("123abc"));
+        assertTrue(SaverLoader.isValidFileName("ABCabc"));
+        assertTrue(SaverLoader.isValidFileName("123ABC"));
+        assertTrue(SaverLoader.isValidFileName("123ABCabc"));
+    }
+
+    /**
      *  Check the entire sequence of saving and loading a game
      *  Check save() and load() function at the same time
      */

@@ -9,8 +9,19 @@ import java.nio.charset.StandardCharsets;
 public class SaverLoader {
     public static final String SAVE_PATH = "./save/";
 
+    public static boolean isValidFileName(String fileName) {
+        if (fileName == null) return false;
+
+        char[] temp = fileName.toCharArray();
+        for (char c: temp) {
+            if ((c <= '9' && c >= '0') || (c <= 'z' && c >= 'a') || (c <= 'Z' && c >= 'A')) continue;
+            return false;
+        }
+        return true;
+    }
+
     public static boolean save(String fileName, int playerTurn, Location[][] positions) {
-        if (fileName == null || fileName.contains("*") || fileName.contains(".")) {
+        if (!isValidFileName(fileName)) {
             System.out.println("Invalid File Name!");
             return false;
         }
@@ -23,7 +34,7 @@ public class SaverLoader {
             return false;
         }
 
-        File file = new File(SAVE_PATH + fileName + ".json");
+        File file = new File(SAVE_PATH + fileName + ".dat");
         File directory = new File(SAVE_PATH);
 
         if (!directory.isDirectory()) {
@@ -71,7 +82,7 @@ public class SaverLoader {
     public static BoardController load(String fileName, BoardView view) {
         BufferedReader loader = null;
         BoardController boardController = null;
-        String filePath = SAVE_PATH + fileName + ".json";
+        String filePath = SAVE_PATH + fileName + ".dat";
         File file = new File(filePath);
 
         if (!file.exists() || !file.isFile()) {
