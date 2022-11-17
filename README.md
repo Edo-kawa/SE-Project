@@ -30,9 +30,10 @@ Phase 2: [API Design Document](https://docs.google.com/document/d/17DxQoORduj-6n
 Phase 3: JUnit Test Set and [Revisions to the API Design](https://docs.google.com/document/d/1bBEOvfmo_a-T20Ug0Z_EOaALATudKr94yJdUQfe97WI/edit?usp=sharing)  
 Phase 4: 
 1. [API and test Revision](https://docs.google.com/document/d/1vqpjrZECn_EYZOaj-g_TxiI4yO58m8w-kYtKI85QfWk/edit?usp=sharing)
-2. [User Manual](https://docs.google.com/document/d/1JE3fOi-wDLmoxJkHFv0VrS4U5Ac7JAF_5eupDwSHs7A/edit?usp=sharing)
-3. [Developer Manual](https://docs.google.com/document/d/1fM7ZjxvtYArSgI7EAWV1td9gPPMDGmlRZC2ef2OQqDU/edit?usp=sharing)  
-4. Video (around 4 minutes)
+2. [Coverage](coverage.txt) 
+3. [User Manual](https://docs.google.com/document/d/1JE3fOi-wDLmoxJkHFv0VrS4U5Ac7JAF_5eupDwSHs7A/edit?usp=sharing)
+4. [Developer Manual](https://docs.google.com/document/d/1fM7ZjxvtYArSgI7EAWV1td9gPPMDGmlRZC2ef2OQqDU/edit?usp=sharing)  
+5. Video (around 4 minutes)
 
 In terms of the Jungle Game(**斗兽棋**) and its variants, please refer to [Link](https://zh.wikipedia.org/zh-sg/%E9%AC%A5%E7%8D%B8%E6%A3%8B).
 
