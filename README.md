@@ -35,7 +35,7 @@ Phase 4:
 4. Developer Manual  
    For IntelliJ IDEA users: [Link](https://docs.google.com/document/d/1fM7ZjxvtYArSgI7EAWV1td9gPPMDGmlRZC2ef2OQqDU/edit?usp=sharing)  
    For Unix OS Family Terminal users: [Link](https://docs.google.com/document/d/1nriHdPvVJWLaC_oHe_sJFh90pCRjdGEMlKQJvIZ8mJA/edit?usp=sharing)  
-5. Demo Video: View it (locally)[Demo.mp4] or on (YouTube)[https://youtu.be/-rbFr2o-8pE]. (<= 4 minutes)
+5. Demo Video: View it [locally](Demo.mp4) or on [YouTube](https://youtu.be/-rbFr2o-8pE). (<= 4 minutes)
 
 In terms of the Jungle Game(**斗兽棋**) and its variants, please refer to [Link](https://zh.wikipedia.org/zh-sg/%E9%AC%A5%E7%8D%B8%E6%A3%8B).
 
