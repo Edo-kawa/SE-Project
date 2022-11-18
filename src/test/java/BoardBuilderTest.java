@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
- * @Description:  @Description: Test for the chess factory.
+ * @Description: Test for the chess factory.
  */
 public class BoardBuilderTest {
 
