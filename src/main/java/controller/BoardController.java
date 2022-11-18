@@ -33,7 +33,6 @@ public class BoardController {
         return this.model;
     }
 
-
     public static BoardController getController(BoardView v) {
         BoardController boardController = null;
 

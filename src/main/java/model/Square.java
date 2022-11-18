@@ -16,6 +16,10 @@ public class Square{
         piece =c;
     }
 
+    /**
+     *  toString() function is overridden to represent squares in different colors
+     * @return the string for different types of squares to be printed
+     */
     @Override
     public String toString() {
         if (piece ==null){
