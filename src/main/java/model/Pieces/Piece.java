@@ -29,7 +29,7 @@ public class Piece {
 
     /**
      * checks whether it is possible to move to an empty square
-     * overridden in class Rat, JumpingPieces
+     * This method is overridden in class Rat, JumpingPieces
      * @param destination the destination location
      * @param square the destination square
      * @return true if possible, false if impossible

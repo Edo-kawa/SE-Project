@@ -1,7 +1,7 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-package "Model" {
+package "Model" #FFF8DC{
     ChessBoard "1" o-- "0..*" Piece: contains >
     ChessBoard "1" *-- "63" Square: comprises >
 
@@ -26,21 +26,58 @@ package "Utils" {
 Piece - BoardBuilder
 
 class ChessBoard {
-<plain>- row: int
-<plain>- column: int
 <plain>- squares: ArrayList<Square>
+<plain>- rank2Name: String[]
+<plain>- defaultLocations: int[][]
 <plain>- position: Location[][]
-<plain>- PLAYER_1: int
-<plain>- PLAYER_2: int
+<plain>- PLAYER_RED_INDEX: int
+<plain>- PLAYER_BLUE_INDEX: int
 
 <plain>+ ChessBoard() // constructor
 <plain>+ getPosition(int, int): Location
+<plain>+ getPositions(): Location[][]
 <plain>+ checkLegalMove(Location, Location): boolean
 '<plain>+ boolean checkLegalMove(int index, Location to)
 <plain>+ moveTo(Location, Location): void
+<plain>+ setPositionByDefault(): void
+<plain>+ getSquare(Location): Square
+<plain>+ void init(Location[][])
 '<plain>+ void moveTo(int index, Location to)
 <plain>+ checkWinner(): int
 <plain>- clear(Location): void
+}
+
+
+package "View" #FFF8DC {
+    BoardView -- ChessBoard
+}
+
+package "Controller" #FFF8DC {
+    BoardController -- ChessBoard
+    BoardController - BoardView
+}
+class BoardController{
+<plain>- model: ChessBoard
+<plain>- view: BoardView
+<plain>- userInputLocation: Location
+<plain>- scanner: Scanner
+<plain>- player_turn: int
+<plain>- dx, dy: int
+<plain>+ BoardController(BoardView, Location[][], int) // constructor
+<plain>+ BoardController(BoardView) // constructor
+<plain>+ getModel(): ChessBoard
+<plain>+ getController(BoardView): BoardController
+<plain>+ updateModel(): void
+<plain>+ updateView(): void
+<plain>+ startPlaying(): void
+<plain>+ ifCont(): boolean
+}
+
+class BoardView{
+<plain>- chessBoard: ChessBoard
+<plain>+ BoardView(ChessBoard model) // constructor
+<plain>+ getChessBoard(): ChessBoard
+<plain>+ printChessBoard(): void
 }
 
 class Square {
@@ -49,7 +86,7 @@ class Square {
 
     <plain>+  Square(Piece, Type) // constructor
     <plain>+  getPieceContent(): Piece
-    <plain>+  setContent(Piece c): void
+    <plain>+  setContent(Piece): void
     <plain>+  getType(): Type
 }
 
@@ -60,8 +97,6 @@ Abstract class JumpingPieces{
 }
 class Elephant{
     <plain>+ Elephant(Side)
-
-
     <plain># boolean outRank(Animal)
 }
 class Tiger{
@@ -126,8 +161,11 @@ class Location {
 }
 
 class SaverLoader {
-    <plain>+save(String fileName, int playerTurn, Location[][] positions): boolean
-    <plain>+load(String fileName, BoardView view): BoardController
+    <plain>- SAVE_PATH: String
+    <plain>+ save(String fileName, int playerTurn, Location[][] positions): boolean
+    <plain>+ load(String fileName, BoardView view): BoardController
+    <plain>+ isValidFileName(String): boolean
+
 }
 
 class BoardBuilder {
