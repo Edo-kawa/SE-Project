@@ -120,9 +120,8 @@ public class ChessBoard {
 
     /**
      * Clear the piece in that location. 
-     * @param location the location
+     * @param location  the location where the piece to be cleared
      */
-
     private void clear(Location location){
         Piece piece = squares.get(location.getIndex()).getPieceContent();
 
@@ -192,8 +191,8 @@ public class ChessBoard {
     }
 
     /**
-     * Initialize the ChessBoard with loaded positions or positions by default
-     * @param locations the pre-saved locations loded by SaverLoader
+     * Initializes the ChessBoard with loaded positions or positions by default
+     * @param locations the pre-saved locations loaded by SaverLoader
      */
     public void init(Location[][] locations) {
         for (int i = 0; i < 63; i++) {

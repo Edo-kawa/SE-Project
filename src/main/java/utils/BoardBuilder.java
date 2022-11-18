@@ -2,15 +2,17 @@ package utils;
 
 import model.Pieces.*;
 
+/**
+ *  To construct chess pieces from their string/enum representations.
+ */
 public class BoardBuilder {
 
-    // Create pieces by String
-
     /**
-     *
-     * @param pieceName
-     * @param sideName
-     * @return
+     * Factory methods for producing(initializing) the expected piece
+     * from the pieceName and SideName.
+     * @param pieceName The name of piece
+     * @param sideName  The Side
+     * @return the expected initialized piece
      */
     public static Piece chessFactory(String pieceName, Side sideName){
         if(pieceName.equals("ELE")){
@@ -20,15 +22,19 @@ public class BoardBuilder {
         if(pieceName.equals("LIO")){
             return new Lion(sideName);
         }
+
         if(pieceName.equals("TIG")){
             return new Tiger(sideName);
         }
+
         if(pieceName.equals("LEO")){
             return new Piece(Animal.LEO, sideName);
         }
+
         if(pieceName.equals("WOL")){
             return new Piece(Animal.WOL, sideName);
         }
+
         if(pieceName.equals("DOG")){
             return new Piece(Animal.DOG, sideName);
         }

@@ -36,7 +36,6 @@ public class Square{
 
     }
 
-
     public Type getType() {
         return type;
     }
@@ -49,6 +48,7 @@ public class Square{
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;
+
         if(obj instanceof Square){
             Square square = (Square) obj;
             return this.piece.equals(square.piece) &&

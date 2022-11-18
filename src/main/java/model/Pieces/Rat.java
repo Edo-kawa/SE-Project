@@ -5,11 +5,7 @@ import utils.*;
 
 import static java.lang.Math.abs;
 import static model.Pieces.Animal.*;
-/**
- * @Author Anthony Z.
- * @Date 6/10/2022
- * @Description:
- */
+
 public class Rat extends Piece {
     public Rat(Side side) {
         super(RAT, side);

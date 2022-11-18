@@ -1,7 +1,9 @@
 package view;
 /**
- * Author: shakram02
+ * @Author: shakram02
  * Reference:https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
+ *
+ * The class and fields being final prevents them from unexpected modification.
  */
 public final class ConsoleColors {
     // Reset

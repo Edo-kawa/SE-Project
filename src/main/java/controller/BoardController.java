@@ -33,7 +33,7 @@ public class BoardController {
         return this.model;
     }
 
-    // TODO: Hi, Edokawa, could you add some comments in this method?
+
     public static BoardController getController(BoardView v) {
         BoardController boardController = null;
 
@@ -48,7 +48,8 @@ public class BoardController {
                 System.out.println("Please input your preferred mode: ");
                 mode = Integer.parseInt(scanner.nextLine());
             } catch (Exception e) {
-                e.printStackTrace();
+//                testing code
+//                e.printStackTrace();
             }
         } while (mode < 1 || mode > 3);
 
@@ -71,7 +72,7 @@ public class BoardController {
 
     private int dx,dy;
 
-    // TODO: Hi, 志林, could you add some comments in this method?
+
     public void startPlaying(){
         String fileName;
 
@@ -114,6 +115,7 @@ public class BoardController {
                     case "ele":
                         userInputLocation = model.getPosition(player_turn - 1, 8);
                         break;
+
                     case "sav":
                         System.out.println("Please name your saved game (only alphabets and numbers can be used): ");
                         fileName = scanner.nextLine();
@@ -122,6 +124,7 @@ public class BoardController {
                             fileName = scanner.nextLine();
                         }
                         break;
+
                     case "exi":
                         System.out.println("Do you want to save current game? (Y/y for yes, otherwise no)");
                         char flag = scanner.nextLine().charAt(0);
@@ -136,7 +139,8 @@ public class BoardController {
                         return;
                 }
             }
-            boolean flag=true;
+
+            boolean flag=true; // check valid input
             dx=0;
             dy=0;
             while(flag){
@@ -162,6 +166,10 @@ public class BoardController {
         System.out.println("Player "+model.checkWinner()+" wins.");
     }
 
+    /**
+     * The controller would be manipulating the model once it
+     * gets valid inputs, and verify if it's legal move.
+     */
     public void updateModel(){
         if(model.checkLegalMove(userInputLocation,new Location(dx, dy))){
             model.moveTo(userInputLocation, new Location(dx, dy));
@@ -172,10 +180,17 @@ public class BoardController {
         player_turn=3-player_turn;
     }
 
+    /**
+     * Updates the view by printing out another Chess board.
+     */
     public void updateView(){
         view.printChessBoard();
     }
 
+    /**
+     * Checks if the user would like to back to main menu.
+     * @return true  if user inputs Y/y
+     */
     public boolean ifCont() {
         System.out.println("Back to the main menu? (Y/y for yes, otherwise no): ");
         char flag = scanner.nextLine().charAt(0);
@@ -184,7 +199,8 @@ public class BoardController {
         try {
             if (!result) scanner.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            // testing code
+            // e.printStackTrace();
         }
         return result;
     }
