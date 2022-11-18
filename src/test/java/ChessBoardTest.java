@@ -4,9 +4,6 @@ import org.junit.jupiter.api.*;
 import utils.Location;
 
 import java.lang.reflect.Method;
-
-import static model.Pieces.Animal.DOG;
-import static model.Pieces.Animal.ELE;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
