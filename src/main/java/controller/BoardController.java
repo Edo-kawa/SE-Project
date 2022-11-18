@@ -145,7 +145,7 @@ public class BoardController {
             dy=0;
             while(flag){
                 System.out.println("Please enter destination:");
-                String  input = scanner.nextLine();
+                String input = scanner.nextLine();
                 if(input.length()!=3){
                     continue;
                 }
