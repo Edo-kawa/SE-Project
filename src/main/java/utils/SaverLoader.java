@@ -9,6 +9,11 @@ import java.nio.charset.StandardCharsets;
 public class SaverLoader {
     public static final String SAVE_PATH = "./save/";
 
+    /**
+     *  Check if the given file name contains only alphabets and numbers
+     * @param fileName the file name
+     * @return true if only alphabets and numbers are traversed; false otherwise
+     */
     public static boolean isValidFileName(String fileName) {
         if (fileName == null) return false;
 
@@ -20,6 +25,13 @@ public class SaverLoader {
         return true;
     }
 
+    /**
+     *  Save the current chess board
+     * @param fileName the given file name
+     * @param playerTurn indicates who is the player to move a piece
+     * @param positions indicates positions of all pieces. The captured pieces are marked with a null value
+     * @return true if the given file name is valid; false otherwise
+     */
     public static boolean save(String fileName, int playerTurn, Location[][] positions) {
         if (!isValidFileName(fileName)) {
             System.out.println("Invalid File Name!");
@@ -79,6 +91,12 @@ public class SaverLoader {
         return true;
     }
 
+    /**
+     *  Load a pre-saved chessboard
+     * @param fileName the given file name
+     * @param view the view module to display the board
+     * @return the generated controller module
+     */
     public static BoardController load(String fileName, BoardView view) {
         BufferedReader loader = null;
         BoardController boardController = null;

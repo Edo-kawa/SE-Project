@@ -33,7 +33,6 @@ public class BoardController {
         return this.model;
     }
 
-
     public static BoardController getController(BoardView v) {
         BoardController boardController = null;
 
@@ -47,7 +46,7 @@ public class BoardController {
             try {
                 System.out.println("Please input your preferred mode: ");
                 mode = Integer.parseInt(scanner.nextLine());
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
 //                testing code
 //                e.printStackTrace();
             }
@@ -74,7 +73,7 @@ public class BoardController {
 
 
     public void startPlaying(){
-        String fileName;
+        String fileName, temp;
 
         while(model.checkWinner()==0) {
             updateView();
@@ -127,8 +126,8 @@ public class BoardController {
 
                     case "exi":
                         System.out.println("Do you want to save current game? (Y/y for yes, otherwise no)");
-                        char flag = scanner.nextLine().charAt(0);
-                        if (Character.toLowerCase(flag) == 'y') {
+                        temp = scanner.nextLine();
+                        if (temp.length() == 1 && Character.toLowerCase(temp.charAt(0)) == 'y') {
                             System.out.println("Please name your saved game (only alphabets and numbers can be used): ");
                             fileName = scanner.nextLine();
                             while (!SaverLoader.save(fileName, player_turn, model.getPositions())) {
@@ -193,8 +192,8 @@ public class BoardController {
      */
     public boolean ifCont() {
         System.out.println("Back to the main menu? (Y/y for yes, otherwise no): ");
-        char flag = scanner.nextLine().charAt(0);
-        boolean result = Character.toLowerCase(flag) == 'y';
+        String temp = scanner.nextLine();
+        boolean result = temp.length() == 1 && Character.toLowerCase(temp.charAt(0)) == 'y';
 
         try {
             if (!result) scanner.close();
